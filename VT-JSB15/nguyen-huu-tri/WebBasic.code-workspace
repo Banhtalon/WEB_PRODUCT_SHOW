@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../brainfuh"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebBasic"
+	}
+}

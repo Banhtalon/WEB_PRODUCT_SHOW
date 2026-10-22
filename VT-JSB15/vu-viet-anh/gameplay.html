@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lối Chơi - Minecraft</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/gameplay.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light fixed-top glass-nav shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center text-success" href="index.html">
+          <img src="./image/Minecraft_Logo.webp" alt="Minecraft Logo" width="200" height="auto"/>
+        </a>
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stats.html">Thống Kê</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="versions.html">Phiên Bản</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="gameplay.html">Lối Chơi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="gameplay-header py-5 text-center">
+      <div class="container py-5" data-aos="fade-down">
+        <h1 class="display-4 fw-bold text-dark">Lối Chơi Đa Dạng</h1>
+        <p class="text-muted lead mx-auto" style="max-width: 700px">
+          Khám phá các chế độ Survival, Creative, Multiplayer và thưởng thức
+          thước phim trailer chính thức.
+        </p>
+      </div>
+    </header>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4 mb-5">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="p-4 rounded-4 bg-white shadow-sm border-0 h-100 gameplay-mode-card"
+            >
+              <i class="fa-solid fa-heart-pulse fa-2x text-success mb-3"></i>
+              <h3 class="h5 fw-bold text-dark mb-2">Survival Mode</h3>
+              <p class="text-muted small">
+                Sinh tồn trong thế giới hoang dã, quản lý thanh đói và chống lại
+                quái vật ban đêm.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="p-4 rounded-4 bg-white shadow-sm border-0 h-100 gameplay-mode-card"
+            >
+              <i class="fa-solid fa-paintbrush fa-2x text-primary mb-3"></i>
+              <h3 class="h5 fw-bold text-dark mb-2">Creative Mode</h3>
+              <p class="text-muted small">
+                Tài nguyên vô tận và khả năng bay lượn giúp bạn tự do xây dựng
+                các công trình vĩ đại.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="p-4 rounded-4 bg-white shadow-sm border-0 h-100 gameplay-mode-card"
+            >
+              <i class="fa-solid fa-users fa-2x text-warning mb-3"></i>
+              <h3 class="h5 fw-bold text-dark mb-2">Multiplayer</h3>
+              <p class="text-muted small">
+                Kết nối cùng bạn bè trên các server trực tuyến, tham gia
+                minigame kịch tính.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trailer Video -->
+        <div class="row justify-content-center" data-aos="zoom-in">
+          <div class="col-lg-10">
+            <div
+              class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border bg-white p-2"
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/MmB9b5njVbA?si=h1aWbIQY-QXF7U2z"
+                title="YouTube video player"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a
+            href="index.html"
+            class="btn btn-success btn-lg rounded-pill px-5 shadow-sm"
+            ><i class="fa-solid fa-house me-2"></i> Quay Về Trang Chủ</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-4 bg-white text-secondary text-center border-top">
+      <div class="container">
+        <p class="mb-2 fw-medium">
+          &copy; Create by Việt Anh - Sản phẩm cuối khóa
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>

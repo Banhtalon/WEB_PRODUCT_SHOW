@@ -1,0 +1,274 @@
+*{
+    box-sizing: border-box;
+    margin : 0;
+    padding : 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color : #f7f7f5;
+    color : #181818;
+    line-height: 1.6;
+}
+a{
+    color: inherit;
+    text-decoration :none;
+}
+
+
+.header{
+    background : white;
+    border-bottom : 1px solid #e8e8e5;
+ 
+    
+}   
+
+
+.header-inner{
+    min-height : 72px;
+    display : flex;
+    align-items: center ;
+    justify-content: space-between;
+    margin: auto;
+}
+
+    
+.logo{
+    font-size: 18px;
+    font-weight: bold;
+}
+.nav{
+    display:flex ;
+    gap : 28px;
+    
+}
+.nav a{
+    color:#151515;
+    font-size: 14px;
+    font-weight: bold;  
+}
+.nav a:hover{
+    color: #2563eb
+}
+
+.eyebrow{
+    color:#2563eb;
+    font-size : 13px;
+    font-weight : bold;
+    margin-bottom: 8px;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    
+}
+.hero-image{
+    height:300px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hero{
+    padding: 72px 0
+}
+
+.container{
+    width: 90%;
+    max-width : 1120px;
+    margin: auto;
+    position: relative;
+    background : rgb(208, 9, 9);
+    
+}
+.hero-inner{
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap : 60px
+}
+
+.button{
+    position: absolute;
+    bottom: 5px;
+    left: 100px;
+    background: #2563eb; 
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.hero-content h1{
+    
+    font-size: 64px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    color:#34a637;
+    background: #2563eb; 
+}
+
+.hero-description{
+    font-size: 13px;
+    color:#3e4045;
+    margin-bottom: 28px;
+}
+
+.product-section{
+    background-color: #e9e9e6;
+    padding: 60px 0;
+    border-bottom : 2px solid #e8e8e5
+}
+.about-section{
+    background-color: #f5b305;
+    padding: 60px 0;
+    border-bottom : 2px solid #e8e8e5
+}
+.offer-section{
+    background-color: #34a637;
+    padding: 60px 0;
+    border-bottom : 2px solid #e8e8e5
+}
+
+
+
+
+
+.product-card{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    border: 3px solid #c4ee0c;
+    position: relative;
+}
+.product-card:hover{
+    border-color: rgb(59, 9, 224);
+}
+
+.product-card img{
+    
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+/*
+.product-grid{
+    display: flex;
+    gap: 25px;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}*/
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;    /* Khoảng cách theo chiều dọc giữa các hàng */
+    column-gap: 24px; /* Khoảng cách theo chiều ngang giữa các cột */
+}
+
+/*
+.product-card h3{
+    margin: 4px 0 16px;
+    font-size: 25px;
+}
+.buy-button{
+    position: absolute;
+
+    right: 15px;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: white;
+    background-color: #2563eb;
+}
+
+*/
+
+/* Nút tròn cuộn về đầu trang */
+.back-to-top {
+    position: fixed;           /* Cố định theo màn hình khi cuộn */
+    bottom: 30px;              /* Cách đáy màn hình 30px */
+    right: 30px;               /* Cách mép phải 30px */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;        /* Tạo hình tròn hoàn hảo */
+    background-color: #2563eb; /* Màu nền xanh */
+    color: #ffffff;            /* Màu mũi tên trắng */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); /* Đổ bóng nổi bật */
+    z-index: 999;              /* Luôn nổi lên trên cùng */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+}
+/* Hiệu ứng khi rê chuột vào nút */
+.back-to-top:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-4px); /* Nổi nhẹ lên */
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+}
+
+
+
+
+/* MEDIA QUERRY*?
+/* ==========================================================================
+   📱 1. TABLET (Màn hình rộng tối đa 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Chuyển khối Hero từ 2 cột thành 1 cột xếp chồng */
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    /* Giảm kích thước tiêu đề h1 cho vừa mắt */
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    /* Chuyển danh sách sản phẩm từ 3 cột thành 2 cột */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   📱 2. MOBILE (Màn hình điện thoại rộng tối đa 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    /* Thu nhỏ khoảng cách giữa các mục trên thanh menu */
+    .nav {
+        gap: 12px;
+    }
+    .nav a {
+        font-size: 13px;
+    }
+    /* Tiêu đề hero nhỏ lại phù hợp điện thoại */
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    /* Danh sách sản phẩm chuyển về 1 cột duy nhất */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Ảnh sản phẩm tự động phủ kín chiều ngang thẻ */
+    .product-card img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+

@@ -1,0 +1,436 @@
+/* Reset & Base Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: hsl(220, 25%, 8%);
+  color: hsl(220, 15%, 90%);
+  line-height: 1.5;
+  padding-bottom: 80px;
+}
+
+/* Forum Header */
+.forum-header {
+  background-color: hsl(220, 22%, 11%);
+  border-bottom: 1px solid hsl(220, 18%, 18%);
+  padding: 24px 0;
+  margin-bottom: 32px;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forum-page-title {
+  color: aquamarine;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.forum-page-desc {
+  font-size: 14px;
+  color: hsl(220, 10%, 65%);
+  margin-top: 4px;
+}
+
+/* Back to Home Gradient Button (Positioned Right) */
+.back-home-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Main Container */
+.forum-main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Category Filter Bar */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cat-pill {
+  background-color: hsl(220, 20%, 13%);
+  border: 1px solid hsl(220, 18%, 20%);
+  color: hsl(220, 10%, 75%);
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cat-pill:hover {
+  background-color: hsl(220, 20%, 18%);
+  color: hsl(0, 0%, 100%);
+}
+
+.cat-pill.active {
+  background-color: hsl(220, 25%, 18%);
+  border-color: aquamarine;
+  color: aquamarine;
+}
+
+/* Top Action Bar Above Posts */
+.top-action-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.open-modal-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.open-modal-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Create Post Card (Hidden State) */
+.create-post-card {
+  background-color: hsl(220, 22%, 11%);
+  border: 1px solid aquamarine;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0px 8px 30px rgba(0, 255, 200, 0.12);
+  transition: all 0.3s ease;
+}
+
+.create-post-card.hidden {
+  display: none;
+}
+
+.create-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid hsl(220, 18%, 18%);
+  padding-bottom: 12px;
+}
+
+.create-card-title {
+  font-size: 18px;
+  color: hsl(0, 0%, 100%);
+}
+
+.close-card-btn {
+  background: none;
+  border: none;
+  color: hsl(220, 10%, 60%);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.close-card-btn:hover {
+  color: aquamarine;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(220, 10%, 70%);
+}
+
+.styled-input,
+.styled-textarea {
+  background-color: hsl(220, 25%, 8%);
+  border: 1px solid hsl(220, 18%, 20%);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: hsl(0, 0%, 100%);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.styled-input:focus,
+.styled-textarea:focus,
+.styled-select:focus {
+  border-color: aquamarine;
+}
+
+/* Custom Category Select */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.styled-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: hsl(220, 25%, 8%);
+  border: 1px solid hsl(220, 18%, 20%);
+  border-radius: 8px;
+  padding: 12px 36px 12px 14px;
+  color: aquamarine;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.styled-select option {
+  background-color: hsl(220, 22%, 11%);
+  color: hsl(0, 0%, 100%);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: aquamarine;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-btn {
+  background-color: hsl(220, 18%, 16%);
+  color: hsl(220, 10%, 75%);
+  border: 1px solid hsl(220, 15%, 25%);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: hsl(220, 18%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+
+.create-post-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-post-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Forum Feed Header */
+.forum-feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid hsl(220, 18%, 15%);
+}
+
+.feed-title {
+  font-size: 20px;
+  color: hsl(0, 0%, 100%);
+}
+
+.feed-count {
+  font-size: 13px;
+  color: hsl(220, 10%, 55%);
+}
+
+/* Posts List & Cards */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-card {
+  background-color: hsl(220, 20%, 12%);
+  border: 1px solid hsl(220, 18%, 18%);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  gap: 18px;
+  transition: border-color 0.2s ease;
+}
+
+.post-card:hover {
+  border-color: hsl(220, 18%, 28%);
+}
+
+.post-votes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(220, 25%, 8%);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 48px;
+  height: 58px;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  color: hsl(220, 10%, 50%);
+  cursor: pointer;
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.vote-btn:hover,
+.vote-btn.voted {
+  color: aquamarine;
+}
+
+.vote-count {
+  font-size: 13px;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+}
+
+.post-body {
+  flex: 1;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.post-author {
+  color: aquamarine;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.post-time {
+  color: hsl(220, 10%, 50%);
+  font-size: 12px;
+}
+
+/* Category Badges */
+.badge-cat {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.badge-general { background-color: hsl(220, 18%, 20%); color: hsl(220, 10%, 80%); }
+.badge-guides { background-color: hsl(160, 40%, 15%); color: aquamarine; }
+.badge-bug { background-color: hsl(0, 40%, 18%); color: hsl(0, 80%, 70%); }
+.badge-feature { background-color: hsl(280, 40%, 18%); color: hsl(280, 80%, 75%); }
+.badge-balance { background-color: hsl(35, 40%, 18%); color: hsl(35, 90%, 70%); }
+.badge-feedback { background-color: hsl(200, 40%, 18%); color: hsl(200, 90%, 70%); }
+
+.post-title {
+  font-size: 16px;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 6px;
+}
+
+.post-desc {
+  font-size: 13px;
+  color: hsl(220, 10%, 65%);
+  line-height: 1.5;
+}
+
+/* Responsive Rules */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}

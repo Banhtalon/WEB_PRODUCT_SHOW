@@ -1,0 +1,116 @@
+body {
+  font-family: "Poppins", sans-serif;
+  color: #17211c;
+  margin: 0;
+  padding: 0;
+}
+
+.color_container {
+    position: relative;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url('album3.1.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+}
+
+.color_container > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-green {
+  color: #eb5b13;
+}
+
+.btn-green {
+  background-color: #e77009;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+  background-color: #14523d;
+  color: #ffffff;
+}
+
+.btn-yellow {
+  background-color: #ed8506 !important;
+  color: #111111 !important;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-yellow:hover {
+  background-color: #e0b020 !important;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+.feature-number {
+  font-size: 24px;
+  font-weight: bold;
+  color:#e77009;
+  margin-bottom: 8px;
+}
+
+.testimonial-box {
+  background-color: #ffffff;
+  border-left: 5px solid #f06a52;
+  padding: 20px;
+}
+
+.card-featured {
+  background-color: #e8f5e9;
+  border: 1px solid #fb8b2a;
+}
+
+.login-border-wrapper {
+  border: 4px solid #a4d4c4 !important;
+  border-radius: 16px;
+  padding: 8px;
+  max-width: 380px;
+  margin: 40px auto;
+}
+
+.login-container {
+  background-color: #14523d !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.login-container .form-control {
+  background-color: #ffffff !important;
+  border: 1px solid #ced4da !important;
+  color: #333333 !important;
+}
+
+.login-container a.text-secondary {
+  color: #c2e2d7 !important;
+  transition: color 0.2s ease;
+}
+
+.login-container a.text-secondary:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+.hover-zoom {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-zoom:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}

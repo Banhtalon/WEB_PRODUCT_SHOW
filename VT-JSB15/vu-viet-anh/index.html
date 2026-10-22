@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minecraft-information</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light fixed-top glass-nav shadow-sm"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold d-flex align-items-center text-success"
+          href="index.html"
+        >
+          <img
+            src="./image/Minecraft_Logo.webp"
+            alt="Minecraft Logo"
+            width="200"
+            height="auto"
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stats.html">Thống Kê</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="versions.html">Phiên Bản</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gameplay.html">Lối Chơi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.html">Đăng ký | Đăng nhập</a>
+            </li>
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a
+                class="btn btn-success px-4 py-2 rounded-pill shadow-sm pulse-btn"
+                href="https://www.minecraft.net/en-us/download"
+                target="_blank"
+              >
+                <i class="fa-solid fa-download me-1"></i> Tải Game Ngay
+              </a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section
+      class="hero-section d-flex align-items-center position-relative overflow-hidden"
+    >
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+      <div
+        class="container text-center text-dark position-relative z-index-2 py-5"
+      >
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-10" data-aos="zoom-in" data-aos-duration="1000">
+            <h1 class="text-success fw-bold">
+              Minecraft
+              <br />
+              <span class="display-3 fw-black mb-4 hero-title"
+                >Tự Do-Sáng Tạo-Phát triển</span
+              >
+            </h1>
+            <p class="lead mb-5 text-secondary px-lg-5">
+              Khám phá thế giới mở vô tận của Minecraft, nơi trí tưởng tượng của
+              bạn là giới hạn duy nhất.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a
+                href="#about"
+                class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-lg hover-scale"
+              >
+                <i class="fa-solid fa-circle-info me-2"></i> Giới Thiệu Game
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="py-5 bg-dark">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span
+              class="text-success fw-bold text-uppercase small tracking-widest"
+              >Tổng Quan Game</span
+            >
+            <h2 class="fw-bold display-6 mt-1 mb-4 text-white">
+              Minecraft Là Gì?
+            </h2>
+            <p class="text-secondary lead">
+              Minecraft là trò chơi điện tử thuộc thể loại sandbox (thế giới mở
+              tự do) được sáng lập bởi lập trình viên người Thụy Điển Markus
+              Persson "Notch".
+            </p>
+            <p
+              class="text-success fw-bold text-uppercase small tracking-widest"
+            >
+              Trong Minecraft, người chơi khám phá một thế giới 3D vô tận được
+              tạo ngẫu nhiên từ các khối vuông đại diện cho nhiều chất liệu như
+              đất, đá, quặng, nước và gỗ. Bạn có thể tự do khai thác tài nguyên,
+              chế tạo công cụ, xây dựng kiến trúc kỳ vĩ hoặc làm bất cứ điều gì
+              mà trí tưởng tượng của bạn cho phép.
+            </p>
+            <div class="row g-3 mt-3">
+              <div class="col-6">
+                <div
+                  class="p-3 bg-light rounded-3 border-start border-4 border-success"
+                >
+                  <h4 class="h6 fw-bold text-dark mb-1">Thể Loại</h4>
+                  <p class="text-muted small mb-0">
+                    Sandbox, Sinh Tồn, Sáng Tạo
+                  </p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div
+                  class="p-3 bg-light rounded-3 border-start border-4 border-primary"
+                >
+                  <h4 class="h6 fw-bold text-dark mb-1">Cơ Chế Thắng</h4>
+                  <p class="text-muted small mb-0">
+                    Phi tuyến tính, tự do trải nghiệm
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div
+              class="p-5 rounded-4 bg-gradient-custom shadow-lg text-center position-relative overflow-hidden border border-success border-opacity-25"
+            >
+              <img
+                src="./image/block.png"
+                class="display-1 text-success mb-3 floating-cube"
+                alt="Cube Icon"
+                width="100"
+                height="auto"
+              />
+              <h3 class="fw-bold text-white mb-2">Thế Giới Không Giới Hạn</h3>
+              <p
+                class="text-success fw-bold text-uppercase small tracking-widest"
+              >
+                Nơi trí tưởng tượng của bạn là giới hạn duy nhất.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="timeline" class="py-5 bg-light-subtle">
+      <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span
+            class="text-success fw-bold text-uppercase small tracking-widest"
+            >Cột Mốc Lịch Sử</span
+          >
+          <h2 class="fw-bold display-6 mt-1 text-dark">
+            Timeline Đột Phá Qua Các Năm
+          </h2>
+          <p class="text-muted">
+            Hành trình biến một dự án cá nhân thành tựa game bán chạy nhất lịch
+            sử
+          </p>
+        </div>
+        <div class="timeline-container position-relative">
+          <div class="timeline-line"></div>
+          <div class="timeline-item mb-5" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-md-3 text-md-end">
+                <span
+                  class="badge bg-success fs-5 px-3 py-2 rounded-pill fw-bold"
+                  >05/2009</span
+                >
+              </div>
+              <div class="col-md-9">
+                <div class="p-4 bg-white rounded-4 shadow-sm border-0">
+                  <h4 class="fw-bold text-dark mb-2">
+                    <i class="fa-solid fa-seedling text-success me-2"></i> Khởi
+                    Đầu Huyền Thoại (Cave Game)
+                  </h4>
+                  <p class="text-muted mb-0">
+                    Markus Persson "Notch" phát hành phiên bản thử nghiệm đầu
+                    tiên có tên "Cave Game" chỉ trong vòng vài ngày lập trình.
+                    Tên sau đó được đổi thành
+                    <em>Minecraft: Order of the Stone</em> và ngắn gọn là
+                    <strong>Minecraft</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item mb-5" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-md-3 text-md-end">
+                <span
+                  class="badge bg-primary fs-5 px-3 py-2 rounded-pill fw-bold"
+                  >11/2011</span
+                >
+              </div>
+              <div class="col-md-9">
+                <div class="p-4 bg-white rounded-4 shadow-sm border-0">
+                  <h4 class="fw-bold text-dark mb-2">
+                    <i class="fa-solid fa-rocket text-primary me-2"></i> Tuyên
+                    Bố Phát Hành Chính Thức (1.0)
+                  </h4>
+                  <p class="text-muted mb-0">
+                    Sau giai đoạn Alpha và Beta cực kỳ thành công, Minecraft 1.0
+                    chính thức ra mắt tại sự kiện MineCon đầu tiên ở Las Vegas.
+                    Mojang Studios cũng được thành lập để tiếp tục mở rộng trò
+                    chơi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item mb-5" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-md-3 text-md-end">
+                <span
+                  class="badge bg-warning fs-5 px-3 py-2 text-dark rounded-pill fw-bold"
+                  >09/2014</span
+                >
+              </div>
+              <div class="col-md-9">
+                <div class="p-4 bg-white rounded-4 shadow-sm border-0">
+                  <h4 class="fw-bold text-dark mb-2">
+                    <i class="fa-solid fa-handshake text-warning me-2"></i>
+                    Thương Vụ Tỷ USD Với Microsoft
+                  </h4>
+                  <p class="text-muted mb-0">
+                    Microsoft đã hoàn tất thương vụ thâu tóm Mojang và bản quyền
+                    Minecraft với giá trị khổng lồ <strong>2.5 tỷ USD</strong>,
+                    mở ra kỷ nguyên phát triển đa nền tảng toàn cầu.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item mb-5" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-md-3 text-md-end">
+                <span
+                  class="badge bg-info fs-5 px-3 py-2 text-dark rounded-pill fw-bold"
+                  >2017</span
+                >
+              </div>
+              <div class="col-md-9">
+                <div class="p-4 bg-white rounded-4 shadow-sm border-0">
+                  <h4 class="fw-bold text-dark mb-2">
+                    <i class="fa-solid fa-layer-group text-info me-2"></i> Đột
+                    Phá Bedrock Engine & Cross-Play
+                  </h4>
+                  <p class="text-muted mb-0">
+                    Bản cập nhật Better Together đưa công nghệ Bedrock Engine
+                    lên hàng loạt thiết bị (Mobile, Console, Windows 10), giúp
+                    người chơi trên các hệ máy khác nhau có thể chơi chung mượt
+                    mà.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-md-3 text-md-end">
+                <span
+                  class="badge bg-danger fs-5 px-3 py-2 rounded-pill fw-bold"
+                  >2023 - Hiện Tại</span
+                >
+              </div>
+              <div class="col-md-9">
+                <div class="p-4 bg-white rounded-4 shadow-sm border-0">
+                  <h4 class="fw-bold text-dark mb-2">
+                    <i class="fa-solid fa-trophy text-danger me-2"></i> Đạt Cột
+                    Mốc 300 Triệu Bản Bán Ra
+                  </h4>
+                  <p class="text-muted mb-0">
+                    Minecraft chính thức cán mốc hơn 300 triệu bản tiêu thụ trên
+                    toàn cầu, vững chắc ở vị trí trò chơi điện tử bán chạy nhất
+                    mọi thời đại.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="people" class="py-5 bg-dark">
+      <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="fw-bold display-6 mt-1 mb-4 text-white">
+            Nhà Sáng Lập & Đơn Vị Nắm Giữ
+          </h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div
+              class="p-5 rounded-4 bg-light-subtle border-0 shadow-sm h-100 text-center people-card"
+            >
+              <div
+                class="avatar-box mx-auto mb-4 bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 100px; height: 100px"
+              >
+                <i class="fa-solid fa-user-gear fa-3x text-success"></i>
+              </div>
+              <span
+                class="badge bg-success bg-opacity-10 text-success mb-2 fw-bold"
+                >Nhà Sáng Lập Ban Đầu</span
+              >
+              <h3 class="fw-bold text-dark mb-2">Markus Persson "Notch"</h3>
+              <p class="text-muted small mb-4">
+                Lập trình viên & Thiết kế game người Thụy Điển
+              </p>
+              <p class="text-secondary text-start mb-0">
+                "Notch" là người đã một mình phát triển phiên bản Minecraft đầu
+                tiên. Tầm nhìn của ông về một thế giới khối vuông sáng tạo không
+                giới hạn đã đặt nền móng vững chắc cho toàn bộ sự thành công sau
+                này. Ông rời Mojang sau khi bán công ty cho Microsoft vào năm
+                2014.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-left">
+            <div
+              class="p-5 rounded-4 bg-light-subtle border-0 shadow-sm h-100 text-center people-card"
+            >
+              <div
+                class="avatar-box mx-auto mb-4 bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 100px; height: 100px"
+              >
+                <i class="fa-solid fa-building-flag fa-3x text-primary"></i>
+              </div>
+              <span
+                class="badge bg-primary bg-opacity-10 text-primary mb-2 fw-bold"
+                >Đơn Vị Nắm Giữ Hiện Tại</span
+              >
+              <h3 class="fw-bold text-dark mb-2">Mojang Studios & Microsoft</h3>
+              <p class="text-muted small mb-4">Trực thuộc Xbox Game Studios</p>
+              <p class="text-secondary text-start mb-0">
+                Hiện nay, Minecraft nằm dưới sự phát triển trực tiếp của
+                <strong>Mojang Studios</strong> (do Åsa Bredin làm Phó Chủ
+                tịch/Đứng đầu studio) và sự quản lý định hướng chiến lược từ
+                <strong>Microsoft (Xbox Gaming)</strong>. Đội ngũ liên tục mở
+                rộng vũ trụ Minecraft với các bản cập nhật thường niên, spin-off
+                và nội dung giáo dục.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5 bg-light-subtle">
+      <div class="container py-4 text-center">
+        <h2 class="fw-bold text-dark mb-3" data-aos="fade-up">
+          Khám Phá Thêm Hệ Thống Trang Mở Rộng
+        </h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <a href="stats.html" class="text-decoration-none">
+              <div
+                class="p-4 bg-white rounded-4 shadow-sm border-0 hover-lift text-center"
+              >
+                <i class="fa-solid fa-chart-pie fa-2x text-success mb-3"></i>
+                <h4 class="h6 fw-bold text-dark mb-0">Thống Kê Chi Tiết</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="versions.html" class="text-decoration-none">
+              <div
+                class="p-4 bg-white rounded-4 shadow-sm border-0 hover-lift text-center"
+              >
+                <i class="fa-solid fa-code-branch fa-2x text-warning mb-3"></i>
+                <h4 class="h6 fw-bold text-dark mb-0">Phiên Bản Game</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <a href="gameplay.html" class="text-decoration-none">
+              <div
+                class="p-4 bg-white rounded-4 shadow-sm border-0 hover-lift text-center"
+              >
+                <i class="fa-solid fa-gamepad fa-2x text-danger mb-3"></i>
+                <h4 class="h6 fw-bold text-dark mb-0">Lối Chơi & Trailer</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-4 bg-white text-secondary text-center border-top">
+      <div class="container">
+        <p class="mb-2 fw-medium">
+          &copy; Create by Việt Anh - Sản phẩm cuối khóa
+        </p>
+        <p class="small text-success mb-0 fw-bold">
+          Minecraft là nhãn hiệu thuộc sở hữu của Mojang Synergies AB &
+          Microsoft.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>

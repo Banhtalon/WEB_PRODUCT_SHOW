@@ -1,0 +1,197 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: hsl(220, 25%, 8%);
+  color: hsl(220, 15%, 90%);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.download-header {
+  background-color: hsl(220, 22%, 11%);
+  border-bottom: 1px solid hsl(220, 18%, 18%);
+  padding: 24px 0;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  color: aquamarine;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+
+/* Radial Gradient Home Button */
+.back-home-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 60px 24px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 12px;
+}
+
+.hero-title span {
+  color: aquamarine;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: hsl(220, 10%, 65%);
+}
+
+/* Main Container */
+.download-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  flex: 1;
+  width: 100%;
+}
+
+/* Platform Cards Grid */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.platform-card {
+  background-color: hsl(220, 22%, 11%);
+  border: 1px solid hsl(220, 18%, 18%);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-4px);
+  border-color: aquamarine;
+}
+
+.platform-icon {
+  width: 56px;
+  height: 56px;
+  fill: aquamarine;
+  margin-bottom: 16px;
+}
+
+.platform-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 8px;
+}
+
+.platform-desc {
+  font-size: 14px;
+  color: hsl(220, 10%, 65%);
+  margin-bottom: 24px;
+}
+
+/* Radial Gradient Download Button */
+.download-btn {
+  display: inline-block;
+  width: 100%;
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Security Note */
+.security-note {
+  text-align: center;
+  color: hsl(220, 10%, 50%);
+  font-size: 13px;
+}
+
+/* Footer */
+.download-footer {
+  background-color: hsl(220, 25%, 6%);
+  border-top: 1px solid hsl(220, 18%, 14%);
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: hsl(220, 10%, 50%);
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-title {
+    font-size: 32px;
+  }
+}

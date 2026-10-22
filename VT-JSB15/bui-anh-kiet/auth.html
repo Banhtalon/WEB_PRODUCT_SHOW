@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Khoản | LUXERA Kiến Trúc Cao Cấp</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand">LUXE<span>RA.</span></a>
+        
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="index.html#philosophy">Về Studio</a></li>
+            <li><a href="index.html#projects">Dự Án</a></li>
+            <li><a href="index.html#expertise">Dịch Vụ</a></li>
+            <li><a href="consultation.html">Đặt Lịch</a></li>
+            <li><a href="auth.html" style="color: #C5A059;">Tài Khoản</a></li>
+        </ul>
+    </header>
+
+    <section class="auth-section">
+        <div class="auth-bg"></div>
+        <div class="auth-overlay"></div>
+        
+        <div class="auth-container">
+            <input type="radio" name="auth-tab" id="tab-login" checked>
+            <input type="radio" name="auth-tab" id="tab-register">
+
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <label for="tab-login" class="tab-btn">Đăng Nhập</label>
+                    <label for="tab-register" class="tab-btn">Đăng Ký</label>
+                </div>
+
+                <!-- FORM ĐĂNG NHẬP -->
+                <form class="auth-form login-form" action="#" method="POST">
+                    <div class="form-header">
+                        <h2>Chào Mừng <span class="gold-text serif">Trở Lại</span></h2>
+                        <p>Truy cập cổng thông tin khách hàng và kho dự án riêng.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="login-email" name="email" placeholder=" " required>
+                        <label for="login-email">Địa chỉ Email</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="login-password" name="password" placeholder=" " required>
+                        <label for="login-password">Mật Khẩu</label>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Ghi nhớ đăng nhập
+                        </label>
+                        <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                    </div>
+
+                    <button type="submit" class="btn-outline submit-btn">Đăng Nhập</button>
+                </form>
+
+                <!-- FORM ĐĂNG KÝ -->
+                <form class="auth-form register-form" action="#" method="POST">
+                    <div class="form-header">
+                        <h2>Tham Gia <span class="gold-text serif">LUXERA</span></h2>
+                        <p>Tạo tài khoản để yêu cầu tư vấn và theo dõi thiết kế.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="reg-name" name="fullname" placeholder=" " required>
+                        <label for="reg-name">Họ và Tên</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="reg-email" name="email" placeholder=" " required>
+                        <label for="reg-email">Địa chỉ Email</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="reg-password" name="password" placeholder=" " required>
+                        <label for="reg-password">Mật Khẩu</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="reg-confirm" name="confirm_password" placeholder=" " required>
+                        <label for="reg-confirm">Xác Nhận Mật Khẩu</label>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            Tôi đồng ý với <a href="#" class="gold-link"> Điều khoản & Bảo mật</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-outline submit-btn">Tạo Tài Khoản</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">LUXE<span>RA.</span></a>
+                    <p>Định nghĩa lại sự sang trọng hiện đại thông qua thiết kế tinh tế, thực tiễn bền vững và sự chú trọng tuyệt đối vào từng chi tiết.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Văn Phòng</h4>
+                    <ul>
+                        <li><a href="#">789 Đại Lộ Thiết Kế, Phòng 100</a></li>
+                        <li><a href="#">New York, NY 10012</a></li>
+                        <li><br></li>
+                        <li><a href="mailto:hello@luxera.com">hello@luxera.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Kết Nối</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 LUXERA Studio Kiến Trúc. Bảo lưu mọi quyền.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

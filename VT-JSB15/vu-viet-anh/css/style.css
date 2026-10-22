@@ -1,0 +1,257 @@
+:root {
+  --primary-color: #198754;
+  --primary-hover: #157347;
+  --bg-light: #f8f9fa;
+  --text-dark: #212529;
+  --transition-smooth: all 0.3s ease;
+  --mc-green: #2e7d32;
+  --mc-bg: #f8fafc;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--mc-bg);
+  color: #334155;
+  overflow-x: hidden;
+}
+.glass-nav {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo-icon-wrap {
+  width: 36px;
+  height: 36px;
+  background: rgba(46, 125, 50, 0.1);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mc-green);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #475569 !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--mc-green) !important;
+}
+
+.hero-section {
+  min-height: 80vh;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #fdf4ff 100%);
+  padding-top: 100px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #2e7d32 0%, #15803d 50%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Clouds Animation */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  animation: floatCloud 25s linear infinite;
+  z-index: 1;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  width: 120px;
+  height: 40px;
+  top: 15%;
+  left: -10%;
+  animation-duration: 30s;
+}
+.cloud-1::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 20px;
+}
+.cloud-1::after {
+  width: 40px;
+  height: 40px;
+  top: -15px;
+  left: 60px;
+}
+
+.cloud-2 {
+  width: 180px;
+  height: 60px;
+  top: 35%;
+  right: -15%;
+  animation-duration: 40s;
+  animation-delay: -5s;
+}
+.cloud-2::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 30px;
+}
+.cloud-2::after {
+  width: 55px;
+  height: 55px;
+  top: -25px;
+  left: 90px;
+}
+
+.cloud-3 {
+  width: 100px;
+  height: 35px;
+  top: 75%;
+  left: 10%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+/* Timeline Custom CSS */
+.timeline-container {
+  padding: 20px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+  width: 3px;
+  background: rgba(46, 125, 50, 0.2);
+  z-index: 0;
+}
+
+@media (max-width: 767px) {
+  .timeline-line {
+    left: 15px;
+  }
+}
+
+.hover-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.people-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+.people-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+  background-color: #ffffff !important;
+}
+
+.floating-cube {
+  animation: floatCube 4s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes floatCube {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(8deg);
+  }
+}
+
+.pulse-btn {
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(46, 125, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+body.auth-body {
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.08) 0%, rgba(13, 110, 253, 0.04) 100%);
+    min-height: 100vh;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.auth-tabs .nav-link {
+    color: #6c757d;
+    transition: var(--transition-smooth);
+    border: none;
+}
+
+.auth-tabs .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(25, 135, 84, 0.25);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.15);
+}
+
+.input-group-text {
+    border-color: #dee2e6;
+}
+
+.form-control {
+    border-color: #dee2e6;
+}
+
+.form-control:focus + .input-group-text,
+.input-group:focus-within .input-group-text {
+    border-color: var(--primary-color);
+}
+
+/* Custom Utilities */
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+    }
+}

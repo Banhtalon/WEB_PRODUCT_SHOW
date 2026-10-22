@@ -1,0 +1,563 @@
+/* Reset & Base Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: hsl(220, 25%, 8%);
+  color: hsl(220, 15%, 90%);
+  line-height: 1.5;
+}
+
+/* Header Section */
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: hsl(220, 22%, 11%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid hsl(220, 18%, 18%);
+}
+
+.header-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: aquamarine;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  color: hsl(220, 10%, 75%);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Single Gradient Exception: "Try Now" Button */
+.try-now-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.try-now-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Home / Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background-image: url('https://picsum.photos/1920/1080?blur=2');
+  background-size: cover;
+  background-position: center;
+  margin-top: 70px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 14, 23, 0.82);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+}
+
+.main-heading {
+  font-size: 48px;
+  font-weight: 900;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.sub-heading {
+  font-size: 18px;
+  font-weight: 400;
+  color: hsl(220, 15%, 75%);
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.hero-cta {
+  padding: 14px 32px;
+  font-size: 16px;
+}
+
+.secondary-btn {
+  background-color: hsl(220, 18%, 16%);
+  color: hsl(0, 0%, 100%);
+  padding: 14px 28px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid hsl(220, 15%, 28%);
+  transition: background-color 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background-color: hsl(220, 18%, 22%);
+}
+
+/* News Section */
+.news-section {
+  padding: 80px 24px;
+  background-color: hsl(220, 25%, 8%);
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.news-group {
+  margin-bottom: 64px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 2px solid hsl(220, 18%, 15%);
+  padding-bottom: 12px;
+}
+
+.section-title {
+  font-size: 26px;
+  color: hsl(0, 0%, 100%);
+}
+
+.section-badge {
+  background-color: hsl(220, 20%, 16%);
+  color: aquamarine;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.view-forum-link {
+  color: aquamarine;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.view-forum-link:hover {
+  text-decoration: underline;
+}
+
+/* 3x2 Grid */
+.grid-3x2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Update Logs Card */
+.update-card {
+  height: 220px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid hsl(220, 18%, 18%);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.update-card:hover {
+  transform: translateY(-4px);
+  border-color: aquamarine;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-tag {
+  background-color: aquamarine;
+  color: hsl(220, 30%, 8%);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-size: 18px;
+  color: hsl(0, 0%, 100%);
+  margin: 8px 0 6px 0;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: hsl(220, 10%, 70%);
+}
+
+/* Forum News Card */
+.forum-card {
+  background-color: hsl(220, 20%, 12%);
+  border: 1px solid hsl(220, 18%, 18%);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.forum-card:hover {
+  transform: translateY(-4px);
+  border-color: aquamarine;
+}
+
+.forum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.author-name {
+  color: aquamarine;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rating-badge {
+  color: hsl(45, 100%, 60%);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.forum-title {
+  font-size: 16px;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 8px;
+}
+
+.forum-desc {
+  font-size: 13px;
+  color: hsl(220, 10%, 65%);
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .grid-3x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3x2 {
+    grid-template-columns: 1fr;
+  }
+  .main-heading {
+    font-size: 32px;
+  }
+  .nav-menu a:not(.try-now-btn) {
+    display: none;
+  }
+}
+.forum-card {
+  background-color: hsl(220, 20%, 12%);
+  border: 1px solid hsl(220, 18%, 18%);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.forum-card:hover {
+  transform: translateY(-4px);
+  border-color: aquamarine;
+}
+
+.forum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.author-name {
+  color: aquamarine;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rating-badge {
+  color: hsl(45, 100%, 60%);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.forum-title {
+  font-size: 16px;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 8px;
+}
+
+.forum-desc {
+  font-size: 13px;
+  color: hsl(220, 10%, 65%);
+}
+
+/* Forum CTA Section (Single-colored Solid Background) */
+.forum-cta-section {
+  background-color: hsl(220, 22%, 10%);
+  padding: 100px 24px;
+  text-align: center;
+  border-top: 1px solid hsl(220, 18%, 16%);
+  border-bottom: 1px solid hsl(220, 18%, 16%);
+}
+
+.forum-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.forum-heading {
+  font-size: 40px;
+  font-weight: 900;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.forum-subheading {
+  font-size: 17px;
+  font-weight: 400;
+  color: hsl(220, 15%, 75%);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* Forum Gradient Button */
+.forum-btn {
+  display: inline-block;
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 14px 36px;
+  border-radius: 24px;
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0px 4px 20px rgba(0, 255, 200, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.forum-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0px 6px 25px rgba(0, 255, 200, 0.5);
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .grid-3x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3x2 {
+    grid-template-columns: 1fr;
+  }
+  .main-heading {
+    font-size: 32px;
+  }
+  .forum-heading {
+    font-size: 28px;
+  }
+  .nav-menu a:not(.try-now-btn) {
+    display: none;
+  }
+}
+.contact-footer {
+  background-color: hsl(220, 25%, 6%);
+  border-top: 1px solid hsl(220, 18%, 14%);
+  padding: 48px 24px 24px 24px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid hsl(220, 18%, 12%);
+}
+
+.footer-logo {
+  color: aquamarine;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* Discord Icon Only */
+.footer-socials {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon-btn {
+  background-color: hsl(220, 20%, 12%);
+  border: 1px solid hsl(220, 18%, 20%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  transform: scale(1.1);
+  border-color: aquamarine;
+  background-color: hsl(220, 20%, 16%);
+}
+
+.discord-svg {
+  width: 22px;
+  height: 22px;
+  fill: aquamarine;
+}
+.x-svg {
+  width: 22px;
+  height: 22px;
+  fill: aquamarine;
+}
+/* Back to Top Radial-Gradient Button */
+.back-to-top-btn {
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(160, 100%, 75%) 0%, 
+    hsl(180, 100%, 50%) 35%, 
+    hsl(195, 100%, 50%) 70%, 
+    hsl(210, 100%, 45%) 100%
+  );
+  color: hsl(220, 30%, 6%);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 255, 200, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+.footer-copyright {
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  text-align: center;
+  font-size: 13px;
+  color: hsl(220, 10%, 45%);
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .grid-3x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3x2 {
+    grid-template-columns: 1fr;
+  }
+  .main-heading {
+    font-size: 32px;
+  }
+  .forum-heading {
+    font-size: 28px;
+  }
+  .nav-menu a:not(.try-now-btn) {
+    display: none;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}

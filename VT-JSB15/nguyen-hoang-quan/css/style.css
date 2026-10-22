@@ -1,0 +1,490 @@
+/* 01. BASE - Cấu hình chung cho toàn bộ trang web (Font chữ, màu nền, nút bấm...) */
+/* Selector * (Universal): Dấu * dùng để chọn "TẤT CẢ" các thẻ có trong trang web */
+* {
+    /* box-sizing: Đảm bảo khi cộng thêm padding và border, tổng kích thước (width/height) của thẻ không bị phình to ra */
+    box-sizing: border-box;
+    /* Reset lại margin (lề ngoài) và padding (lề trong) mặc định của trình duyệt về 0 */
+    margin: 0;
+    padding: 0;
+}
+
+/* Áp dụng cho thẻ <html>, thẻ cao nhất của tài liệu */
+html {
+    /* Tạo hiệu ứng cuộn trang mượt mà khi người dùng bấm vào các thẻ link <a> có chứa #id (vd: href="#top") */
+    scroll-behavior: smooth;
+}
+
+/* Thiết lập cấu hình cơ bản cho thẻ <body> (phần thân trang web hiển thị nội dung) */
+body {
+    /* font-family: Chọn font chữ chính cho toàn trang (Arial, nếu không có thì dùng Helvetica, cuối cùng là sans-serif) */
+    font-family: Arial, Helvetica, sans-serif;
+    /* background: Màu nền mặc định của toàn trang */
+    background: brown;
+    /* color: Màu chữ mặc định */
+    color: #181818;
+    /* line-height: Khoảng cách chiều cao giữa các dòng chữ (giúp chữ dễ đọc hơn) */
+    line-height: 1.6;
+}
+
+/* Định dạng cho thẻ link <a> */
+a {
+    /* color: inherit; giúp thẻ <a> tự động lấy màu chữ từ phần tử cha chứa nó, thay vì màu xanh dương mặc định */
+    color: inherit;
+    /* text-decoration: none; để xóa bỏ đường gạch chân mặc định dưới các link */
+    text-decoration: none;
+}
+
+/* Định dạng cho các khu vực chứa nội dung (class .container) */
+.container {
+    width: 90%;
+    /* Chiếm 90% chiều rộng màn hình */
+    max-width: 1120px;
+    /* Chiều rộng tối đa không vượt quá 1120px (giữ form trên màn hình quá to) */
+    margin: auto;
+    /* margin auto 2 bên (trái phải) giúp đẩy hộp container ra giữa màn hình */
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    /* Đẩy nội dung bên dưới nó xuống một khoảng 8px */
+    color: #e3e6eb;
+    font-size: 13px;
+    /* Kích thước chữ */
+    font-weight: bold;
+    /* Làm in đậm chữ */
+}
+
+.button {
+    /* display: inline-block; Kết hợp đặc tính của Inline và Block, cho phép set chiều cao/rộng, padding nhưng không bị ngắt dòng */
+    display: inline-block;
+    /* padding: Khoảng cách từ nội dung chữ đến viền nút (trên dưới 12px, trái phải 20px) */
+    padding: 12px 20px;
+    /* border-radius: Bo cong các góc của nút */
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+
+/* :hover (Pseudo-class): Là trạng thái khi người dùng rê chuột lên phần tử */
+.button:hover {
+    background: #1d4ed8;
+    /* Đổi sang màu xanh đậm hơn khi rê chuột vào */
+}
+
+/* Dấu phẩy giúp gom nhóm nhiều CSS Selector để áp dụng chung một khối lệnh (Tiết kiệm code) */
+.hero-image img,
+.product-image img,
+.offer-image img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; Đảm bảo hình ảnh luôn lấp đầy thẻ chứa nó mà không bị bóp méo sai tỷ lệ */
+    object-fit: cover;
+}
+
+/* 02. HEADER - Thanh điều hướng trên cùng (Logo và Menu) */
+.header {
+    background: white;
+    /* border-bottom: Tạo một đường viền mảnh 1px màu xám ở phía dưới cùng của thanh header */
+    border-bottom: 1px solid #e8e8e5;
+}
+
+.header-inner {
+    min-height: 72px;
+    /* Chiều cao tối thiểu của header */
+    /* display: flex; Kích hoạt Flexbox (cơ chế dàn trang cực kỳ mạnh mẽ) cho phép các thẻ con xếp thành hàng ngang */
+    display: flex;
+    /* align-items: center; Căn các thẻ con nằm chính giữa theo trục dọc (lên/xuống) */
+    align-items: center;
+    /* justify-content: space-between; Đẩy dạt các phần tử con ra 2 bên mép (VD: logo sát trái, menu sát phải) */
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    /* Cho menu nằm ngang */
+    gap: 28px;
+    /* gap: Tạo khoảng cách trống 28px giữa các phần tử con trong Flexbox */
+}
+
+/* BUỔI 4: Combining selector */
+.nav a {
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #2563eb;
+}
+
+/* 03. HERO - Banner chính khi vừa vào web */
+.hero {
+    padding: 72px 0;
+    /* Khoảng cách lề trong (trên dưới 72px, trái phải 0) */
+}
+
+.hero-inner {
+    /* display: grid; Kích hoạt CSS Grid (Hệ thống lưới dàn trang) */
+    display: grid;
+    /* grid-template-columns: Chia không gian làm 2 cột có kích thước bằng nhau (1fr 1fr). (fr = fraction/phân số) */
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    gap: 60px;
+    /* Khoảng cách giữa 2 cột là 60px */
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+    font-size: 64px;
+    line-height: 1.05;
+}
+
+.hero-description {
+    margin-bottom: 28px;
+    color: #ebe8e8;
+    font-size: 18px;
+}
+
+.hero-image {
+    height: 340px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+/* 04. PRODUCTS - Khu vực danh sách các thẻ Sản phẩm */
+.products-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-heading {
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+}
+
+.product-grid {
+    display: grid;
+    /* Chia 3 cột đều nhau */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* BUỔI 4: relative tạo mốc cho badge */
+.product-card {
+    /* position: relative; Đặt vị trí tương đối. Biến thẻ này thành "cột mốc" để các thẻ con bên trong dùng position absolute bám theo */
+    position: relative;
+    /* overflow: hidden; Những phần nội dung con nào bị trồi ra ngoài viền của thẻ này sẽ bị cắt bỏ (ẩn đi) */
+    overflow: hidden;
+    /* border: Vẽ đường viền xung quanh thẻ */
+    border: 1px solid #e8e8e5;
+    border-radius: 16px;
+    background: white;
+}
+
+.product-card:hover {
+    border-color: #2563eb;
+}
+
+.product-image {
+    height: 240px;
+}
+
+/* BUỔI 4: absolute + top */
+.product-badge {
+    /* position: absolute; Đặt vị trí tuyệt đối. Thẻ này sẽ nổi bồng bềnh và được dịch chuyển tự do dựa trên mốc tọa độ của thẻ cha (relative) */
+    position: absolute;
+    /* top: 14px; Nằm cách mép trên của cột mốc 14px */
+    top: 14px;
+    padding: 6px 9px;
+    border-radius: 20px;
+    background: #181818;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* BUỔI 4: left / right */
+.new-badge {
+    left: 14px;
+    background: #2563eb;
+}
+
+.sale-badge {
+    right: 14px;
+}
+
+/* BUỔI 4: static là position mặc định */
+.product-info {
+    position: static;
+    padding: 18px;
+}
+
+.product-category {
+    color: #888;
+    font-size: 12px;
+}
+
+/* BUỔI 4: Combining selector */
+.product-card h3 {
+    margin: 4px 0 16px;
+    font-size: 19px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-card .price {
+    font-size: 14px;
+   
+}
+
+.product-bottom a {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#best-seller {
+    border-color: #bbb;
+}
+
+/* BUỔI 4: Specificity - Tag < Class < ID (Độ ưu tiên của Bộ chọn CSS) */
+
+/* Chọn bằng Tên thẻ (Tag selector) - Điểm ưu tiên: 1 (Rất thấp) */
+h3 {
+    color: #181818;
+}
+
+/* Chọn bằng Class selector - Điểm ưu tiên: 10 (Trung bình, ghi đè được thẻ) */
+.product-name {
+    color: #343434;
+}
+
+/* Chọn bằng ID selector - Điểm ưu tiên: 100 (Rất cao, ghi đè được Class và Thẻ) */
+#featured-name {
+    color: #2563eb;
+}
+
+/* 05. BENEFITS / INHERITANCE - Khu vực "Vì sao chọn Quang Store?" */
+/* BUỔI 4: color được kế thừa xuống phần tử con */
+.benefits {
+    padding: 80px 0;
+    background: #171717;
+    color: white;
+}
+
+.benefits .eyebrow {
+    color: #8db2ff;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.benefit-item {
+    padding: 24px;
+    border: 1px solid #333;
+    border-radius: 14px;
+}
+
+.benefit-item strong {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+}
+
+/* BUỔI 4: Combining selector */
+.benefits p {
+    color: #b7b7b7;
+}
+
+/* 06. SPECIAL OFFER - Khung khuyến mãi đặc biệt */
+.offer-section {
+    padding: 80px 0;
+}
+
+/* BUỔI 4: relative tạo mốc cho discount */
+.offer-card {
+    position: relative;
+    padding: 50px;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    border: 1px solid #e8e8e5;
+    border-radius: 20px;
+    background: white;
+}
+
+/* BUỔI 4: absolute + top + right */
+.offer-discount {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 7px 10px;
+    border-radius: 20px;
+    background: #e85d04;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.offer-copy h2 {
+    margin-bottom: 14px;
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.offer-copy>p {
+    margin-bottom: 20px;
+    color: #737373;
+}
+
+.offer-price {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.offer-price span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.offer-price del {
+    color: #999;
+}
+
+.dark-button {
+    background: #181818;
+}
+
+.dark-button:hover {
+    background: #333333;
+}
+
+.offer-image {
+    height: 270px;
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
+    /* BUỔI 4: relative có thể dịch element */
+    top: 6px;
+}
+
+/* 08. FOOTER - Chân trang ở dưới cùng website */
+.footer {
+    padding: 44px 0 24px;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+    color: #999;
+    font-size: 14px;
+}
+
+/* 09. FIXED BUTTON - Nút mũi tên cuộn lên đầu trang */
+/* BUỔI 4: fixed theo viewport + right + bottom */
+.back-to-top {
+    width: 44px;
+    height: 44px;
+    /* position: fixed; Vị trí cố định. Nó sẽ đóng đinh vào cửa sổ trình duyệt (viewport), dù người dùng cuộn chuột nó cũng không di chuyển */
+    position: fixed;
+    /* Cách mép phải màn hình 24px */
+    right: 24px;
+    /* Cách mép dưới màn hình 24px */
+    bottom: 24px;
+    /* Flexbox giúp căn giữa dấu mũi tên vào giữa hình tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    /* border-radius: 50%; Biến hình vuông thành hình tròn hoàn hảo */
+    border-radius: 50%;
+    background: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CARD GAME
+========================= */
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #ffc107 !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-img-top {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.nut_mau_hong {
+  color: #ff69b4 !important;
+}
+
+.card a{
+    color:#ff69b4
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.nav-link {
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image img {
+  transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.03);
+}
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.position-fixed {
+  z-index: 1000;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mideria RPG Community Forum</title>
+  <link rel="stylesheet" href="forum.css">
+</head>
+<body>
+
+  <!-- Forum Header -->
+  <header class="forum-header">
+    <div class="header-container">
+      <div class="title-group">
+        <h1 class="forum-page-title">Mideria RPG Community Forum</h1>
+        <p class="forum-page-desc">Discuss mechanics, share builds, report bugs, and shape the game together.</p>
+      </div>
+      <!-- Back to Home Button on the Right -->
+      <a href="end.html" class="back-home-btn">← Back to Home</a>
+    </div>
+  </header>
+
+  <div class="forum-main-container">
+
+    <!-- Category Filter Bar -->
+    <nav class="category-bar">
+      <button class="cat-pill active" onclick="filterCategory('All')">All Posts</button>
+      <button class="cat-pill" onclick="filterCategory('General')">General</button>
+      <button class="cat-pill" onclick="filterCategory('Guides')">Guides</button>
+      <button class="cat-pill" onclick="filterCategory('Bug Reports')">Bug Reports</button>
+      <button class="cat-pill" onclick="filterCategory('Feature Requests')">Feature Requests</button>
+      <button class="cat-pill" onclick="filterCategory('Balance')">Balance</button>
+      <button class="cat-pill" onclick="filterCategory('Site Feedback')">Site Feedback</button>
+    </nav>
+
+    <!-- Top Action Area (Above Posts) -->
+    <div class="top-action-bar">
+      <button class="open-modal-btn" onclick="toggleCreateModal()">+ Create a Post</button>
+    </div>
+
+    <!-- Hidden Post Creation Section (Collapsible Popup) -->
+    <div class="create-post-card hidden" id="create-post-section">
+      <div class="create-card-header">
+        <h2 class="create-card-title">Create New Discussion</h2>
+        <button type="button" class="close-card-btn" onclick="toggleCreateModal()">✕</button>
+      </div>
+
+      <form id="create-post-form" onsubmit="submitPost(event)">
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label class="form-label" for="post-title">Post Title</label>
+            <input type="text" id="post-title" class="styled-input" placeholder="Give your post a clear title..." required>
+          </div>
+
+          <div class="form-group flex-1">
+            <label class="form-label" for="post-category">Category</label>
+            <div class="select-wrapper">
+              <select id="post-category" class="styled-select">
+                <option value="General">General</option>
+                <option value="Guides">Guides</option>
+                <option value="Bug Reports">Bug Reports</option>
+                <option value="Feature Requests">Feature Requests</option>
+                <option value="Balance">Balance</option>
+                <option value="Site Feedback">Site Feedback</option>
+              </select>
+              <div class="select-arrow">▼</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="post-desc">Description</label>
+          <textarea id="post-desc" class="styled-textarea" rows="3" placeholder="Write your post content here..." required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" onclick="toggleCreateModal()">Cancel</button>
+          <button type="submit" class="create-post-btn">Publish Post</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Forum Feed Header -->
+    <div class="forum-feed-header">
+      <h3 class="feed-title">Recent Discussions</h3>
+      <span class="feed-count" id="post-count">showing 6 posts</span>
+    </div>
+
+    <!-- Feed Container -->
+    <div class="posts-list" id="posts-feed">
+
+      <article class="post-card" data-category="Guides">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">142</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@WaveMaster99</span>
+            <span class="post-time">• 2 hours ago</span>
+            <span class="badge-cat badge-guides">Guides</span>
+          </div>
+          <h3 class="post-title">How to solo the Aquamarine boss using momentum mechanics</h3>
+          <p class="post-desc">Detailed breakdown on using force reaction timing to dodge the second phase wave spam without taking damage.</p>
+        </div>
+      </article>
+
+      <article class="post-card" data-category="General">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">89</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@DevLover_3</span>
+            <span class="post-time">• 5 hours ago</span>
+            <span class="badge-cat badge-general">General</span>
+          </div>
+          <h3 class="post-title">Understanding Delta Distance & Delta Speed formulas</h3>
+          <p class="post-desc">A deep dive guide into how frame delta time affects your character movement during movement skills.</p>
+        </div>
+      </article>
+
+      <article class="post-card" data-category="Bug Reports">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">64</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@DeltaGlitcher</span>
+            <span class="post-time">• 8 hours ago</span>
+            <span class="badge-cat badge-bug">Bug Reports</span>
+          </div>
+          <h3 class="post-title">Wall-clipping bug near northern castle stairs</h3>
+          <p class="post-desc">If you high-velocity dash into the collision mesh at 240Hz, your character clips straight through the floor.</p>
+        </div>
+      </article>
+
+      <article class="post-card" data-category="Balance">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">210</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@PhysicsNerd</span>
+            <span class="post-time">• 12 hours ago</span>
+            <span class="badge-cat badge-balance">Balance</span>
+          </div>
+          <h3 class="post-title">Why heavy weapons need more Newton 3rd Law recoil</h3>
+          <p class="post-desc">Greatswords feel too light. Adding +15% backward force pushback on heavy swings would fix the weight feel.</p>
+        </div>
+      </article>
+
+      <article class="post-card" data-category="Feature Requests">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">175</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@VesteriaFan</span>
+            <span class="post-time">• 1 day ago</span>
+            <span class="badge-cat badge-feature">Feature Requests</span>
+          </div>
+          <h3 class="post-title">Add custom guild emblems & guild housing areas</h3>
+          <p class="post-desc">It would be awesome to have dedicated guild halls where players can trade loot and test build DPS on dummies.</p>
+        </div>
+      </article>
+
+      <article class="post-card" data-category="Site Feedback">
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">95</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@UI_Enthusiast</span>
+            <span class="post-time">• 2 days ago</span>
+            <span class="badge-cat badge-feedback">Site Feedback</span>
+          </div>
+          <h3 class="post-title">Loving the dark HSL color scheme and radial gradient buttons</h3>
+          <p class="post-desc">Using gradients only on important call-to-action buttons keeps the site looking extremely clean!</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleCreateModal() {
+      const modal = document.getElementById('create-post-section');
+      modal.classList.toggle('hidden');
+    }
+
+    function submitPost(e) {
+      e.preventDefault();
+      const titleInput = document.getElementById('post-title');
+      const descInput = document.getElementById('post-desc');
+      const catInput = document.getElementById('post-category');
+
+      let category = catInput.value || 'General';
+      const title = titleInput.value.trim();
+      const desc = descInput.value.trim();
+
+      if (!title || !desc) return;
+
+      const feed = document.getElementById('posts-feed');
+      const card = document.createElement('article');
+      card.className = 'post-card';
+      card.setAttribute('data-category', category);
+
+      let catClass = 'badge-general';
+      if (category === 'Guides') catClass = 'badge-guides';
+      if (category === 'Bug Reports') catClass = 'badge-bug';
+      if (category === 'Feature Requests') catClass = 'badge-feature';
+      if (category === 'Balance') catClass = 'badge-balance';
+      if (category === 'Site Feedback') catClass = 'badge-feedback';
+
+      card.innerHTML = `
+        <div class="post-votes">
+          <button class="vote-btn" onclick="upvote(this)">▲</button>
+          <span class="vote-count">1</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-author">@You</span>
+            <span class="post-time">• Just now</span>
+            <span class="badge-cat ${catClass}">${category}</span>
+          </div>
+          <h3 class="post-title">${escapeHtml(title)}</h3>
+          <p class="post-desc">${escapeHtml(desc)}</p>
+        </div>
+      `;
+
+      feed.insertBefore(card, feed.firstChild);
+
+      // Reset form fields
+      titleInput.value = '';
+      descInput.value = '';
+      catInput.value = 'General';
+
+      // Automatically close post creation section after creation
+      toggleCreateModal();
+
+      updateCount();
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+      });
+    }
+
+    function upvote(btn) {
+      const countEl = btn.nextElementSibling;
+      let count = parseInt(countEl.textContent);
+      if (!btn.classList.contains('voted')) {
+        btn.classList.add('voted');
+        countEl.textContent = count + 1;
+      } else {
+        btn.classList.remove('voted');
+        countEl.textContent = count - 1;
+      }
+    }
+
+    function filterCategory(cat) {
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const posts = document.querySelectorAll('.post-card');
+      posts.forEach(post => {
+        if (cat === 'All' || post.getAttribute('data-category') === cat) {
+          post.style.display = 'flex';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+      updateCount();
+    }
+
+    function updateCount() {
+      const visible = document.querySelectorAll('.post-card[style*="display: flex"], .post-card:not([style*="display"])').length;
+      document.getElementById('post-count').textContent = `showing ${visible} posts`;
+    }
+  </script>
+</body>
+</html>

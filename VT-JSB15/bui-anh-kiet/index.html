@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXERA | Kiến Trúc & Nội Thất Cao Cấp</title>
+    
+    <!-- Nhúng Font Chữ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Liên kết CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header & Thanh điều hướng -->
+    <header>
+        <a href="index.html" class="brand">LUXE<span>RA.</span></a>
+        
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        
+        <ul class="nav-links">
+            <li><a href="#hero">Trang Chủ</a></li>
+            <li><a href="#philosophy">Về Studio</a></li>
+            <li><a href="#projects">Dự Án</a></li>
+            <li><a href="#expertise">Dịch Vụ</a></li>
+            <li><a href="consultation.html">Đặt Lịch</a></li>
+            <li><a href="auth.html">Tài Khoản</a></li>
+        </ul>
+    </header>
+
+    <!-- Phần Hero (Giới thiệu đầu trang) -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Thành lập năm 2012</span>
+            <h1 class="hero-title">Kiến tạo không gian, định hình <span class="gold-text serif">di sản của bạn.</span></h1>
+            
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="#projects" class="btn-outline">Khám Phá Dự Án</a>
+                <a href="consultation.html" class="btn-outline">Đặt Lịch Tư Vấn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần Triết Lý / Về Chúng Tôi -->
+    <section id="philosophy" class="philosophy container">
+        <div class="phil-grid">
+            <div class="phil-text">
+                <h2>Kiến trúc không chỉ là không gian, đó là <span class="gold-text serif">sự trải nghiệm.</span></h2>
+                <p>Chúng tôi là một studio thiết kế đa ngành chuyên về kiến trúc nhà ở và thương mại cao cấp. Phương pháp của chúng tôi là sự hòa quyện hoàn hảo giữa tính thẩm mỹ đương đại và vật liệu vượt thời gian.</p>
+                <p>Mỗi đường nét được vẽ ra và vật liệu được lựa chọn đều là một hành động có chủ đích nhằm kiến tạo những không gian khơi gợi cảm xúc, mang lại sự bình yên và trường tồn với thời gian.</p>
+            </div>
+            <div class="phil-image">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kiến trúc nội thất tối giản">
+            </div>
+        </div>
+    </section>
+
+    <!-- Các Dự Án Tiêu Biểu -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-head">
+                <h2>Dự Án <span class="gold-text serif">Tiêu Biểu</span></h2>
+                <a href="#">Xem Tất Cả Dự Án &rarr;</a>
+            </div>
+            
+            <div class="project-grid">
+                <!-- Dự án 1 -->
+                <div class="project-item item-1">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Villa Nova" class="project-img">
+                    <div class="project-overlay">
+                        <span class="project-cat">Nhà Ở</span>
+                        <h3 class="project-title">Biệt Thự The Glass</h3>
+                    </div>
+                </div>
+
+                <!-- Dự án 2 -->
+                <div class="project-item item-2">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Urban Loft" class="project-img">
+                    <div class="project-overlay">
+                        <span class="project-cat">Nội Thất</span>
+                        <h3 class="project-title">Căn Hộ Onyx</h3>
+                    </div>
+                </div>
+
+                <!-- Dự án 3 -->
+                <div class="project-item item-3">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Space" class="project-img">
+                    <div class="project-overlay">
+                        <span class="project-cat">Thương Mại</span>
+                        <h3 class="project-title">Cửa Hàng Aura</h3>
+                    </div>
+                </div>
+
+                <!-- Dự án 4 -->
+                <div class="project-item item-4">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Modern Penthouse" class="project-img">
+                    <div class="project-overlay">
+                        <span class="project-cat">Kiến Trúc</span>
+                        <h3 class="project-title">Skyline Penthouse</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dịch Vụ / Chuyên Môn -->
+    <section id="expertise" class="expertise container">
+        <div class="section-head">
+            <h2>Lĩnh Vực <span class="gold-text serif">Chuyên Môn</span></h2>
+        </div>
+        
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <span class="exp-num">01</span>
+                <h3>Kiến Trúc</h3>
+                <p>Từ những bản phác thảo ý tưởng cho đến bản vẽ kỹ thuật hoàn chỉnh, chúng tôi thiết kế những công trình hài hòa với môi trường xung quanh đồng thời bứt phá các giới hạn về kết cấu.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <span class="exp-num">02</span>
+                <h3>Thiết Kế Nội Thất</h3>
+                <p>Sắp xếp bố cục không gian, nội thất thiết kế riêng và vật liệu tinh tế để tạo ra những không gian mang đậm dấu ấn cá nhân, phản ánh phong cách sống của gia chủ.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <span class="exp-num">03</span>
+                <h3>Quản Lý Dự Án</h3>
+                <p>Giám sát toàn diện nhằm đảm bảo các tiêu chuẩn thiết kế khắt khe được thực thi tỉ mỉ tại công trình, đúng tiến độ và trong phạm vi ngân sách.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">LUXE<span>RA.</span></a>
+                    <p>Định nghĩa lại sự sang trọng hiện đại thông qua thiết kế tinh tế, thực tiễn bền vững và sự chú trọng tuyệt đối vào từng chi tiết.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Văn Phòng</h4>
+                    <ul>
+                        <li><a href="#">789 Đại Lộ Thiết Kế, Phòng 100</a></li>
+                        <li><a href="#">New York, NY 10012</a></li>
+                        <li><br></li>
+                        <li><a href="mailto:hello@luxera.com">hello@luxera.com</a></li>
+                        <li><a href="tel:+12125550199">+1 (212) 555-0199</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Kết Nối</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Behance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 LUXERA Studio Kiến Trúc. Bảo lưu mọi quyền.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
