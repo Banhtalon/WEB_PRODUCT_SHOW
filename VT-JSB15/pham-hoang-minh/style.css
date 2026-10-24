@@ -279,7 +279,7 @@ transform: translateY(-2px);
 
 .menu-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 4px 20px rgba(236, 233, 231, 0.952);
+  box-shadow: 0 4px 20px rgba(249, 252, 101, 0.952);
   border-color: rgba(153, 27, 27, 0.3);
 }
 
@@ -590,6 +590,7 @@ footer {
 
 .booking {
   margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 .booking-content{

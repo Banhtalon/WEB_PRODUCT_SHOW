@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. BIẾN TOÀN CỤC & THIẾT LẬP CƠ BẢN (RESET)
-   ========================================================================== */
 :root {
     --bg-dark: #0a0a0b;
     --bg-light: #141416;
@@ -53,7 +50,6 @@ img {
 .gold-text { color: var(--gold); }
 .serif { font-family: var(--font-serif); font-style: italic; }
 
-/* Tùy chỉnh bôi đen văn bản & thanh cuộn */
 ::selection { background-color: var(--gold); color: var(--bg-dark); }
 ::-moz-selection { background-color: var(--gold); color: var(--bg-dark); }
 
@@ -62,9 +58,6 @@ img {
 ::-webkit-scrollbar-thumb { background: rgba(197, 160, 89, 0.4); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-/* ==========================================================================
-   2. HEADER & MENU ĐIỀU HƯỚNG (CHECKBOX HACK - KHÔNG DÙNG JS)
-   ========================================================================== */
 header {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -114,7 +107,6 @@ header {
 .navicon::before { top: 8px; }
 .navicon::after { top: -8px; }
 
-/* Responsive Menu Mobile */
 @media (max-width: 768px) {
     .menu-icon { display: block; padding: 20px 0; }
     
@@ -136,9 +128,6 @@ header {
     .menu-btn:checked ~ .menu-icon .navicon::after { transform: rotate(45deg); top: 0; }
 }
 
-/* ==========================================================================
-   3. PHẦN HERO (HIỆU ỨNG PARALLAX)
-   ========================================================================== */
 .hero {
     position: relative;
     height: 100vh;
@@ -182,7 +171,6 @@ header {
     margin-bottom: 40px;
 }
 
-/* Nút bấm trượt màu (Sweep Button) */
 .btn-outline {
     display: inline-block;
     padding: 15px 40px;
@@ -215,9 +203,6 @@ header {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   4. PHẦN TRIẾT LÝ / VỀ CHÚNG TÔI (PHILOSOPHY)
-   ========================================================================== */
 .phil-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -245,9 +230,6 @@ header {
     .phil-grid { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   5. DANH SÁCH DỰ ÁN & HIỆU ỨNG TIA SÁNG (PROJECTS)
-   ========================================================================== */
 .section-head {
     display: flex;
     justify-content: space-between;
@@ -315,7 +297,6 @@ header {
     transition: transform 0.5s ease 0.1s;
 }
 
-/* Hiệu ứng Shine (Tia sáng lướt qua ảnh) */
 .project-item::after {
     content: '';
     position: absolute;
@@ -339,9 +320,6 @@ header {
     .item-1, .item-2, .item-3, .item-4 { height: 350px; }
 }
 
-/* ==========================================================================
-   6. DỊCH VỤ / CHUYÊN MÔN (EXPERTISE) - SỐ THỨ TỰ SÁNG SỦA, TINH TẾ
-   ========================================================================== */
 .expertise {
     background: var(--bg-light);
     padding: 80px 5%;
@@ -364,7 +342,6 @@ header {
     transform: translateY(-5px);
 }
 
-/* Số thứ tự 01, 02, 03 được làm sáng nổi bật bằng màu vàng Gold */
 .exp-num {
     font-family: var(--font-serif);
     font-size: 2.8rem;
@@ -387,9 +364,6 @@ header {
     line-height: 1.6;
 }
 
-/* ==========================================================================
-   7. CHÂN TRANG (FOOTER)
-   ========================================================================== */
 footer {
     padding: 60px 5% 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -436,9 +410,6 @@ footer {
     .footer-grid { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   8. HIỆU ỨNG CUỘN TRANG MƯỢT MÀ (SCROLL REVEAL - KHÔNG DÙNG JS)
-   ========================================================================== */
 @supports (animation-timeline: view()) {
     .phil-grid, .project-item, .expertise-card {
         animation: reveal linear both;

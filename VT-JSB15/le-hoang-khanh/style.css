@@ -1,99 +1,4 @@
 body {
-  font-family: "Poppins", sans-serif;
-  color: #17211c;
-  margin: 0;
-  padding: 0;
-}
-
-.color_container {
-    position: relative;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url('album3.1.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 580px;
-    display: flex;
-    align-items: center;
-}
-
-.color_container > .container {
-    position: relative;
-    z-index: 2;
-}
-
-.bg-white {
-  background-color: #ffffff;
-}
-
-.text-green {
-  color: #eb5b13;
-}
-
-.btn-green {
-  background-color: #e77009;
-  color: #ffffff;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-green:hover {
-  background-color: #14523d;
-  color: #ffffff;
-}
-
-.btn-yellow {
-  background-color: #ed8506 !important;
-  color: #111111 !important;
-  font-weight: 600;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-yellow:hover {
-  background-color: #e0b020 !important;
-}
-
-.hero-img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-}
-
-.feature-number {
-  font-size: 24px;
-  font-weight: bold;
-  color:#e77009;
-  margin-bottom: 8px;
-}
-
-.testimonial-box {
-  background-color: #ffffff;
-  border-left: 5px solid #f06a52;
-  padding: 20px;
-}
-
-.card-featured {
-  background-color: #e8f5e9;
-  border: 1px solid #fb8b2a;
-}
-
-.login-border-wrapper {
-  border: 4px solid #a4d4c4 !important;
-  border-radius: 16px;
-  padding: 8px;
-  max-width: 380px;
-  margin: 40px auto;
-}
-
-.login-container {
-  background-color: #14523d !important;
-  color: #ffffff !important;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.login-container .form-control {
-  background-color: #ffffff !important;
-  border: 1px solid #ced4da !important;
   color: #333333 !important;
 }
 
@@ -113,4 +18,102 @@ body {
 .hover-zoom:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+#about-ngot {
+  color: #fff;
+  background: linear-gradient(135deg, #29201f, #472522) !important;
+  border-top: 1px solid #5b3832 !important;
+}
+
+#about-ngot h2 { color: #fff !important; }
+#about-ngot p.text-secondary { color: #e2d8d4 !important; }
+#about-ngot .text-danger { color: #ff9b80 !important; }
+
+#about-ngot .img-container {
+  padding: 8px;
+  border: 1px solid #805047;
+  border-radius: 14px;
+  background: #382725;
+}
+
+#about-ngot .img-container img { border-radius: 9px !important; }
+
+#about-ngot .btn-danger {
+  background: #e7654d;
+  border-color: #e7654d;
+  border-radius: 22px;
+}
+
+#about-ngot .btn-danger:hover {
+  background: #c94f3a;
+  border-color: #c94f3a;
+}
+
+#features { background: #fff7f0 !important; }
+#features h2 { color: #332522; }
+
+#features .card {
+  border: 1px solid #eee0d7 !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(60, 35, 25, 0.08) !important;
+  transition: transform 0.2s ease;
+}
+
+#features .card:hover { transform: translateY(-4px); }
+#features .card-img-top { border-radius: 9px !important; }
+
+#features .feature-number {
+  color: #b64d37;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#features .card-title { text-decoration: none !important; }
+#features .card-text:last-child {
+  color: #b64d37 !important;
+  font-weight: bold;
+}
+
+#reviews { background: #f7eee8 !important; }
+.testimonial-box {
+  border-left: 4px solid #e7654d;
+  border-radius: 10px !important;
+}
+
+footer#submit-section {
+  background: #29201f !important;
+  color: #fff;
+  border-top: 1px solid #49322e !important;
+}
+
+footer#submit-section .text-secondary { color: #d6c8c2 !important; }
+
+@media (max-width: 767px) {
+  #about-ngot .img-container img { height: 350px !important; }
+  #features .card-img-top { height: 300px !important; }
+}
+
+.color_container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url("album3.1.png") center center / cover no-repeat;
+    padding: 60px 0;
+}
+
+.color_container h1,
+.color_container p {
+    color: white !important;
+}
+
+.color_container h1 {
+    font-size: 72px;
+    font-weight: bold;
 }
