@@ -1,0 +1,36 @@
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white;
+}
+.navbar .nav-link,
+.navbar .nav-link.active {
+    color: white;
+}
+.navbar .nav-link:hover {
+    color: lightgray;
+}
+body {
+    font-family: 'Poppins';
+    background-color: rgb(58, 58, 58);
+}
+.border-orange {
+    border-color: orange !important;
+}
+.border-skystone {
+    border-color: rgb(45, 45, 51) !important;
+}
+#hero {
+    font-size: 12px;
+    margin: 50px 100px;
+    padding: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.images {
+    max-width: 50%;
+    margin: 50px;
+}
+.text-slightlyvrightlygray {
+    color: rgb(202, 202, 202)
+}

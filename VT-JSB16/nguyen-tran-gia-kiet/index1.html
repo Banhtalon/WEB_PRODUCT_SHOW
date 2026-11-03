@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vợt Cầu Lông - SmashZone Store</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- File CSS tùy chỉnh -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* CSS bổ sung để banner hiển thị đẹp và ổn định */
+      .hero-banner-custom {
+        position: relative;
+        background: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+        border-radius: 12px;
+        overflow: hidden;
+        color: #fff;
+        padding: 50px 30px;
+        margin-bottom: 2rem;
+      }
+      .hero-banner-custom::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+        z-index: 1;
+      }
+      .hero-banner-content {
+        position: relative;
+        z-index: 2;
+      }
+      .product-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3 bg-white shadow-sm">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand-logo d-flex align-items-center gap-2 text-dark fw-bold text-decoration-none" href="#">
+          <i class="bi bi-lightning-charge-fill text-primary"></i> SmashZone
+        </a>
+
+        <!-- Toggler cho Mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu Links -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-3">
+            <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">NEW &amp; Nổi Bật</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">PickleBall</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-primary fw-semibold"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Cầu Lông</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Vợt Cầu Lông</a></li>
+                <li><a class="dropdown-item" href="#">Giày Cầu Lông</a></li>
+                <li><a class="dropdown-item" href="#">Quả Cầu Lông</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+          </ul>
+
+          <!-- Right Icons (Search, Cart, User) -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="input-group d-none d-lg-flex" style="width: 200px">
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Tìm kiếm..."
+              />
+              <button class="btn btn-outline-secondary btn-sm" type="button">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+            <a
+              href="#"
+              class="text-dark position-relative fs-5 text-decoration-none"
+            >
+              <i class="bi bi-bag"></i>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="font-size: 0.6rem"
+                >0</span
+              >
+            </a>
+            <a href="#" class="text-dark fs-5 text-decoration-none"
+              ><i class="bi bi-person"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner Trưng Bày Hình Ảnh Vợt Cầu Lông -->
+    <section class="container my-4">
+      <div class="hero-banner-custom px-4 px-md-5">
+        <div class="row align-items-center">
+          <div class="col-lg-7 hero-banner-content">
+            <span class="badge bg-primary mb-2 px-3 py-2">Bộ Sưu Tập Chính Hãng</span>
+            <h1 class="display-5 fw-bold mb-3">VỢT CẦU LÔNG ĐỈNH CAO</h1>
+            <p class="lead text-light mb-4">
+              Khám phá ngay các dòng vợt cao cấp từ Yonex, Lining, Victor chuyên nghiệp, tối ưu sức mạnh và tốc độ cho mọi cú Smash.
+            </p>
+            <a href="#product-section" class="btn btn-primary px-4 py-2 fw-semibold">Khám phá ngay</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thanh Đường Dẫn (Breadcrumb) -->
+    <section class="category-banner mb-3">
+      <div class="container">
+        <p class="text-muted small mb-0">
+          Trang chủ / <span class="text-primary fw-semibold">Vợt cầu lông</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content: Bộ lọc & Danh sách sản phẩm -->
+    <section class="container mb-5" id="product-section">
+      <div class="row">
+        <!-- Cột Trái: Bộ lọc (Sidebar) -->
+        <div class="col-lg-3 mb-4">
+          <div class="filter-box bg-white p-3 rounded shadow-sm border">
+            <h5 class="fw-bold mb-3 fs-6">
+              <i class="bi bi-funnel"></i> Bộ lọc sản phẩm
+            </h5>
+
+            <!-- Lọc Khoảng giá -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold small">Khoảng giá</label>
+              <div class="form-check small mb-1">
+                <input class="form-check-input" type="checkbox" id="price1" />
+                <label class="form-check-label text-secondary" for="price1"
+                  >Dưới 1.000.000đ</label
+                >
+              </div>
+              <div class="form-check small mb-1">
+                <input class="form-check-input" type="checkbox" id="price2" />
+                <label class="form-check-label text-secondary" for="price2"
+                  >1.000.000đ - 3.000.000đ</label
+                >
+              </div>
+              <div class="form-check small">
+                <input class="form-check-input" type="checkbox" id="price3" />
+                <label class="form-check-label text-secondary" for="price3"
+                  >Trên 3.000.000đ</label
+                >
+              </div>
+            </div>
+
+            <!-- Lọc Thương hiệu -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold small">Thương hiệu</label>
+              <div class="form-check small mb-1">
+                <input class="form-check-input" type="checkbox" id="brand1" />
+                <label class="form-check-label text-secondary" for="brand1"
+                  >Yonex</label
+                >
+              </div>
+              <div class="form-check small mb-1">
+                <input class="form-check-input" type="checkbox" id="brand2" />
+                <label class="form-check-label text-secondary" for="brand2"
+                  >Lining</label
+                >
+              </div>
+              <div class="form-check small">
+                <input class="form-check-input" type="checkbox" id="brand3" />
+                <label class="form-check-label text-secondary" for="brand3"
+                  >Victor</label
+                >
+              </div>
+            </div>
+
+            <button class="btn btn-dark btn-sm w-100">Áp dụng bộ lọc</button>
+          </div>
+        </div>
+
+        <!-- Cột Phải: Hiển thị sản phẩm -->
+        <div class="col-lg-9">
+          <!-- Thanh sắp xếp -->
+          <div
+            class="d-flex justify-content-between align-items-center bg-white p-3 rounded mb-3 shadow-sm border"
+          >
+            <span class="text-secondary small"
+              >Hiển thị 1-9 trong tổng số 9 kết quả</span
+            >
+            <select class="form-select form-select-sm w-auto">
+              <option selected>Sắp xếp: Mặc định</option>
+              <option value="1">Giá: Thấp đến cao</option>
+              <option value="2">Giá: Cao xuống thấp</option>
+              <option value="3">Mới nhất</option>
+            </select>
+          </div>
+
+          <!-- Lưới sản phẩm -->
+          <div class="row g-3">
+            <!-- Sản phẩm 1 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham1.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://www.yonex.com/media/catalog/product/a/x/ax99-pro_whitetiger.png?quality=80&bg-color=248,248,248,0.75&fit=bounds&height=819&width=600&canvas=600:819" alt="Yonex Astrox 99 Pro" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Yonex • Tấn công</span>
+                      <h6 class="fw-bold mt-1 mb-1">Yonex Astrox 99 Pro</h6>
+                      <p class="text-muted small mb-2">Vợt nặng đầu chuyên smash uy lực.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">3.850.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham2.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-lining-windstorm-72-blk-1.webp" alt="Lining Windstorm 72" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Lining • Phản tạt</span>
+                      <h6 class="fw-bold mt-1 mb-1">Lining Windstorm 72</h6>
+                      <p class="text-muted small mb-2">Dòng vợt siêu nhẹ, linh hoạt trên lưới.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">2.100.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham3.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://fbshop.vn/wp-content/uploads/2026/08/victor-thruster-ryuga-td-c-do-den-ntv-thong-so.jpg" alt="Victor Thruster K Ryuga" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Victor • Toàn diện</span>
+                      <h6 class="fw-bold mt-1 mb-1">Victor Thruster K Ryuga</h6>
+                      <p class="text-muted small mb-2">Kiểm soát và tấn công ổn định.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">2.950.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham4.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://www.yonex.com/media/catalog/product/n/a/nanoflare_1000_z.png?quality=80&bg-color=248,248,248,0.75&fit=bounds&height=819&width=600&canvas=600:819" alt="Yonex Nanoflare 1000Z" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Yonex • Tốc độ</span>
+                      <h6 class="fw-bold mt-1 mb-1">Yonex Nanoflare 1000Z</h6>
+                      <p class="text-muted small mb-2">Vung vợt cực nhanh, tối ưu phản tạt.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">4.100.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 5 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham5.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://fbshop.vn/wp-content/uploads/2026/09/lining-axforce-80-2022-gen-1-ntv-thong-so.jpg" alt="Lining Axforce 80" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Lining • Sức mạnh</span>
+                      <h6 class="fw-bold mt-1 mb-1">Lining Axforce 80</h6>
+                      <p class="text-muted small mb-2">Thân vợt cứng, trợ lực đập tối đa.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">3.200.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 6 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham6.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-mizuno-jpx-8-1-xanh-bien-chinh-hang-1.webp" alt="Mizuno JPX 8.1" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Mizuno • Cân bằng</span>
+                      <h6 class="fw-bold mt-1 mb-1">Mizuno JPX 8.1</h6>
+                      <p class="text-muted small mb-2">Dễ làm quen, nâng cao kỹ năng toàn diện.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">1.850.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 7 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham7.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://fbshop.vn/wp-content/uploads/2026/08/yonex-arcsaber-11-pro-ntv-thong-so.jpg" alt="Yonex Arcsaber 11 Pro" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Yonex • Kiểm soát</span>
+                      <h6 class="fw-bold mt-1 mb-1">Yonex Arcsaber 11 Pro</h6>
+                      <p class="text-muted small mb-2">Lưu cầu lâu hơn, đường cầu hiểm hóc.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">3.600.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 8 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham8.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-lining-turbo-charging-75d-chinh-hang-1.webp" alt="Lining Turbo Charging 75" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Lining • Khí động học</span>
+                      <h6 class="fw-bold mt-1 mb-1">Lining Turbo Charging 75</h6>
+                      <p class="text-muted small mb-2">Khung góc cạnh giảm cản gió.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">2.800.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Sản phẩm 9 -->
+            <div class="col-md-4 col-sm-6">
+              <a href="sanpham9.html" class="text-decoration-none text-dark h-100 d-block">
+                <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
+                  <div class="product-img-wrapper text-center py-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMg3JPpP0V9RsVDEqrovhrxcr5LKhHyfBQV7Tn8tbJE72Ph3h11_f1Jfw&s=10" alt="Victor Auraspeed 90S" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                  </div>
+                  <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
+                    <div>
+                      <span class="category-tag text-primary small fw-semibold">Victor • Đánh đôi</span>
+                      <h6 class="fw-bold mt-1 mb-1">Victor Auraspeed 90S</h6>
+                      <p class="text-muted small mb-2">Tốc độ phản tạt cửa trên cực đỉnh.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2 pt-2 border-top">
+                      <span class="price-text text-danger fw-bold">3.150.000₫</span>
+                      <span class="btn btn-outline-primary btn-sm px-3">Chọn mua</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

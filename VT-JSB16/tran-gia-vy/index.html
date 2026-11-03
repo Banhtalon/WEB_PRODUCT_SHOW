@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VietNews - Cập nhật tin tức giáo dục, công nghệ, đời sống và khoa học.">
+  <title>VietNews | Trang chủ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-mark">V</span> VietNews
+      </a>
+
+      <!-- Nút mở menu trên thiết bị di động (Thuần CSS) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở menu">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Mở menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a class="nav-link active" href="index.html">Trang chủ</a></li>
+        <li><a class="nav-link" href="#kham-pha">Công nghệ</a></li>
+        <li><a class="nav-link" href="#kham-pha">Giáo dục</a></li>
+        <li><a class="nav-link" href="#kham-pha">Đời sống</a></li>
+        <li><a class="btn btn-light nav-cta" href="submit.html">+ Gửi tin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">
+            <span class="live-dot"></span> ĐIỂM TIN MỖI NGÀY
+          </span>
+          <h1 class="hero-title">
+            Cập nhật thế giới.<br>
+            <span>Hiểu sâu câu chuyện.</span>
+          </h1>
+          <p class="hero-copy">
+            Tin tức chọn lọc về công nghệ, giáo dục, đời sống và những điều đang thay đổi quanh ta.
+          </p>
+
+          <form class="search-box" action="#kham-pha" method="get">
+            <span class="search-icon">⌕</span>
+            <input
+              type="search"
+              name="q"
+              class="search-input"
+              placeholder="Tìm kiếm bài viết..."
+              aria-label="Tìm kiếm bài viết"
+            >
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+          </form>
+
+          <div class="hero-meta">
+            <span>✓ Nội dung dễ đọc</span>
+            <span>✓ Nhiều chủ đề</span>
+            <span>✓ Gửi tin cộng đồng</span>
+          </div>
+        </div>
+
+        <!-- Bài viết tâm điểm (Featured) -->
+        <div class="hero-featured">
+          <a class="featured-card" href="articles/article-1.html">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85"
+              alt="Trí tuệ nhân tạo đang thay đổi cách chúng ta học tập và làm việc"
+              class="featured-image"
+            >
+            <div class="featured-overlay">
+              <span class="category-pill">Công nghệ</span>
+              <h2>Trí tuệ nhân tạo đang thay đổi cách chúng ta học tập và làm việc</h2>
+              <p>Những công cụ AI mới giúp tối ưu thời gian, hỗ trợ sáng tạo và mở ra nhiều cơ hội học tập.</p>
+              <span class="read-more">Đọc bài viết <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DANH SÁCH BÀI VIẾT & BỘ LỌC THUẦN CSS -->
+    <section id="kham-pha" class="container section-spacing">
+      <!-- Các nút radio ẩn điều khiển bộ lọc danh mục bằng CSS -->
+      <input type="radio" name="category-filter" id="cat-all" class="filter-radio" checked>
+      <input type="radio" name="category-filter" id="cat-cong-nghe" class="filter-radio">
+      <input type="radio" name="category-filter" id="cat-du-lich" class="filter-radio">
+      <input type="radio" name="category-filter" id="cat-giao-duc" class="filter-radio">
+      <input type="radio" name="category-filter" id="cat-khoa-hoc" class="filter-radio">
+      <input type="radio" name="category-filter" id="cat-the-thao" class="filter-radio">
+      <input type="radio" name="category-filter" id="cat-doi-song" class="filter-radio">
+
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">KHÁM PHÁ</span>
+          <h2 class="section-title">Tin mới nổi bật</h2>
+          <p class="section-subtitle">Những câu chuyện đáng chú ý được tuyển chọn cho bạn.</p>
+        </div>
+
+        <div class="category-filters">
+          <label for="cat-all" class="filter-chip">Tất cả</label>
+          <label for="cat-cong-nghe" class="filter-chip">Công nghệ</label>
+          <label for="cat-du-lich" class="filter-chip">Du lịch</label>
+          <label for="cat-giao-duc" class="filter-chip">Giáo dục</label>
+          <label for="cat-khoa-hoc" class="filter-chip">Khoa học</label>
+          <label for="cat-the-thao" class="filter-chip">Thể thao</label>
+          <label for="cat-doi-song" class="filter-chip">Đời sống</label>
+        </div>
+      </div>
+
+      <!-- Lưới 6 bài viết -->
+      <div class="news-grid">
+
+        <!-- Bài viết 1: Công nghệ -->
+        <div class="news-item" data-category="cong-nghe">
+          <article class="news-card">
+            <a href="articles/article-1.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85"
+                alt="Trí tuệ nhân tạo đang thay đổi cách chúng ta học tập và làm việc"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Công nghệ</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">12/10/2026 <span>•</span> Minh Anh</div>
+              <h3>
+                <a href="articles/article-1.html">
+                  Trí tuệ nhân tạo đang thay đổi cách chúng ta học tập và làm việc
+                </a>
+              </h3>
+              <p>Những công cụ AI mới giúp tối ưu thời gian, hỗ trợ sáng tạo và mở ra nhiều cơ hội học tập.</p>
+              <a class="text-link" href="articles/article-1.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bài viết 2: Đời sống -->
+        <div class="news-item" data-category="doi-song">
+          <article class="news-card">
+            <a href="articles/article-2.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1400&q=85"
+                alt="Những thói quen nhỏ giúp xây dựng lối sống xanh mỗi ngày"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Đời sống</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">11/10/2026 <span>•</span> Hoàng Nam</div>
+              <h3>
+                <a href="articles/article-2.html">
+                  Những thói quen nhỏ giúp xây dựng lối sống xanh mỗi ngày
+                </a>
+              </h3>
+              <p>Bắt đầu từ việc mang bình nước cá nhân, tiết kiệm điện và hạn chế đồ nhựa dùng một lần.</p>
+              <a class="text-link" href="articles/article-2.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bài viết 3: Giáo dục -->
+        <div class="news-item" data-category="giao-duc">
+          <article class="news-card">
+            <a href="articles/article-3.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=85"
+                alt="Học tập chủ động: Bí quyết ghi nhớ kiến thức lâu hơn"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Giáo dục</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">10/10/2026 <span>•</span> Thu Hà</div>
+              <h3>
+                <a href="articles/article-3.html">
+                  Học tập chủ động: Bí quyết ghi nhớ kiến thức lâu hơn
+                </a>
+              </h3>
+              <p>Lập kế hoạch, tự kiểm tra và ôn tập theo từng khoảng thời gian là những cách học hữu ích.</p>
+              <a class="text-link" href="articles/article-3.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bài viết 4: Thể thao -->
+        <div class="news-item" data-category="the-thao">
+          <article class="news-card">
+            <a href="articles/article-4.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1400&q=85"
+                alt="Vận động mỗi ngày: Bắt đầu từ những mục tiêu vừa sức"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Thể thao</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">09/10/2026 <span>•</span> Quốc Bảo</div>
+              <h3>
+                <a href="articles/article-4.html">
+                  Vận động mỗi ngày: Bắt đầu từ những mục tiêu vừa sức
+                </a>
+              </h3>
+              <p>Đi bộ, đạp xe hoặc tập các bài vận động nhẹ có thể giúp hình thành thói quen tích cực.</p>
+              <a class="text-link" href="articles/article-4.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bài viết 5: Du lịch -->
+        <div class="news-item" data-category="du-lich">
+          <article class="news-card">
+            <a href="articles/article-5.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85"
+                alt="Khám phá vẻ đẹp thiên nhiên qua những chuyến đi có trách nhiệm"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Du lịch</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">08/10/2026 <span>•</span> Linh Chi</div>
+              <h3>
+                <a href="articles/article-5.html">
+                  Khám phá vẻ đẹp thiên nhiên qua những chuyến đi có trách nhiệm
+                </a>
+              </h3>
+              <p>Tôn trọng văn hóa địa phương và giữ gìn cảnh quan giúp chuyến đi ý nghĩa hơn.</p>
+              <a class="text-link" href="articles/article-5.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bài viết 6: Khoa học -->
+        <div class="news-item" data-category="khoa-hoc">
+          <article class="news-card">
+            <a href="articles/article-6.html" class="news-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=85"
+                alt="Vì sao việc tìm hiểu khoa học từ những câu hỏi nhỏ rất quan trọng?"
+                class="news-image"
+                loading="lazy"
+              >
+              <span class="image-category">Khoa học</span>
+            </a>
+            <div class="news-card-body">
+              <div class="article-meta">07/10/2026 <span>•</span> Tuấn Kiệt</div>
+              <h3>
+                <a href="articles/article-6.html">
+                  Vì sao việc tìm hiểu khoa học từ những câu hỏi nhỏ rất quan trọng?
+                </a>
+              </h3>
+              <p>Quan sát, đặt giả thuyết và thử nghiệm giúp chúng ta hiểu thế giới xung quanh.</p>
+              <a class="text-link" href="articles/article-6.html">Đọc tiếp <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. BANNER ĐÓNG GÓP TIN TỨC -->
+    <section class="container pb-section">
+      <div class="submit-banner">
+        <div>
+          <span class="eyebrow eyebrow-light">CÙNG CHIA SẺ</span>
+          <h2>Biết một câu chuyện hay?</h2>
+          <p>Gửi tin cho VietNews để cùng lan tỏa thông tin hữu ích.</p>
+        </div>
+        <a href="submit.html" class="btn btn-light">Gửi tin ngay <span>↗</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>VietNews</strong>
+        <div class="footer-sub">Thông tin mỗi ngày, góc nhìn đa chiều.</div>
+      </div>
+      <div class="footer-copy">© 2026 VietNews · Website tin tức bằng HTML &amp; CSS thuần</div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

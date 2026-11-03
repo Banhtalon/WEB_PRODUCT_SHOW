@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phuoc 3d printer shop</title>
+    <link rel="icon" type="image/jpeg" href="../image%203d%20printer/913906fe-27c8-4ab2-b9f5-dfc8d910026a.jfif">
+    <!-- CDN Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+  </head>
+  <body>
+
+    <!-- 1. NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary fs-3" href="#">
+          <img src="../image%203d%20printer/913906fe-27c8-4ab2-b9f5-dfc8d910026a.jfif" alt="Phuoc 3D Printer Shop" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./features.html">Tính năng</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dòng máy
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./fdm3dprinter.html">Máy in FDM</a></li>
+                <li><a class="dropdown-item" href="./sla3dprinter.html">Máy in SLA (Resin)</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./accessories.html">Phụ kiện & Nhựa in</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Liên hệ</a>
+            </li>
+          </ul>
+          
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search"/>
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <!-- Cột hiển thị hình ảnh máy in 3D -->
+        <div class="col-lg-6 order-lg-2 text-center mb-4 mb-lg-0">
+          <img src="../image 3d printer/1ec0d0e0-718b-47ac-9e5c-0b8ff6b5a930.jfif" 
+               alt="Xưởng sản xuất máy in 3D" 
+               class="img-fluid rounded-4 shadow-lg border">
+        </div>
+        
+        <!-- Cột nội dung giới thiệu -->
+        <div class="col-lg-6 order-lg-1">
+          <h1 class="display-5 fw-bold mb-3">Máy In 3D Thế Hệ Mới</h1>
+          <p class="lead text-secondary mb-4">In ấn chính xác, tốc độ vượt trội và hỗ trợ đa dạng chất liệu cho mọi dự án sáng tạo.</p>
+          <a class="btn btn-primary btn-lg px-4 shadow-sm me-2" href="#products">Khám phá ngay</a>
+          <button class="btn btn-outline-secondary btn-lg px-4" type="button" data-bs-toggle="modal" data-bs-target="#consultationModal">Tư vấn miễn phí</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. TÍNH NĂNG NỔI BẬT (SECTION MỚI) -->
+    <div class="bg-light py-5" id="features">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Tại Sao Chọn Máy In 3D Của Chúng Tôi?</h2>
+          <p class="text-muted">Được thiết kế tối ưu cho cả công việc sáng tạo lẫn sản xuất quy mô nhỏ</p>
+        </div>
+
+        <div class="row g-4 text-center">
+          <!-- Item 1 -->
+          <div class="col-md-4">
+            <div class="p-4 border rounded-3 bg-white h-100 shadow-sm">
+              <div class="fs-1 text-primary mb-3">
+                <i class="bi bi-lightning-charge-fill"></i>
+              </div>
+              <h4 class="fw-semibold mb-2">Tốc Độ In Siêu Nhanh</h4>
+              <p class="text-secondary mb-0">Tốc độ gia tốc lên tới 500mm/s giúp rút ngắn thời gian in lên đến 70% so với máy in thông thường.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="col-md-4">
+            <div class="p-4 border rounded-3 bg-white h-100 shadow-sm">
+              <div class="fs-1 text-primary mb-3">
+                <i class="bi bi-palette-fill"></i>
+              </div>
+              <h4 class="fw-semibold mb-2">In Đa Màu Tự Động</h4>
+              <p class="text-secondary mb-0">Tích hợp bộ trộn sợi thông minh cho phép phối tối đa 4 màu cùng một lúc trên cùng 1 sản phẩm.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="col-md-4">
+            <div class="p-4 border rounded-3 bg-white h-100 shadow-sm">
+              <div class="fs-1 text-primary mb-3">
+                <i class="bi bi-sliders"></i>
+              </div>
+              <h4 class="fw-semibold mb-2">Cân Bằng Bàn Tự Động</h4>
+              <p class="text-secondary mb-0">Hệ thống cảm biến thông minh tự đo đạc và căn chỉnh bề mặt giúp tỉ lệ in thành công đạt trên 99%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. DANH SÁCH SẢN PHẨM & BẢNG GIÁ (SECTION MỚI) -->
+    <div class="container py-5" id="products">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Chọn Máy In 3D Phù Hợp</h2>
+        <p class="text-muted">Khám phá các dòng máy FDM và Resin dành cho nhiều nhu cầu sáng tạo</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="product-image-area rounded-top">
+              <img src="../image%203d%20printer/SparkX-I7.jpg" alt="Máy in 3D SparkX-I7">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">SparkX-I7 FDM</h5>
+              <p class="card-text text-secondary flex-grow-1">Máy in FDM khung mở, phù hợp để in mô hình, đồ dùng và các sản phẩm sáng tạo hằng ngày.</p>
+              <div class="my-3">
+                <span class="fs-3 fw-bold text-primary">5.500.000 đ</span>
+              </div>
+              <button class="btn btn-outline-primary w-100 fw-semibold">Thêm vào giỏ hàng</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 (Nổi bật) -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow border-primary position-relative">
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger fs-6">Bán Chạy Nhất</span>
+            <div class="product-image-area rounded-top bg-primary bg-opacity-10">
+              <img src="../image%203d%20printer/hinh-san-pham-h2d-combo-laser-2.webp" alt="Máy in 3D Bambu Lab X1 Carbon">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Bambu Lab X1 Carbon</h5>
+              <p class="card-text text-secondary flex-grow-1">Máy in FDM khung kín dành cho người cần in nhanh, ổn định và làm việc với nhiều loại vật liệu.</p>
+              <div class="my-3">
+                <span class="fs-3 fw-bold text-primary">12.900.000 đ</span>
+              </div>
+              <button class="btn btn-primary w-100 fw-semibold">Đặt hàng ngay</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="product-image-area rounded-top">
+              <img src="../image%203d%20printer/3d%20printer%20resin.jpg" alt="Máy in resin ELEGOO Mars">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">ELEGOO Mars Resin</h5>
+              <p class="card-text text-secondary flex-grow-1">Máy in resin dành cho mô hình mini, tượng và chi tiết nhỏ cần bề mặt mịn.</p>
+              <div class="my-3">
+                <span class="fs-3 fw-bold text-primary">8.800.000 đ</span>
+              </div>
+              <button class="btn btn-outline-primary w-100 fw-semibold">Thêm vào giỏ hàng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5 fw-bold" id="consultationModalLabel">Đăng ký tư vấn miễn phí</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+          <form action="mailto:phuoc3d@gmail.com" method="post" enctype="text/plain">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="consultationName" class="form-label">Họ và tên</label>
+                <input class="form-control" id="consultationName" name="Họ và tên" type="text" autocomplete="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="consultationPhone" class="form-label">Số điện thoại</label>
+                <input class="form-control" id="consultationPhone" name="Số điện thoại" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="mb-3">
+                <label for="consultationEmail" class="form-label">Email</label>
+                <input class="form-control" id="consultationEmail" name="Email" type="email" autocomplete="email">
+              </div>
+              <div class="mb-3">
+                <label for="consultationProduct" class="form-label">Sản phẩm quan tâm</label>
+                <select class="form-select" id="consultationProduct" name="Sản phẩm quan tâm" required>
+                  <option value="" selected disabled>Chọn sản phẩm</option>
+                  <option>Máy in FDM</option>
+                  <option>Máy in SLA (Resin)</option>
+                  <option>Phụ kiện và nhựa in</option>
+                  <option>Khác</option>
+                </select>
+              </div>
+              <div>
+                <label for="consultationMessage" class="form-label">Nội dung cần tư vấn</label>
+                <textarea class="form-control" id="consultationMessage" name="Nội dung cần tư vấn" rows="3" placeholder="Chia sẻ nhu cầu hoặc câu hỏi của bạn"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Đóng</button>
+              <button type="submit" class="btn btn-primary">Gửi yêu cầu tư vấn</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. FOOTER / CHÂN TRANG (SECTION MỚI) -->
+    <footer class="bg-dark text-white py-5" id="contact">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <h5 class="fw-bold text-primary">Phuoc 3D Printer Shop</h5>
+            <p class="text-secondary small">Chuyên cung cấp các giải pháp máy in 3D, vật tư nhựa in và dịch vụ tư vấn kỹ thuật in ấn chất lượng hàng đầu.</p>
+          </div>
+          <div class="col-md-3">
+            <h6 class="fw-bold mb-3">Đường dẫn nhanh</h6>
+            <ul class="list-unstyled text-secondary small">
+              <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Trang chủ</a></li>
+              <li class="mb-2"><a href="./features.html" class="text-decoration-none text-secondary">Tính năng</a></li>
+              <li class="mb-2"><a href="#products" class="text-decoration-none text-secondary">Sản phẩm</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h6 class="fw-bold mb-3">Thông tin liên hệ</h6>
+            <p class="text-secondary small mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Showroom Phuoc 3D, Việt Nam</p>
+            <p class="text-secondary small mb-2"><i class="bi bi-telephone-fill me-2"></i> Hotline: 0934.000.349</p>
+            <p class="text-secondary small"><i class="bi bi-envelope-fill me-2"></i> Email: phuoc3d@gmail.com</p>
+          </div>
+        </div>
+        <hr class="border-secondary my-4">
+        <div class="text-center text-secondary small">
+          © 2026 Phuoc 3D Printer Shop. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- CDN Bootstrap JS bắt buộc nằm trước khi đóng body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

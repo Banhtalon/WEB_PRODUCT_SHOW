@@ -1,0 +1,492 @@
+/* Xóa khoảng cách mặc định của trình duyệt */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng thanh điều hướng tổng thể */
+.thanh-dieu-huong {
+    display: flex;
+    justify-content: space-between; /* Đẩy logo, menu và nút ra 3 góc */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #6a3029; /* Màu nền đỏ nâu */
+    padding: 15px 50px;
+}
+
+/* --- PHẦN LOGO --- */
+.phan-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.chu-trang {
+    color: #ffffff; /* Màu trắng cho chữ "Bếp" */
+}
+
+.chu-vang {
+    color: #f7d05d; /* Màu vàng cho chữ "Quê" */
+}
+
+/* --- PHẦN MENU --- */
+.danh-sach-menu {
+    display: flex;
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+    margin: 0;
+    padding: 0;
+    gap: 30px; /* Khoảng cách giữa các chữ */
+}
+
+.danh-sach-menu a {
+    color: #ffffff;
+    text-decoration: none; /* Bỏ gạch chân */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.danh-sach-menu a:hover {
+    color: #f7d05d; /* Đổi sang màu vàng khi di chuột vào */
+}
+
+/* --- PHẦN NÚT BẤM --- */
+.nut-dat-ban {
+    background-color: #cb8439; /* Màu nền cam đất */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Bo tròn góc */
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu mượt mà */
+}
+
+.nut-dat-ban:hover {
+    background-color: #a86c2d; /* Màu cam đậm hơn khi di chuột vào */
+}
+/* Thiết lập cơ bản cho trang */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Khung nền chứa toàn bộ nội dung */
+.phan-gioi-thieu {
+    /* Đặt link ảnh trực tiếp vào url(...) */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('https://vietnamtoplist.com.vn/wp-content/uploads/2025/01/Hinh-anh-mon-an-Viet-Nam4-1-768x512.jpg');
+    
+    /* Các thuộc tính giúp ảnh bao phủ đẹp và không bị méo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* --- NHÃN NHỎ (Badge) --- */
+.nhan-nho {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15); /* Nền trong suốt mờ */
+    padding: 8px 20px;
+    border-radius: 25px; /* Bo tròn hoàn toàn */
+    font-size: 13px;
+    font-weight: bold;
+    color: #f0db99; /* Màu vàng nhạt */
+    margin-bottom: 20px;
+}
+
+/* --- TIÊU ĐỀ --- */
+.tieu-de-chinh {
+    font-size: 55px;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.chu-cam {
+    color: #e69145; /* Đổi màu dòng thứ 2 thành cam */
+}
+
+/* --- MÔ TẢ --- */
+.mo-ta {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* --- NÚT BẤM --- */
+.nhom-nut-bam {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Khoảng cách giữa 2 nút */
+}
+
+.nhom-nut-bam a {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px; /* Bo tròn 2 đầu nút */
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s; /* Hiệu ứng mượt khi di chuột */
+}
+
+/* Nút Đặt Bàn Trước (Nền cam) */
+.nut-chinh {
+    background-color: #d17534;
+    color: #ffffff;
+    border: 2px solid #d17534;
+}
+.nut-chinh:hover {
+    background-color: #b5622a;
+}
+
+/* Nút Xem Thực Đơn (Nền trong suốt, viền mờ) */
+.nut-phu {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.nut-phu:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/* Bao bọc toàn bộ khu vực 3 thẻ */
+.phan-dac-diem {
+    background-color: #fcfbfa; /* Màu nền trắng hơi xám nhẹ */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center; /* Căn giữa toàn bộ danh sách */
+}
+
+/* Khung chứa 3 thẻ để chúng nằm ngang */
+.danh-sach-the {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các thẻ */
+    max-width: 1000px; /* Giới hạn chiều rộng tối đa */
+    width: 100%;
+}
+
+/* Định dạng từng thẻ riêng lẻ */
+.the {
+    background-color: #ffffff; /* Nền trắng */
+    flex: 1; /* Chia đều chiều rộng cho 3 thẻ */
+    display: flex; /* Xếp biểu tượng và chữ nằm ngang */
+    align-items: flex-start; /* Canh trên cùng */
+    padding: 20px;
+    border: 1px solid #efefef; /* Viền mờ xung quanh */
+    border-radius: 10px; /* Bo tròn góc */
+    gap: 15px; /* Khoảng cách giữa biểu tượng và chữ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); /* Đổ bóng cực mờ cho đẹp */
+}
+
+/* Cỡ chữ của biểu tượng */
+.bieu-tuong {
+    font-size: 30px;
+}
+
+/* Định dạng Tiêu đề và Mô tả trong thẻ */
+.thong-tin h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #222222;
+}
+
+.thong-tin p {
+    margin: 0;
+    font-size: 14px;
+    color: #777777; /* Chữ mô tả màu xám */
+    line-height: 1.5;
+}
+/* Màu nền chung cho cả khu vực thực đơn */
+.phan-thuc-don {
+    background-color: #fcfbfa; 
+    padding: 60px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* --- PHẦN TIÊU ĐỀ CHUNG --- */
+.tieu-de-phan {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.nhan-mon-ngon {
+    display: inline-block;
+    background-color: #fceceb;
+    color: #a34e40;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.tieu-de-phan h2 {
+    font-size: 36px;
+    color: #222222;
+    margin: 0 0 10px 0;
+}
+
+.tieu-de-phan p {
+    color: #777777;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* --- LƯỚI DANH SÁCH MÓN ĂN --- */
+.luoi-mon-an {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột bằng nhau */
+    gap: 30px; /* Khoảng cách giữa các thẻ món ăn */
+    max-width: 1200px;
+    margin: 0 auto; /* Căn giữa toàn bộ lưới */
+}
+
+/* --- TỪNG THẺ MÓN ĂN --- */
+.the-mon-an {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Cắt phần góc hình ảnh bị thừa ra ngoài */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Trang trí hình ảnh món ăn (chèn bằng thẻ <img> trong HTML) */
+.anh-mon-an {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Giúp ảnh lấp đầy khung mà không bị méo */
+    object-position: center;
+    display: block;
+    background-color: #e0e0e0;
+}
+
+/* Vùng chứa chữ bên dưới ảnh */
+.thong-tin-mon {
+    padding: 20px;
+}
+
+.danh-muc {
+    font-size: 12px;
+    font-weight: bold;
+    color: #b3855a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.thong-tin-mon h3 {
+    font-size: 20px;
+    color: #333333;
+    margin: 0 0 10px 0;
+}
+
+.thong-tin-mon p {
+    font-size: 14px;
+    color: #777777;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+/* Dòng cuối cùng: Giá và nút đặt món */
+.phan-gia-va-dat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eeeeee; /* Đường kẻ mờ ngăn cách */
+    padding-top: 15px;
+}
+
+.gia {
+    display: flex;
+    flex-direction: column;
+}
+
+.chu-nho {
+    font-size: 11px;
+    color: #999999;
+    margin-bottom: 2px;
+}
+
+.so-tien {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8c3027; /* Màu đỏ nâu */
+}
+
+.vnd {
+    font-size: 14px;
+    font-weight: normal;
+    color: #aaaaaa;
+}
+
+/* Nút đặt món */
+.nut-dat-mon {
+    background-color: #8c3027;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nut-dat-mon:hover {
+    background-color: #6a241d;
+}
+
+
+/* --- PHẦN FORM ĐẶT BÀN --- */
+.phan-dat-ban {
+    background-color: #f5efe8; /* Nền kem ấm áp tạo điểm nhấn khác biệt */
+    padding: 60px 20px;
+}
+
+.khung-dat-ban {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(106, 48, 41, 0.08);
+}
+
+.form-dat-ban {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hang-form {
+    display: flex;
+    gap: 20px;
+}
+
+.o-nhap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.o-nhap label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+    margin-bottom: 8px;
+}
+
+.o-nhap input,
+.o-nhap select,
+.o-nhap textarea {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.o-nhap input:focus,
+.o-nhap select:focus,
+.o-nhap textarea:focus {
+    border-color: #cb8439; /* Đổi màu viền sang cam đất khi nhấp vào */
+}
+
+.khung-nut-gui {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nut-xac-nhan {
+    background-color: #8c3027;
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nut-xac-nhan:hover {
+    background-color: #6a241d;
+}
+
+
+/* --- PHẦN CHÂN TRANG (FOOTER) --- */
+.chan-trang {
+    background-color: #4a201b; /* Màu nâu đỏ trầm đồng điệu với thanh điều hướng */
+    color: #e8dedb;
+    padding: 50px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.noi-dung-chan-trang {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cot-chan-trang {
+    flex: 1;
+}
+
+.mo-ta-chan-trang {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1c1bc;
+}
+
+.cot-chan-trang h4 {
+    color: #f7d05d; /* Màu vàng nổi bật cho tiêu đề cột */
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+
+.danh-sach-lien-ket {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.danh-sach-lien-ket li {
+    margin-bottom: 10px;
+}
+
+.danh-sach-lien-ket a {
+    color: #e8dedb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.danh-sach-lien-ket a:hover {
+    color: #f7d05d;
+}
+
+.cot-chan-trang p {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #d1c1bc;
+}
+
+.ban-quyen {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #b59f99;
+}
+
+.ban-quyen p {
+    margin: 0;
+}
