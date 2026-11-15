@@ -19,6 +19,14 @@
   object-fit: contain;
 }
 
+.navbar .nav-link {
+  font-size: 1.15rem;
+}
+
+.navbar .dropdown-item {
+  font-size: 1.05rem;
+}
+
 .btn:not(.btn-close) {
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }

@@ -185,3 +185,22 @@
           hideToast();
         }, 4000);
       }
+
+      function hideToast() {
+        document.getElementById('toast-alert').classList.add('d-none');
+      }
+
+      function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        let totalCount = 0;
+        for (let i = 0; i < cart.length; i++) {
+          totalCount += cart[i].quantity;
+        }
+        let badge = document.getElementById('cart-badge');
+        if (badge) {
+          badge.innerText = totalCount;
+        }
+      }
+    </script>
+  </body>
+</html>

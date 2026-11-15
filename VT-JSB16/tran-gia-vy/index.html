@@ -26,9 +26,9 @@
 
       <ul class="nav-menu">
         <li><a class="nav-link active" href="index.html">Trang chủ</a></li>
-        <li><a class="nav-link" href="#kham-pha">Công nghệ</a></li>
-        <li><a class="nav-link" href="#kham-pha">Giáo dục</a></li>
-        <li><a class="nav-link" href="#kham-pha">Đời sống</a></li>
+        <li><a class="nav-link" href="#kham-pha" onclick="chonDanhMuc('cat-cong-nghe')">Công nghệ</a></li>
+        <li><a class="nav-link" href="#kham-pha" onclick="chonDanhMuc('cat-giao-duc')">Giáo dục</a></li>
+        <li><a class="nav-link" href="#kham-pha" onclick="chonDanhMuc('cat-doi-song')">Đời sống</a></li>
         <li><a class="btn btn-light nav-cta" href="submit.html">+ Gửi tin</a></li>
       </ul>
     </div>
@@ -52,10 +52,11 @@
             Tin tức chọn lọc về công nghệ, giáo dục, đời sống và những điều đang thay đổi quanh ta.
           </p>
 
-          <form class="search-box" action="#kham-pha" method="get">
+          <form class="search-box" action="#kham-pha" method="get" onsubmit="timBaiViet(event)">
             <span class="search-icon">⌕</span>
             <input
               type="search"
+              id="search-input"
               name="q"
               class="search-input"
               placeholder="Tìm kiếm bài viết..."
@@ -273,6 +274,11 @@
         </div>
 
       </div>
+
+      <div id="khong-ket-qua" class="empty-state" style="display: none;">
+        <h3>Không tìm thấy bài viết phù hợp</h3>
+        <p>Hãy thử tìm với từ khóa khác hoặc chọn danh mục "Tất cả".</p>
+      </div>
     </section>
 
     <!-- 3. BANNER ĐÓNG GÓP TIN TỨC -->
@@ -299,6 +305,76 @@
       <div class="footer-copy">© 2026 VietNews · Website tin tức bằng HTML &amp; CSS thuần</div>
     </div>
   </footer>
+
+  <script>
+    // Chọn danh mục từ thanh điều hướng và đóng menu trên điện thoại
+    function chonDanhMuc(idRadio) {
+      xoaLocTimKiem();
+      var radio = document.getElementById(idRadio);
+      if (radio) {
+        radio.checked = true;
+      }
+      var navToggle = document.getElementById("nav-toggle");
+      if (navToggle) {
+        navToggle.checked = false;
+      }
+    }
+
+    // Xóa trạng thái ẩn do tìm kiếm để bộ lọc danh mục hoạt động bình thường
+    function xoaLocTimKiem() {
+      var danhSachBai = document.querySelectorAll(".news-item");
+      for (var i = 0; i < danhSachBai.length; i++) {
+        danhSachBai[i].style.display = "";
+      }
+      document.getElementById("khong-ket-qua").style.display = "none";
+    }
+
+    // Tìm kiếm bài viết theo từ khóa
+    function timBaiViet(event) {
+      event.preventDefault();
+      var tuKhoa = document.getElementById("search-input").value.toLowerCase().trim();
+      var danhSachBai = document.querySelectorAll(".news-item");
+      var dem = 0;
+
+      document.getElementById("cat-all").checked = true;
+
+      for (var i = 0; i < danhSachBai.length; i++) {
+        var noiDung = danhSachBai[i].textContent.toLowerCase();
+        if (tuKhoa === "" || noiDung.indexOf(tuKhoa) !== -1) {
+          danhSachBai[i].style.display = "";
+          dem++;
+        } else {
+          danhSachBai[i].style.display = "none";
+        }
+      }
+
+      if (dem === 0) {
+        document.getElementById("khong-ket-qua").style.display = "block";
+      } else {
+        document.getElementById("khong-ket-qua").style.display = "none";
+      }
+
+      document.getElementById("kham-pha").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Khi bấm nút chọn danh mục thì hiển thị lại đầy đủ trước khi CSS lọc
+    var cacNutRadio = document.querySelectorAll(".filter-radio");
+    for (var r = 0; r < cacNutRadio.length; r++) {
+      cacNutRadio[r].onchange = function () {
+        document.getElementById("search-input").value = "";
+        xoaLocTimKiem();
+      };
+    }
+
+    // Tự động chọn danh mục nếu chuyển từ trang bài viết / gửi tin sang
+    if (window.location.search.indexOf("cat=cong-nghe") !== -1) {
+      chonDanhMuc("cat-cong-nghe");
+    } else if (window.location.search.indexOf("cat=giao-duc") !== -1) {
+      chonDanhMuc("cat-giao-duc");
+    } else if (window.location.search.indexOf("cat=doi-song") !== -1) {
+      chonDanhMuc("cat-doi-song");
+    }
+  </script>
 
 </body>
 </html>

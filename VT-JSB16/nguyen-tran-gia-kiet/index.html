@@ -80,12 +80,12 @@
         <!-- Menu Links -->
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto gap-3">
-            <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#">NEW &amp; Nổi Bật</a>
+              <a class="nav-link" href="#product-section">NEW &amp; Nổi Bật</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">PickleBall</a>
+              <a class="nav-link" href="#product-section">PickleBall</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -96,39 +96,41 @@
                 >Cầu Lông</a
               >
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Vợt Cầu Lông</a></li>
-                <li><a class="dropdown-item" href="#">Giày Cầu Lông</a></li>
-                <li><a class="dropdown-item" href="#">Quả Cầu Lông</a></li>
+                <li><a class="dropdown-item" href="#product-section">Vợt Cầu Lông</a></li>
+                <li><a class="dropdown-item" href="#product-section">Giày Cầu Lông</a></li>
+                <li><a class="dropdown-item" href="#product-section">Quả Cầu Lông</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">Tin tức</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#footer">Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#footer">Liên hệ</a></li>
           </ul>
 
           <!-- Right Icons (Search, Cart, User) -->
           <div class="d-flex align-items-center gap-3">
-            <div class="input-group d-none d-lg-flex" style="width: 200px">
+            <div class="input-group d-flex" style="width: 200px">
               <input
                 type="text"
+                id="searchInput"
                 class="form-control form-control-sm"
                 placeholder="Tìm kiếm..."
               />
-              <button class="btn btn-outline-secondary btn-sm" type="button">
+              <button class="btn btn-outline-secondary btn-sm" type="button" onclick="applyFilters()">
                 <i class="bi bi-search"></i>
               </button>
             </div>
             <a
-              href="#"
+              href="cart.html"
               class="text-dark position-relative fs-5 text-decoration-none"
             >
               <i class="bi bi-bag"></i>
               <span
+                id="home-cart-badge"
                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 style="font-size: 0.6rem"
                 >0</span
               >
             </a>
-            <a href="#" class="text-dark fs-5 text-decoration-none"
+            <a href="cart.html" class="text-dark fs-5 text-decoration-none"
               ><i class="bi bi-person"></i
             ></a>
           </div>
@@ -209,15 +211,21 @@
                   >Lining</label
                 >
               </div>
-              <div class="form-check small">
+              <div class="form-check small mb-1">
                 <input class="form-check-input" type="checkbox" id="brand3" />
                 <label class="form-check-label text-secondary" for="brand3"
                   >Victor</label
                 >
               </div>
+              <div class="form-check small">
+                <input class="form-check-input" type="checkbox" id="brand4" />
+                <label class="form-check-label text-secondary" for="brand4"
+                  >Mizuno</label
+                >
+              </div>
             </div>
 
-            <button class="btn btn-dark btn-sm w-100">Áp dụng bộ lọc</button>
+            <button class="btn btn-dark btn-sm w-100" onclick="applyFilters()">Áp dụng bộ lọc</button>
           </div>
         </div>
 
@@ -227,21 +235,20 @@
           <div
             class="d-flex justify-content-between align-items-center bg-white p-3 rounded mb-3 shadow-sm border"
           >
-            <span class="text-secondary small"
-              >Hiển thị 1-9 trong tổng số 9 kết quả</span
+            <span id="resultCount" class="text-secondary small"
+              >Hiển thị 9 trong tổng số 9 kết quả</span
             >
-            <select class="form-select form-select-sm w-auto">
-              <option selected>Sắp xếp: Mặc định</option>
+            <select id="sortSelect" class="form-select form-select-sm w-auto" onchange="sortProducts()">
+              <option value="0" selected>Sắp xếp: Mặc định</option>
               <option value="1">Giá: Thấp đến cao</option>
               <option value="2">Giá: Cao xuống thấp</option>
-              <option value="3">Mới nhất</option>
             </select>
           </div>
 
           <!-- Lưới sản phẩm -->
-          <div class="row g-3">
+          <div id="productGrid" class="row g-3">
             <!-- Sản phẩm 1 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Yonex" data-price="3850000" data-order="1">
               <a href="sanpham1.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -263,11 +270,11 @@
             </div>
 
             <!-- Sản phẩm 2 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Lining" data-price="2100000" data-order="2">
               <a href="sanpham2.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
-                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-lining-windstorm-72-blk-1.webp" alt="Lining Windstorm 72" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                    <img src="https://shopvnb.com/uploads/san_pham/vot-cau-long-lining-windstorm-72-blk-1.webp" alt="Lining Windstorm 72" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
                   </div>
                   <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
                     <div>
@@ -285,7 +292,7 @@
             </div>
 
             <!-- Sản phẩm 3 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Victor" data-price="2950000" data-order="3">
               <a href="sanpham3.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -307,7 +314,7 @@
             </div>
 
             <!-- Sản phẩm 4 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Yonex" data-price="4100000" data-order="4">
               <a href="sanpham4.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -329,7 +336,7 @@
             </div>
 
             <!-- Sản phẩm 5 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Lining" data-price="3200000" data-order="5">
               <a href="sanpham5.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -351,11 +358,11 @@
             </div>
 
             <!-- Sản phẩm 6 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Mizuno" data-price="1850000" data-order="6">
               <a href="sanpham6.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
-                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-mizuno-jpx-8-1-xanh-bien-chinh-hang-1.webp" alt="Mizuno JPX 8.1" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                    <img src="https://shopvnb.com/uploads/san_pham/vot-cau-long-mizuno-jpx-8-1-xanh-bien-chinh-hang-1.webp" alt="Mizuno JPX 8.1" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
                   </div>
                   <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
                     <div>
@@ -373,7 +380,7 @@
             </div>
 
             <!-- Sản phẩm 7 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Yonex" data-price="3600000" data-order="7">
               <a href="sanpham7.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -395,11 +402,11 @@
             </div>
 
             <!-- Sản phẩm 8 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Lining" data-price="2800000" data-order="8">
               <a href="sanpham8.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
-                    <img src="https://shopvnb.com//uploads/san_pham/vot-cau-long-lining-turbo-charging-75d-chinh-hang-1.webp" alt="Lining Turbo Charging 75" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
+                    <img src="https://shopvnb.com/uploads/san_pham/vot-cau-long-lining-turbo-charging-75d-chinh-hang-1.webp" alt="Lining Turbo Charging 75" class="product-img img-fluid" style="max-height: 160px; object-fit: contain;" />
                   </div>
                   <div class="p-2 d-flex flex-column flex-grow-1 justify-content-between">
                     <div>
@@ -417,7 +424,7 @@
             </div>
 
             <!-- Sản phẩm 9 -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 product-item" data-brand="Victor" data-price="3150000" data-order="9">
               <a href="sanpham9.html" class="text-decoration-none text-dark h-100 d-block">
                 <div class="product-card h-100 d-flex flex-column bg-white border rounded p-2 shadow-sm">
                   <div class="product-img-wrapper text-center py-2">
@@ -443,7 +450,109 @@
       </div>
     </section>
 
+    <!-- Footer -->
+    <footer id="footer" class="bg-dark text-light py-4 mt-5">
+      <div class="container text-center">
+        <h5 class="fw-bold mb-1"><i class="bi bi-lightning-charge-fill text-primary"></i> SmashZone Store</h5>
+        <p class="small text-secondary mb-1">Chuyên cung cấp vợt và phụ kiện cầu lông chính hãng Yonex, Lining, Victor, Mizuno.</p>
+        <p class="small text-secondary mb-0">© 2026 SmashZone Store • Hotline: 0901 234 567 • Email: contact@smashzone.vn</p>
+      </div>
+    </footer>
+
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Cập nhật số lượng trên biểu tượng giỏ hàng
+      function updateHomeCartBadge() {
+        let cart = JSON.parse(localStorage.getItem("myCart")) || [];
+        let total = 0;
+        for (let i = 0; i < cart.length; i++) {
+          total = total + cart[i].quantity;
+        }
+        document.getElementById("home-cart-badge").innerText = total;
+      }
+
+      // Lọc sản phẩm theo từ khóa, giá và thương hiệu
+      function applyFilters() {
+        let keyword = document.getElementById("searchInput").value.toLowerCase();
+        let p1 = document.getElementById("price1").checked;
+        let p2 = document.getElementById("price2").checked;
+        let p3 = document.getElementById("price3").checked;
+
+        let b1 = document.getElementById("brand1").checked;
+        let b2 = document.getElementById("brand2").checked;
+        let b3 = document.getElementById("brand3").checked;
+        let b4 = document.getElementById("brand4").checked;
+
+        let items = document.getElementsByClassName("product-item");
+        let visibleCount = 0;
+
+        for (let i = 0; i < items.length; i++) {
+          let item = items[i];
+          let text = item.innerText.toLowerCase();
+          let price = parseInt(item.getAttribute("data-price"));
+          let brand = item.getAttribute("data-brand");
+
+          let matchKeyword = keyword === "" || text.indexOf(keyword) !== -1;
+
+          let hasPriceFilter = p1 || p2 || p3;
+          let matchPrice = !hasPriceFilter ||
+            (p1 && price < 1000000) ||
+            (p2 && price >= 1000000 && price <= 3000000) ||
+            (p3 && price > 3000000);
+
+          let hasBrandFilter = b1 || b2 || b3 || b4;
+          let matchBrand = !hasBrandFilter ||
+            (b1 && brand === "Yonex") ||
+            (b2 && brand === "Lining") ||
+            (b3 && brand === "Victor") ||
+            (b4 && brand === "Mizuno");
+
+          if (matchKeyword && matchPrice && matchBrand) {
+            item.classList.remove("d-none");
+            visibleCount++;
+          } else {
+            item.classList.add("d-none");
+          }
+        }
+
+        document.getElementById("resultCount").innerText =
+          "Hiển thị " + visibleCount + " trong tổng số 9 kết quả";
+      }
+
+      // Sắp xếp sản phẩm theo giá
+      function sortProducts() {
+        let sortValue = document.getElementById("sortSelect").value;
+        let grid = document.getElementById("productGrid");
+        let items = Array.from(grid.getElementsByClassName("product-item"));
+
+        items.sort(function (a, b) {
+          let priceA = parseInt(a.getAttribute("data-price"));
+          let priceB = parseInt(b.getAttribute("data-price"));
+          let orderA = parseInt(a.getAttribute("data-order"));
+          let orderB = parseInt(b.getAttribute("data-order"));
+
+          if (sortValue === "1") {
+            return priceA - priceB;
+          } else if (sortValue === "2") {
+            return priceB - priceA;
+          } else {
+            return orderA - orderB;
+          }
+        });
+
+        for (let i = 0; i < items.length; i++) {
+          grid.appendChild(items[i]);
+        }
+      }
+
+      document.getElementById("searchInput").addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          applyFilters();
+        }
+      });
+
+      updateHomeCartBadge();
+    </script>
   </body>
 </html>

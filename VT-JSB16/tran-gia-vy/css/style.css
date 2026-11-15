@@ -38,6 +38,11 @@ html {
   scroll-behavior: smooth;
 }
 
+#kham-pha,
+#gui-thanh-cong {
+  scroll-margin-top: 90px;
+}
+
 body {
   font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
   color: var(--text-main);

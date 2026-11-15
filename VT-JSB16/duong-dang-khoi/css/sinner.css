@@ -1,0 +1,379 @@
+/* ==========================================
+   GIAO DIỆN CHUNG CHO TRANG CHI TIẾT SINNER
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ảnh nền cố định toàn trang */
+.sinner-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.sinner-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(4px) brightness(0.4);
+}
+
+.sinner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.75);
+    z-index: -1;
+}
+
+/* Khung chứa chính */
+.sinner-detail-container {
+    display: block;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   THẺ PROFILE GIỚI THIỆU (CHỮ TRÁI, ẢNH PHẢI)
+   ========================================== */
+.sinner-profile-card {
+    display: flex;
+    flex-direction: row;
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid #7a0000;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    margin-bottom: 35px;
+}
+
+.sinner-info-box {
+    flex: 1;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sinner-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.sinner-id-tag {
+    font-size: 14px;
+    color: #ff3333;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.wiki-quote {
+    font-style: italic;
+    color: #ffcc00;
+    border-left: 3px solid #ffcc00;
+    padding-left: 12px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.sinner-desc, .appearance-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d1d1d1;
+    margin-bottom: 20px;
+}
+
+.appearance-section h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.wiki-meta-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.meta-row {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 8px;
+}
+
+.meta-row span {
+    color: #fff;
+    font-weight: 600;
+}
+
+.sinner-avatar-box {
+    width: 380px;
+    background-color: #0b0b0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-left: 2px solid #7a0000;
+}
+
+.sinner-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   KHUNG CHỨA IDENTITIES VÀ E.G.O (ĐỒNG NHẤT NỀN ĐỎ)
+   ========================================== */
+.ids-section {
+    width: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    border: 2px solid #7a0000;
+    border-radius: 6px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9);
+}
+
+.ids-header, .ids-header.ego-header {
+    background-color: #8b0000 !important;
+    border-color: #5a0000 !important;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+    border-bottom: 2px solid #5a0000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ids-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.ids-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: #0d0d0d;
+}
+
+.id-card {
+    width: 115px;
+    background-color: #161616;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.id-card:hover {
+    transform: scale(1.03);
+    border-color: #ff3333;
+    z-index: 10;
+}
+
+.id-img-box {
+    width: 100%;
+    height: 155px;
+    background-color: #0b0b0b;
+    overflow: hidden;
+}
+
+.id-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.id-name {
+    display: none;
+}
+
+/* ==========================================
+   CHARACTER NAVIGATION
+   ========================================== */
+.char-nav-box {
+    width: 100%;
+    background: #000000;
+    border: 2px solid #7a0000;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9);
+}
+
+.char-nav-header {
+    background: #8b0000;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #5a0000;
+}
+
+.char-nav-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.char-sub-header {
+    background: #6a0000;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #4a0000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3px;
+    padding: 5px;
+    background: #000000;
+}
+
+.char-item {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 2px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+/* Khắc phục lỗi hình bầu dục -> Chuyển thành hình vuông bo góc nhẹ */
+.char-item img {
+    width: 100%;
+    height: 95px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px !important;
+}
+
+.char-item span {
+    display: none;
+}
+
+.char-item:hover, .char-item.active {
+    border-color: #ff3333;
+    transform: translateY(-2px);
+}
+
+.char-item.active {
+    border: 2px solid #ffcc00;
+}
+
+/* NÚT QUAY LẠI VÀ FOOTER */
+.back-btn-box {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #8b0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #ff3333;
+}
+
+.back-btn:hover {
+    background-color: #a80000;
+}
+
+.site-footer {
+    background-color: #0a0a0a;
+    border-top: 2px solid #333;
+    padding: 30px 20px;
+    color: #888;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.footer-desc {
+    font-size: 13px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #222;
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    .sinner-profile-card {
+        flex-direction: column-reverse;
+    }
+    .sinner-avatar-box {
+        width: 100%;
+        height: 350px;
+        border-left: none;
+        border-bottom: 2px solid #7a0000;
+    }
+    .char-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

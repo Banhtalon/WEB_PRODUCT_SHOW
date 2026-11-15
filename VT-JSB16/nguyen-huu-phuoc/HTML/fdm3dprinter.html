@@ -15,7 +15,25 @@
 				<a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary fs-3" href="./index.html">
 					<img src="../image%203d%20printer/913906fe-27c8-4ab2-b9f5-dfc8d910026a.jfif" alt="Phuoc 3D Printer Shop" class="navbar-logo">
 				</a>
-				<a class="btn btn-outline-primary" href="./index.html"><i class="bi bi-arrow-left me-1"></i>Trang chủ</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarFdm" aria-controls="navbarFdm" aria-expanded="false" aria-label="Mở menu điều hướng">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarFdm">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+						<li class="nav-item"><a class="nav-link" href="./index.html">Trang chủ</a></li>
+						<li class="nav-item"><a class="nav-link" href="./features.html">Tính năng</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dòng máy</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item active" aria-current="page" href="./fdm3dprinter.html">Máy in FDM</a></li>
+								<li><a class="dropdown-item" href="./sla3dprinter.html">Máy in SLA (Resin)</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="./accessories.html">Phụ kiện &amp; Nhựa in</a></li>
+							</ul>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="./index.html#contact">Liên hệ</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 
@@ -210,9 +228,12 @@
 						<h2 class="modal-title fs-5 fw-bold" id="orderModalLabel">Đăng ký đặt hàng</h2>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
 					</div>
-					<form action="mailto:phuoc3d@gmail.com" method="post" enctype="text/plain">
+					<form id="orderForm" onsubmit="guiDonHang(event)">
 						<div class="modal-body">
-							<input type="hidden" id="orderProduct" name="Sản phẩm">
+							<div class="mb-3">
+								<label for="orderProduct" class="form-label">Sản phẩm chọn mua</label>
+								<input class="form-control bg-light fw-semibold text-primary" id="orderProduct" name="Sản phẩm" type="text" readonly>
+							</div>
 							<div class="mb-3">
 								<label for="orderName" class="form-label">Họ và tên</label>
 								<input class="form-control" id="orderName" name="Họ và tên" type="text" autocomplete="name" required>
@@ -247,13 +268,26 @@
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 		<script>
-			document.querySelectorAll("#products .card-body > a").forEach((button) => {
-				button.addEventListener("click", (event) => {
+			var danhSachNut = document.querySelectorAll("#products .card-body > a");
+			for (var i = 0; i < danhSachNut.length; i++) {
+				danhSachNut[i].onclick = function (event) {
 					event.preventDefault();
-					document.getElementById("orderProduct").value = button.closest(".card").querySelector(".card-title").textContent.trim();
-					bootstrap.Modal.getOrCreateInstance(document.getElementById("orderModal")).show();
-				});
-			});
+					var theSanPham = this.closest(".card");
+					var tenSanPham = theSanPham.querySelector(".card-title").textContent.trim();
+					document.getElementById("orderProduct").value = tenSanPham;
+					var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("orderModal"));
+					modal.show();
+				};
+			}
+
+			function guiDonHang(event) {
+				event.preventDefault();
+				var sanPham = document.getElementById("orderProduct").value;
+				var hoTen = document.getElementById("orderName").value;
+				alert("Cảm ơn " + hoTen + "! Đã ghi nhận yêu cầu đặt mua: " + sanPham + ". Shop sẽ liên hệ xác nhận sớm.");
+				document.getElementById("orderForm").reset();
+				bootstrap.Modal.getOrCreateInstance(document.getElementById("orderModal")).hide();
+			}
 		</script>
 	</body>
 </html>

@@ -1,4 +1,8 @@
-/* Xóa khoảng cách mặc định của trình duyệt */
+/* Cuộn trang mượt mà và xóa khoảng cách mặc định của trình duyệt */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -62,17 +66,11 @@ body {
 .nut-dat-ban:hover {
     background-color: #a86c2d; /* Màu cam đậm hơn khi di chuột vào */
 }
-/* Thiết lập cơ bản cho trang */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
 /* Khung nền chứa toàn bộ nội dung */
 .phan-gioi-thieu {
-    /* Đặt link ảnh trực tiếp vào url(...) */
+    /* Dùng ảnh nền có sẵn trong thư mục images */
     background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                url('https://vietnamtoplist.com.vn/wp-content/uploads/2025/01/Hinh-anh-mon-an-Viet-Nam4-1-768x512.jpg');
+                url('../images/background.jpg');
     
     /* Các thuộc tính giúp ảnh bao phủ đẹp và không bị méo */
     background-size: cover;
@@ -489,4 +487,49 @@ body {
 
 .ban-quyen p {
     margin: 0;
+}
+
+/* --- HIỂN THỊ TRÊN ĐIỆN THOẠI & MÁY TÍNH BẢNG (RESPONSIVE) --- */
+@media (max-width: 900px) {
+    .luoi-mon-an {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .danh-sach-the {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .thanh-dieu-huong {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+
+    .tieu-de-chinh {
+        font-size: 36px;
+    }
+
+    .nhom-nut-bam {
+        flex-wrap: wrap;
+    }
+
+    .luoi-mon-an {
+        grid-template-columns: 1fr;
+    }
+
+    .hang-form {
+        flex-direction: column;
+    }
+
+    .khung-dat-ban {
+        padding: 25px 20px;
+    }
+
+    .noi-dung-chan-trang {
+        flex-direction: column;
+        gap: 25px;
+    }
 }

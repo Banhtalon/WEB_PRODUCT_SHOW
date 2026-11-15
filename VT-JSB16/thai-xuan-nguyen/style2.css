@@ -1,0 +1,125 @@
+/* Tùy chỉnh màu sắc & font */
+:root {
+    --bs-body-bg: #0f1115;
+    --bs-body-color: #e1e1e1;
+    --primary-orange: #ff6b35;
+    --primary-orange-hover: #e85a24;
+    --bg-dark-custom: #161920;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    padding-top: 70px;
+}
+
+/* Custom Utilities */
+.border-orange {
+    border-color: var(--primary-orange) !important;
+}
+
+.bg-orange {
+    background-color: var(--primary-orange) !important;
+}
+
+.text-orange {
+    color: var(--primary-orange) !important;
+}
+
+.bg-dark-custom {
+    background-color: var(--bg-dark-custom);
+}
+
+.btn-orange {
+    background-color: var(--primary-orange);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: var(--primary-orange-hover);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 50vh;
+    background: linear-gradient(135deg, rgba(15, 17, 21, 0.9), rgba(255, 107, 53, 0.2)),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Heading Line decor */
+.heading-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-orange);
+    border-radius: 2px;
+}
+
+/* Category Filter Buttons Styling */
+.btn-filter {
+    background-color: var(--bg-dark-custom);
+    color: #a0a0a0;
+    border: 1px solid #2a2e39;
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover {
+    color: #fff;
+    border-color: var(--primary-orange);
+}
+
+/* Toggle CSS logic thông qua Input Radio */
+#cat-all:checked ~ .category-buttons label[for="cat-all"],
+#cat-nature:checked ~ .category-buttons label[for="cat-nature"],
+#cat-architecture:checked ~ .category-buttons label[for="cat-architecture"],
+#cat-animals:checked ~ .category-buttons label[for="cat-animals"],
+#cat-cyberpunk:checked ~ .category-buttons label[for="cat-cyberpunk"] {
+    background-color: var(--primary-orange);
+    color: #fff;
+    border-color: var(--primary-orange);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Ẩn hiện các ảnh dựa trên Filter được chọn bằng Pure CSS */
+#cat-nature:checked ~ .gallery-grid .gallery-item:not(.item-nature),
+#cat-architecture:checked ~ .gallery-grid .gallery-item:not(.item-architecture),
+#cat-animals:checked ~ .gallery-grid .gallery-item:not(.item-animals),
+#cat-cyberpunk:checked ~ .gallery-grid .gallery-item:not(.item-cyberpunk) {
+    display: none !important;
+}
+
+/* Image Card Hover Effects */
+.gallery-item .card {
+    height: 320px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item .card-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item .card-img-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 80%);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+.gallery-item .card:hover .card-img {
+    transform: scale(1.1);
+}

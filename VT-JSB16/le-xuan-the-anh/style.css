@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth; /* MẸO BASIC: Giúp trang web tự động cuộn mượt mà khi bấm menu */
+    scroll-padding-top: 95px;
 }
 
 body {
@@ -65,8 +66,8 @@ nav ul li a:hover {
 
 /* 3. KHU VỰC BANNER GIỚI THIỆU */
 .banner {
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                      url('https://unsplash.com');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                      url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1600&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     height: 260px;
@@ -111,7 +112,7 @@ nav ul li a:hover {
 .product-card {
     background-color: white;
     border: 1px solid #e5e5e5;
-    width: 23.5%; 
+    width: 32%; 
     float: left; 
     margin-right: 2%; 
     margin-bottom: 25px;
@@ -121,7 +122,7 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
-.product-card:nth-child(4n) {
+.product-card:nth-child(3n) {
     margin-right: 0;
 }
 
@@ -220,6 +221,7 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.7); 
     z-index: 2000;
     display: none; 
+    overflow-y: auto;
 }
 
 .product-detail-modal:target {
@@ -341,4 +343,51 @@ footer {
 
 footer p strong {
     color: white;
+}
+
+/* 7. ĐÁP ỨNG MÀN HÌNH NHỎ (RESPONSIVE CƠ BẢN) */
+@media (max-width: 768px) {
+    .container {
+        width: 92%;
+    }
+    .product-card {
+        width: 48%;
+        margin-right: 4%;
+    }
+    .product-card:nth-child(3n) {
+        margin-right: 4%;
+    }
+    .product-card:nth-child(2n) {
+        margin-right: 0;
+    }
+    .modal-content {
+        width: 92%;
+        margin: 10% auto;
+    }
+    .modal-left,
+    .modal-right {
+        width: 100%;
+        float: none;
+    }
+    .modal-left {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    nav ul li {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+    .banner {
+        height: auto;
+        padding: 45px 15px;
+    }
+    .banner h2 {
+        font-size: 26px;
+    }
+    .product-card {
+        width: 100%;
+        margin-right: 0 !important;
+    }
 }

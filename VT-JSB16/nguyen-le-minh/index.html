@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Điều Hướng</title>
+    <title>Bếp Quê - Hương Vị Cơm Nhà</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -121,7 +121,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">55.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Bún Riêu Cua Đồng Hà Nội')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">60.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Bún Chả Nướng Than Hoa')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">50.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Nem Rán Hà Thành Giòn Rụm')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">45.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Bánh Bột Lọc Tôm Thịt Huế')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">55.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Cơm Tấm Sườn Cốt Lết Bì Chả')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -211,7 +211,7 @@
                             <span class="chu-nho">GIÁ CHỈ TỪ</span>
                             <span class="so-tien">60.000 <span class="vnd">VNĐ</span></span>
                         </div>
-                        <button class="nut-dat-mon">Đặt món</button>
+                        <button type="button" class="nut-dat-mon" onclick="chonMon('Mì Quảng Tôm Thịt Trứng Cút')">Đặt món</button>
                     </div>
                 </div>
             </div>
@@ -231,7 +231,7 @@
 
         <!-- Khung chứa Form Đặt Bàn -->
         <div class="khung-dat-ban">
-            <form class="form-dat-ban" action="#" method="post">
+            <form class="form-dat-ban" id="form-dat-ban" onsubmit="xacNhanDatBan(event)">
 
                 <!-- Hàng 1: Họ tên và Số điện thoại -->
                 <div class="hang-form">
@@ -323,6 +323,29 @@
             <p>© 2026 Nhà Hàng Bếp Quê. Giữ trọn tinh hoa ẩm thực Việt.</p>
         </div>
     </footer>
+
+    <script>
+        // Chọn món ăn và cuộn xuống phần đặt bàn
+        function chonMon(tenMon) {
+            var oGhiChu = document.getElementById("ghi-chu");
+            if (oGhiChu.value === "") {
+                oGhiChu.value = "Đặt trước món: " + tenMon;
+            } else if (oGhiChu.value.indexOf(tenMon) === -1) {
+                oGhiChu.value = oGhiChu.value + ", " + tenMon;
+            }
+            document.getElementById("dat-ban").scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Xử lý xác nhận khi khách gửi form đặt bàn
+        function xacNhanDatBan(event) {
+            event.preventDefault();
+            var hoTen = document.getElementById("ho-ten").value;
+            var ngayDen = document.getElementById("ngay-den").value;
+            var gioDen = document.getElementById("gio-den").value;
+            alert("Cảm ơn " + hoTen + "! Bếp Quê đã nhận lịch đặt bàn vào lúc " + gioDen + " ngày " + ngayDen + " và sẽ liên hệ xác nhận sớm.");
+            document.getElementById("form-dat-ban").reset();
+        }
+    </script>
 
 </body>
 

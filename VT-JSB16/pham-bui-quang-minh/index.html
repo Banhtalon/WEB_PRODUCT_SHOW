@@ -1,93 +1,258 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matrix-Coding Center</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body style="background-color: black;">
-    <nav class="navbar bg-dark" style="border: 2px solid cyan;border-radius: 8px;">
-        <img src="./Matrix.png" alt="Matrix" style="border-radius: 10px;" width="80px" class="logo">
-        <ul class="text-primary">
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#contests">Contests</a></li>
-            <li><a href="#aboutus">About Us</a></li>
-            <li><a href="#youraccount">Your Account</a></li>
-            <li><a href="#lessons">Lessons</a></li>
-        </ul>
-        <img src="./Icon.png" alt="Icon" width="80px" style="border: 2px solid cyan;border-radius: 50px;">
-    </nav>
-    <h1 class="text-primary">Welcome to Matrix - <span class="text-info">A coding center!</span></h1>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matrix-Coding Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body style="background-color: black;">
+  <!-- Navigation -->
+  <nav class="navbar bg-dark" style="border: 2px solid cyan;border-radius: 8px;">
+    <img src="./Matrix.png" alt="Matrix" style="border-radius: 10px;" width="80px" class="logo">
+    <ul class="text-info">
+      <li><a class="text-info" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" href="#courses">Courses</a></li>
+      <li><a class="text-info" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" href="#aboutus">About Us</a></li>
+      <li><a class="text-info" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" href="#rate">Customers' rate</a>
+      </li>
+      <li><a class="text-info" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" href="#payment">Payment</a></li>
+      <li><a class="text-info" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          href="./youraccount.html">Account</a></li>
+    </ul>
+    <a href="youraccount.html"><img src="./Icon.png" alt="Icon" width="80px"
+        style="border: 2px solid cyan;border-radius: 50px;"></a>
+  </nav>
+  <!-- End navigation -->
+  <h1 class="text-primary">Welcome to Matrix - <span class="text-info">A coding center!</span></h1>
+  <!-- Hero -->
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./Hero/Hero-1.png" class="d-block w-100 text-light" alt="OOF! This Hero does not esixt!"
+          style="width:100%">
+      </div>
+      <div class="carousel-item">
+        <img src="./Hero/Hero-2.png" class="d-block w-100 text-light" alt="OOF! This Hero does not esixt!"
+          style="width:100%">
+      </div>
+    </div>
+  </div>
+  <!-- End hero -->
+  <h2 class="text-light" style="text-align: center;">The Courses</h2>
+  <!-- Coures and L.Courses -->
+  <div class="bg-info courses-container" style="margin: 10px auto;" id="courses">
+    <article class="bg-dark" width="100px">
+      <img src="./Articles/Basic.png" alt="Basic" style="border-radius: 10px;" width="250px">
+      <h3 class="text-info">The Basic Class : 150 lessons</h3>
+      <p class="text-light">In this class,you will learn about basic IDE and languages like Gamemaker and Scratch.</p>
+      <h4 class="text-primary">Price: 14 750 000 VNĐ</h4>
+      <button class="btn3d"><a href="#payment" class=" text-light">Buy now</a></button>
+    </article>
+    <article class="bg-dark" width="100px">
+      <img src="./Articles/Advanced.png" alt="Advanced" style="border-radius: 10px;" width="250px">
+      <h3 class="text-info">The Advaned Class : 200 lessons</h3>
+      <p class="text-light">In this class,you wil know the advanced IDE and languages like HTML,Python,CSS,and JS.</p>
+      <h4 class="text-primary">Price: 30 500 000 VNĐ</h4>
+      <button class="btn3d"><a href="#payment" class=" text-light ">Buy now</a></button>
+    </article>
+    <article class="bg-dark" width="100px">
+      <img src="./Articles/Intensive.png" alt="Intensive" style="border-radius: 10px;" width="250px">
+      <h3 class="text-info">The Intensive Class : 150 lessons</h3>
+      <p class="text-light">In this last class,you will learn about Database language like SQL,R and C#.</p>
+      <h4 class="text-primary">Price: 15 275 000 VNĐ</h4>
+      <button class="btn3d"><a href="#payment" class=" text-light">Buy now</a></button>
+    </article>
+  </div>
+  <!-- End courses -->
+  <!-- L.Courses-->
+  <h2 class="text-primary text-center"><span class="text-info">Language </span>Courses (<span
+      class="text-warning">Basic</span>,<span class="text-danger">Advanced</span>,<span
+      class="text-light">Intensive</span>)</h2>
+  <div class="container py-5 bg-info" id="LCourses">
+    <div id="c3" class="carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="...">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/1.png" alt="Scratch" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Scratch class</h6>
+                  <p class="text-muted small mb-0">7 375 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/2.png" alt="Gamemaker"
+                  class="card-img-top" style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Gamemaker</h6>
+                  <p class="text-muted small mb-0">7 375 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/3.png" alt="Python" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Python</h6>
+                  <p class="text-muted small mb-0">15 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/4.png" alt="HTML,CSS,JS"
+                  class="card-img-top" style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">HTML,CSS,and JS</h6>
+                  <p class="text-muted small mb-0">15 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/5.png" alt="C#" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">C#</h6>
+                  <p class="text-muted small mb-0">5 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/6.png" alt="Java" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Java</h6>
+                  <p class="text-muted small mb-0">5 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/7.png" alt="Database" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Database</h6>
+                  <p class="text-muted small mb-0">5 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm h-100"><img src="./LCourses/8.png" alt="Lua" class="card-img-top"
+                  style="height:180px;object-fit:contain">
+                <div class="card-body">
+                  <h6 class="fw-bold">Lua</h6>
+                  <p class="text-muted small mb-0">5 250 000 VNĐ</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <button class="carousel-control-prev bg-dark rounded-circle btn3d" style="width:40px;height:40px;top:50%"
+        data-bs-target="#c3" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next bg-dark rounded-circle btn3d" style="width:40px;height:40px;top:50%"
+        data-bs-target="#c3" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+  </div>
+  <!-- End L.Courses -->
+  <!-- End Courses and L.Courses -->
+  <h2 class="text-center" id="aboutus"><span class="text-danger">A</span><span class="text-warning">b</span><span
+      class="text-success">o</span><span class="text-info">u</span><span class="text-primary">t</span><span
+      class="text-light"> us</span></h2>
+  <div class="bg-dark" style="display: flex;margin: auto 250px;border-radius: 10px;">
+    <img src="./HTech.jpg" alt="High Technology" class="height:250px;object-fit:cover">
+    <p class="text-light" style="font-size: large;font-weight: bold;">Matrix-Coding Center is a coding center for
+      newbies at learning languages and getting acquainted with IDEs like:Scratch,Gamemaker,Visual Studio Code,....This
+      was founded in June,2026 and will accompany with customers from that time.</p>
+  </div>
+  <h2 class="text-info text-center" id="rate">Here is a review about our course</h2>
+  <div class="text-center bg-light btn3d">
+    <div class="text-warning fs-3 mb-2">★★★★★</div>
+    <p class="fs-5 mx-auto text-info" style="max-width:640px">"Great course and good lecture!"</p>
+  </div>
+  <h2 class="text-light text-center" id="payment">Payment</h2>
+  <section class="py-5 bg-dark">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow rounded-4 overflow-hidden btn3d">
+            <div class="bg-primary py-3 px-4">
+              <h4 class="text-white mb-0 h5"><i class="bi bi-file-earmark-text me-2"></i>Buy Form</h4>
+            </div>
+            <div class="card-body p-4 p-md-5 bg-dark">
+              <form id="BuyForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Full Name</label>
+                    <input type="text" class="form-control btn3d" placeholder="Type your Name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Phone Number</label>
+                    <input type="tel" class="form-control btn3d" placeholder="017xxxxxxxx" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control btn3d" placeholder="yourname@example.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold ">Select Course</label>
+                    <select class="form-select btn3d" required>
+                      <option value="" selected disabled>Choose Normal Course...</option>
+                      <option>Basic Class</option>
+                      <option>Advanced Class</option>
+                      <option>Intensive Class</option>
+                      <option value="" selected disabled>Choose Language Course...</option>
+                      <option>Scratch Class</option>
+                      <option>Gamemaker Class</option>
+                      <option>Python Class</option>
+                      <option>HTML,CSS,JS Class</option>
+                      <option>C# Class</option>
+                      <option>Java Class</option>
+                      <option>Database Class</option>
+                    </select>
+                  </div>
+                  <div class="col-12 mt-4 text-center">
+                    <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill fw-bold btn3d">Buy it!</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <h2 class="text-light" style="text-align: center;">The Courses</h2>
-    <div class="bg-info" style="margin: 10px;">
-        <article class="bg-dark" width="100px">
-            <img src="./Articles/Basic.png" alt="Basic" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">The Basic Class : 50 lessons</h3>
-            <p class="text-light">In this class,you will learn about basic IDE and languages like Gamemaker and Scratch.</p>
-            <h4 class="text-primary">Price: 4 530 000 VNĐ</h4>
-            <button class="text-light">Buy now</button>
-        </article>
-        <article class="bg-dark" width="100px">
-            <img src="./Articles/Advanced.png" alt="Advanced" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">The Advaned Class : 75 lessons</h3>
-            <p class="text-light">In this class,you wil know the advanced IDE and languages like HTML,Python,CSS,and JS.</p>
-            <h4 class="text-primary">Price: 7 430 000 VNĐ</h4>
-            <button class=" text-light">Buy now</button>
-        </article>
-        <article class="bg-dark" width="100px">
-            <img src="./Articles/Intensive.png" alt="Intensive" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">The Intensive Class : 40 lessons</h3>
-            <p class="text-light">In this last class,you will learn about Database language like SQL,R and C#.</p>
-            <h4 class="text-primary">Price: 5 224 000 VNĐ</h4>
-            <button class="text-light">Buy now</button>
-        </article>
-    </div>
-    <h2 class="text-primary text-center"><span class="text-info">Language </span>Courses</h2>
-    <div class="bg-info" style="margin: 10px;">
-        <article class="bg-dark" width="100px">
-            <img src="./LCourses/1.png" alt="Scratch" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">Scratch class (Basic,Advanced,Intensive)</h3>
-            <p class="text-light">Coding games,</p>
-            <h4 class="text-primary">Price: 1 250 000 VNĐ</h4>
-            <button class="text-light">Buy now</button>
-        </article>
-        <article class="bg-dark" width="100px">
-            <img src="./Articles/Advanced.png" alt="Advanced" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">The Advaned Class</h3>
-            <p class="text-light">In this class,you wil know the advanced IDE and languages like HTML,Python,CSS,and JS.</p>
-            <h4 class="text-primary">Price: 2 450 000 VNĐ</h4>
-            <button class=" text-light">Buy now</button>
-        </article>
-        <article class="bg-dark" width="100px">
-            <img src="./Articles/Intensive.png" alt="Intensive" style="border-radius: 10px;" width="250px">
-            <h3 class="text-info">The Intensive Class</h3>
-            <p class="text-light">In this last class,you will learn about Database language like SQL,R and C#.</p>
-            <h4 class="text-primary">Price: 3 650 000 VNĐ</h4>
-            <button class="text-light">Buy now</button>
-        </article>
-    </div>
-    <div class="d-flex flex-column" style="min-height:180px;">
-      <footer class="py-3 bg-secondary text-primary mt-auto">
-        <img src="./Matrix.png" alt="Matrix" width="80px" style="border-radius: 10px;">
-        <div class="container text-center bg-dark">
-          <p class="mb-0 small text-primary text-center">© 2026 <span class="text-info">Matrix Coding Center</span> · Email: matrixcoding@gmail.com</p>
-      </footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+  </section>
+  <style>
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--bs-primary);
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    }
+  </style>
+  <div class="d-flex flex-column" style="min-height:180px;">
+    <footer class="py-3 bg-secondary text-primary mt-auto">
+      <img src="./Matrix.png" alt="Matrix" width="80px" style="border-radius: 5px;">
+      <div class="container text-center bg-dark">
+        <p class="mb-0 small text-primary text-center">© 2026 <span class="text-info">Matrix Coding Center (<span
+              class="text-warning">Demo</span>)</span> · Email: matrixcoding@gmail.com</p>
+    </footer>
+  </div>
+  <button class="btn3d btn3d-dark text-info border border-info border-2
+            rounded-pill shadow-lg position-fixed bottom-0 end-0 m-4 px-4 py-3" style="z-index: 2147483647;"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑ Back to Top
+  </button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

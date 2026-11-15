@@ -1,67 +1,174 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SPCK JSB21</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="./stylesheets/style-main.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg text-bg-dark p-3 border-top border-orange border-5">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">placeholder</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PhotoVerse - Thư Viện Hình Ảnh</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style2.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top border-bottom border-orange border-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-orange fs-3" href="#"><i class="fa-solid fa-camera-retro me-2"></i>PhotoVerse</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#gallery">Bộ sưu tập</a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Chủ đề</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#nature">Thiên nhiên</a></li>
+                            <li><a class="dropdown-item" href="#architecture">Kiến trúc</a></li>
+                            <li><a class="dropdown-item" href="#animals">Động vật</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#cyberpunk">Cyberpunk</a></li>
+                        </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex search-box" role="search">
+                    <div class="input-group">
+                        <input class="form-control bg-dark text-light border-secondary" type="search" placeholder="Tìm kiếm hình ảnh..." aria-label="Search">
+                        <button class="btn btn-orange text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
                 </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section text-center text-light d-flex align-items-center justify-content-center">
+        <div class="container hero-content">
+            <h1 class="display-3 fw-bold mb-3">Khám Phá Thế Giới Qua Ống Kính</h1>
+            <p class="lead text-light-50 mb-4 fs-5">Hàng ngàn hình ảnh chất lượng cao thuộc nhiều chủ đề đang chờ bạn khám phá.</p>
+            <a href="#gallery" class="btn btn-orange btn-lg px-4 me-2 rounded-pill shadow">Xem bộ sưu tập</a>
+        </div>
+    </header>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-light fs-1">Thư Viện Ảnh</h2>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <!-- Radio Filter Controls -->
+            <input type="radio" name="category" id="cat-all" checked hidden>
+            <input type="radio" name="category" id="cat-nature" hidden>
+            <input type="radio" name="category" id="cat-architecture" hidden>
+            <input type="radio" name="category" id="cat-animals" hidden>
+            <input type="radio" name="category" id="cat-cyberpunk" hidden>
+
+            <!-- Filter Buttons -->
+            <div class="category-buttons d-flex flex-wrap justify-content-center gap-2 mb-5">
+                <label for="cat-all" class="btn btn-filter">Tất cả</label>
+                <label for="cat-nature" class="btn btn-filter">Thiên nhiên</label>
+                <label for="cat-architecture" class="btn btn-filter">Kiến trúc</label>
+                <label for="cat-animals" class="btn btn-filter">Động vật</label>
+                <label for="cat-cyberpunk" class="btn btn-filter">Cyberpunk</label>
+            </div>
+
+            <!-- Image Grid -->
+            <div class="row g-4 gallery-grid">
+                <!-- Nature Images -->
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-nature">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Hồ trên núi">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Thiên nhiên</span>
+                            <h5 class="card-title fw-bold">Rừng & Hồ Núi</h5>
+                            <p class="card-text small text-light-50">Cảnh quan thiên nhiên hùng vĩ mùa thu.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        <!-- HERO -->
-        <div id="hero" class="border border-orange border-2 rounded-5">
-            <div>
-                <h1 class="text-light">Images of every kind</h1>
-                <h6 class="text-slightlyvrightlygray">Explore versatile stock images with multiple styles</h6>
-            </div>
-            <div class="row g-4 images">
-                <div class="col-12 col-m-6">
-                    <div class="overflow-hidden h-100">
-                        <img class="home-screen-image img-fluid rounded-4 shadow" src="./images/main/horizon.jpg" alt="horizon">
+
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-nature">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Sương mù núi">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Thiên nhiên</span>
+                            <h5 class="card-title fw-bold">Sương Mù Đỉnh Núi</h5>
+                            <p class="card-text small text-light-50">Hoàng hôn huyền ảo trên các rặng núi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture Images -->
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-architecture">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Tòa nhà cao tầng">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Kiến trúc</span>
+                            <h5 class="card-title fw-bold">Tòa Nhà Hiện Đại</h5>
+                            <p class="card-text small text-light-50">Góc nhìn từ dưới lên các tòa nhà kính.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-architecture">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Cầu cổ kính">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Kiến trúc</span>
+                            <h5 class="card-title fw-bold">Cầu Cổ Châu Âu</h5>
+                            <p class="card-text small text-light-50">Vẻ đẹp cổ kính trầm mặc vượt thời gian.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animals Images -->
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-animals">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Sư tử">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Động vật</span>
+                            <h5 class="card-title fw-bold">Chúa Sơn Lâm</h5>
+                            <p class="card-text small text-light-50">Vẻ oai hùng của chú sư tử hoang dã.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cyberpunk Images -->
+                <div class="col-12 col-md-6 col-lg-4 gallery-item item-cyberpunk">
+                    <div class="card bg-dark text-white border-0 overflow-hidden shadow-lg rounded-4">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Thành phố Neon">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                            <span class="badge bg-orange mb-2 align-self-start">Cyberpunk</span>
+                            <h5 class="card-title fw-bold">Đêm Neon Tokyo</h5>
+                            <p class="card-text small text-light-50">Ánh đèn Neon lung linh trong đêm mưa.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </body>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-custom text-light py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 PhotoVerse. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
