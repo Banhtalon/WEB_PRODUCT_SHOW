@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍀 LDBot - Lamar Davis Restaurant & Cart</title>
+
+  <!-- Markdown renderer + sanitizer for assistant replies. -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f6fdf6; min-height: 100vh; display: flex; flex-direction: column; color: #333; }
+
+    header { background: linear-gradient(135deg, #14532d, #16a34a); color: white; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .brand { display: flex; align-items: center; gap: 15px; }
+    .brand h1 { font-size: 24px; font-weight: bold; letter-spacing: 0.5px; }
+    .brand p { color: #dcfce7; font-size: 13px; margin-top: 4px; }
+
+    .config-box { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 8px; font-size: 13px; flex-wrap: wrap; }
+    .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; white-space: nowrap; }
+    .bg-amber { background-color: #fbbf24; color: #1f2937; }
+    .bg-green { background-color: #22c55e; color: white; }
+
+    main { max-width: 1200px; width: 100%; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr; gap: 20px; flex: 1; }
+    @media (min-width: 1024px) { main { grid-template-columns: 4fr 5fr 3fr; } }
+
+    section { background: white; border-radius: 16px; border: 1px solid #dcfce7; box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; height: 620px; min-width: 0; }
+    .panel-header { padding: 12px 16px; border-bottom: 1px solid #dcfce7; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .bg-panel-left { background-color: #dcfce7; color: #14532d; }
+    .bg-panel-mid { background-color: #f0fdf4; color: #1f2937; }
+    .bg-panel-right { background-color: #16a34a; color: white; }
+
+    .scroll-area { padding: 15px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+    .scroll-area::-webkit-scrollbar { width: 5px; }
+    .scroll-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+    .menu-item { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px; cursor: pointer; transition: all 0.2s; text-align: left; }
+    .menu-item:hover { background: #dcfce7; border-color: #16a34a; }
+    .menu-item h3 { font-size: 14px; color: #1f2937; }
+    .menu-item p { font-size: 12px; color: #4b5563; margin-top: 4px; }
+    .menu-item .ing { font-size: 11px; color: #9ca3af; font-style: italic; }
+
+    .quick-bar { padding: 8px 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
+    .quick-btn { background: white; border: 1px solid #e5e7eb; padding: 4px 10px; border-radius: 20px; cursor: pointer; transition: 0.2s; }
+    .quick-btn:hover { background: #e6fbe6; border-color: #16a34a; }
+
+    .msg { display: flex; gap: 10px; padding: 10px; border-radius: 12px; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+    .msg-user { background-color: #eff6ff; }
+    .msg-bot { background-color: #f6fdf6; border: 1px solid #dcfce7; }
+    .msg-content p { margin: 0 0 7px; }
+    .msg-content p:last-child { margin-bottom: 0; }
+    .msg-content ul, .msg-content ol { margin: 5px 0 5px 20px; }
+
+    .chat-form { padding: 12px; border-top: 1px solid #e5e7eb; display: flex; gap: 10px; background: white; }
+    .chat-form input { flex: 1; min-width: 0; padding: 10px 15px; border-radius: 10px; border: 1px solid #d1d5db; font-size: 13px; }
+    .chat-form input:focus { outline: none; border-color: #16a34a; }
+    .chat-form button { background: #16a34a; color: white; border: none; padding: 0 20px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 13px; }
+    .chat-form button:hover { background: #14532d; }
+    .chat-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .cart-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 12px; }
+    .cart-del-btn { color: #ef4444; border: none; background: transparent; cursor: pointer; font-size: 14px; padding: 4px; }
+    .cart-footer { padding: 15px; background: #f9fafb; border-top: 1px solid #e5e7eb; display: flex; flex-direction: column; gap: 12px; }
+    .btn-checkout { width: 100%; background: #15803d; color: white; font-weight: bold; padding: 10px; border: none; border-radius: 10px; cursor: pointer; font-size: 13px; transition: 0.2s; }
+    .btn-checkout:hover { background: #166534; }
+    .notice { padding: 12px; border-radius: 10px; font-size: 12px; line-height: 1.5; }
+    .notice-error { color: #991b1b; background: #fef2f2; border: 1px solid #fecaca; }
+    .notice-info { color: #374151; background: #f9fafb; border: 1px solid #e5e7eb; }
+
+    .admin-link { color: white; text-decoration: none; border-bottom: 1px solid #bbf7d0; }
+    .menu-search { padding: 10px 12px; border-bottom: 1px solid #dcfce7; }
+    .menu-search input { width: 100%; padding: 10px; border: 1px solid #bbf7d0; border-radius: 9px; }
+    .menu-actions { display:flex; gap:6px; margin-top:10px; }
+    .menu-actions button { border:1px solid #16a34a; border-radius:7px; padding:7px 8px; font-weight:600; cursor:pointer; background:#fff; color:#14532d; }
+    .menu-actions button.add { background:#15803d; color:white; }
+    .menu-price { font-weight:700; color:#166534; margin-top:8px; font-size:13px; }
+    .cart-controls { display:flex; align-items:center; gap:5px; margin-top:6px; }
+    .cart-controls button { border:1px solid #ddd; background:white; padding:3px 8px; border-radius:6px; cursor:pointer; }
+    .cart-total { display:flex; justify-content:space-between; font-size:13px; }
+    .demo-note { display:block; font-size:11px; color:#6b7280; line-height:1.5; }
+    #checkoutDialog { border:0; border-radius:14px; padding:0; width:min(92vw,470px); margin:auto; box-shadow:0 20px 60px #0004; }
+    #checkoutDialog::backdrop { background:#1118; }
+    .checkout-form { display:flex; flex-direction:column; gap:11px; padding:22px; }
+    .checkout-form label { display:flex; flex-direction:column; font-size:13px; font-weight:600; gap:5px; }
+    .checkout-form input,.checkout-form select,.checkout-form textarea { border:1px solid #cbd5e1; padding:10px; border-radius:8px; font:inherit; font-weight:400; }
+    .modal-heading { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .modal-heading button { border:0; background:transparent; font-size:22px; cursor:pointer; }
+    [hidden] { display:none !important; }
+
+    @media (max-width: 600px) {
+      header { padding: 14px; }
+      .brand h1 { font-size: 20px; }
+      .config-box { width: 100%; }
+      section { height: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <span style="font-size: 32px;">🍀</span>
+        <div>
+          <h1>Lamar Davis Restaurant</h1>
+          <p>📍 67 Chamberlain Hills, Los Santos, USA | ☎️ Hotline: 318-237-3870</p>
+        </div>
+      </div>
+      <div class="config-box">
+        <span id="statusBadge" class="status-badge bg-amber">Đang kiểm tra AI...</span>
+        <a class="admin-link" href="/admin" title="Trang quản trị (cần tài khoản)">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="panel-header bg-panel-left">
+        <span>📋 Thực Đơn Nhà Hàng</span>
+        <span id="menuCount" style="font-size: 11px; font-weight: normal;">Đang tải...</span>
+      </div>
+      <div class="menu-search"><input id="menuSearch" type="search" placeholder="🔎 Tìm món ăn..." aria-label="Tìm món ăn" /></div>
+      <div id="menuContainer" class="scroll-area"></div>
+    </section>
+
+    <section>
+      <div class="panel-header bg-panel-mid">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">👦🏿</span>
+          <div>
+            <div style="font-size: 14px; font-weight: bold;">Trợ Lý AI LDBot</div>
+            <div id="connectionStatus" style="font-size: 11px; color: #16a34a; font-weight: normal;">● Đang kiểm tra Backend</div>
+          </div>
+        </div>
+        <button type="button" onclick="clearChat()" style="font-size: 11px; padding: 3px 8px; border: 1px solid #d1d5db; background: white; border-radius: 4px; cursor: pointer;">🗑️ Xóa chat</button>
+      </div>
+
+      <div class="quick-bar">
+        <span style="color: #6b7280; font-weight: bold;">💡 Thử nhanh:</span>
+        <button type="button" class="quick-btn" onclick="sendChat('Lấy cho tôi 1 phần Yee-Yee Ass Burger!')">🛒 Đặt 1 Burger</button>
+        <button type="button" class="quick-btn" onclick="sendChat('Tôi muốn đặt 2 cái LD Organics Herbal Pizza')">🍕 Đặt 2 Pizza</button>
+        <button type="button" class="quick-btn" onclick="sendChat('iPhone đắt nhất hiện nay là gì?')" style="color: #dc2626;">📱 Lạc đề</button>
+      </div>
+
+      <div id="chatBox" class="scroll-area" style="background-color: #fafaf9;"></div>
+      <form class="chat-form" id="chatForm">
+        <input id="userInput" type="text" placeholder="Nhập món ăn muốn đặt hoặc câu hỏi cho LDBot..." autocomplete="off" />
+        <button id="sendButton" type="submit">Gửi ➤</button>
+      </form>
+    </section>
+
+    <section>
+      <div class="panel-header bg-panel-right"><span>🛒 Giỏ Hàng Tự Động</span></div>
+      <div id="cartContainer" class="scroll-area"></div>
+      <div class="cart-footer">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: bold;">
+          <span>Tổng số lượng:</span>
+          <span id="totalItems" style="color: #14532d;">0 món</span>
+        </div>
+        <div class="cart-total"><span>Tổng tiền (giá demo):</span><strong id="totalPrice">0 ₫</strong></div>
+        <button id="checkoutButton" class="btn-checkout" type="button" onclick="checkout()">✅ Xác nhận đặt món</button>
+        <small class="demo-note">Giá minh họa cho bài demo • Chưa hỗ trợ thanh toán trực tuyến</small>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="checkoutDialog" aria-labelledby="checkoutTitle">
+    <form id="checkoutForm" class="checkout-form">
+      <div class="modal-heading"><h2 id="checkoutTitle">Xác nhận đơn hàng</h2><button id="closeCheckout" type="button" aria-label="Đóng">✕</button></div>
+      <p class="demo-note">Đơn demo được lưu trong hệ thống. Chưa thanh toán trực tuyến.</p>
+      <label>Họ tên <input id="customerName" name="customer_name" minlength="2" maxlength="100" required placeholder="Nguyễn Văn A" /></label>
+      <label>Số điện thoại <input id="customerPhone" name="phone" type="tel" minlength="8" maxlength="20" required placeholder="0901234567" /></label>
+      <label>Hình thức nhận món
+        <select id="orderType" name="order_type"><option value="pickup">Đến lấy tại nhà hàng</option><option value="delivery">Giao hàng</option></select>
+      </label>
+      <label id="addressLabel" hidden>Địa chỉ giao <textarea id="deliveryAddress" name="address" maxlength="300" rows="2"></textarea></label>
+      <label>Ghi chú (không bắt buộc) <textarea id="orderNotes" name="notes" maxlength="300" rows="2"></textarea></label>
+      <strong id="checkoutTotal">Tổng tiền: 0 ₫</strong>
+      <p id="checkoutError" class="notice notice-error" hidden></p>
+      <button id="submitOrder" type="submit" class="btn-checkout">Gửi đơn và nhận mã đơn</button>
+    </form>
+  </dialog>
+
+  <script>
+    "use strict";
+    // Frontend và API cùng domain: dùng được cả localhost và Render.
+    const API = "/api";
+    let menuData = [];
+    const cart = new Map(); // menu_item_id -> quantity
+    let isSending = false;
+
+    const el = id => document.getElementById(id);
+    const money = value => new Intl.NumberFormat("vi-VN", {style:"currency", currency:"VND", maximumFractionDigits:0}).format(value);
+    const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    const normalizeName = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    const findDish = id => menuData.find(item => item.id === Number(id));
+    const currentTotal = () => [...cart].reduce((sum, [id, qty]) => sum + (findDish(id)?.price_vnd || 0) * qty, 0);
+
+    async function fetchJson(path, options = {}) {
+      const response = await fetch(path, options);
+      let data;
+      try { data = await response.json(); } catch { throw Error("Máy chủ trả phản hồi không hợp lệ."); }
+      if (!response.ok) {
+        const detail = typeof data?.detail === "string" ? data.detail : `HTTP ${response.status}`;
+        throw Error(detail);
+      }
+      return data;
+    }
+
+    function setConnection(message, bad=false) {
+      el("connectionStatus").textContent = `● ${message}`;
+      el("connectionStatus").style.color = bad ? "#dc2626" : "#16a34a";
+    }
+
+    async function loadHealth() {
+      try {
+        const status = await fetchJson(`${API}/health`);
+        const label = status.demo_mode ? "AI demo" : (status.ai_configured ? "Gemini đã cấu hình" : "AI chưa cấu hình");
+        el("statusBadge").textContent = label;
+        el("statusBadge").className = `status-badge ${status.ai_configured ? "bg-green" : "bg-amber"}`;
+        setConnection(status.demo_mode ? "Đang dùng AI demo" : "Backend đã kết nối");
+      } catch {
+        el("statusBadge").textContent = "Backend offline";
+        el("statusBadge").className = "status-badge bg-amber";
+        setConnection("Không kết nối được backend", true);
+      }
+    }
+
+    function renderMenu() {
+      const container = el("menuContainer");
+      container.innerHTML = "";
+      const term = normalizeName(el("menuSearch").value);
+      const filtered = menuData.filter(item => !term || normalizeName(item.name).includes(term));
+      el("menuCount").textContent = `${filtered.length}/${menuData.length} món`;
+      if (!menuData.length) {
+        container.innerHTML = '<div class="notice notice-error">Chưa tải được thực đơn. Hãy làm mới trang sau khi kiểm tra backend.</div>';
+        return;
+      }
+      if (!filtered.length) {
+        container.innerHTML = '<div class="notice notice-info">Không tìm thấy món phù hợp.</div>';
+        return;
+      }
+      for (const item of filtered) {
+        const card = document.createElement("div");
+        card.className = "menu-item";
+        card.innerHTML = `
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <p class="menu-price">${money(item.price_vnd)} (giá demo)</p>
+          ${item.ingredients ? `<p class="ing">🍴 ${escapeHtml(item.ingredients)}</p>` : ""}
+          <div class="menu-actions">
+            <button type="button" data-ask="${item.id}">💬 Tư vấn</button>
+            <button type="button" class="add" data-add="${item.id}">+ Thêm món</button>
+          </div>`;
+        container.appendChild(card);
+      }
+    }
+
+    async function loadMenu() {
+      try {
+        const rows = await fetchJson(`${API}/menu`);
+        if (!Array.isArray(rows) || rows.length === 0) throw Error("Thực đơn trống.");
+        menuData = rows;
+        renderMenu();
+      } catch (error) {
+        menuData = [];
+        renderMenu();
+        setConnection(`Lỗi thực đơn: ${error.message}`, true);
+      }
+    }
+
+    function changeCart(id, next) {
+      const item = findDish(id);
+      if (!item) return;
+      if (next <= 0) cart.delete(item.id);
+      else cart.set(item.id, Math.min(30, next));
+      renderCart();
+    }
+
+    function addItem(id, qty = 1) {
+      const item = findDish(id);
+      if (!item) return;
+      changeCart(item.id, (cart.get(item.id) || 0) + qty);
+    }
+
+    function renderCart() {
+      const container = el("cartContainer");
+      container.innerHTML = "";
+      if (cart.size === 0) {
+        container.innerHTML = '<div class="notice notice-info">Giỏ hàng đang trống. Bạn có thể thêm món trực tiếp từ thực đơn.</div>';
+      }
+      for (const [id, quantity] of cart) {
+        const item = findDish(id);
+        if (!item) continue;
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `<div style="flex:1; min-width:0;">
+          <p style="font-weight:700">${escapeHtml(item.name)}</p>
+          <p>${money(item.price_vnd)} × ${quantity} = <strong>${money(item.price_vnd * quantity)}</strong></p>
+          <div class="cart-controls">
+            <button type="button" data-change="${id}" data-delta="-1" aria-label="Giảm số lượng">−</button>
+            <span>${quantity}</span>
+            <button type="button" data-change="${id}" data-delta="1" aria-label="Tăng số lượng">+</button>
+            <button type="button" data-remove="${id}" style="color:#b91c1c">Xóa</button>
+          </div></div>`;
+        container.appendChild(row);
+      }
+      el("totalItems").textContent = `${[...cart.values()].reduce((a,b)=>a+b,0)} món`;
+      el("totalPrice").textContent = money(currentTotal());
+      el("checkoutButton").disabled = cart.size === 0;
+    }
+
+    function addOrderedItems(items) {
+      const missing = [];
+      for (const order of items) {
+        const item = menuData.find(dish => normalizeName(dish.name) === normalizeName(order.item_name));
+        if (item && Number.isInteger(order.quantity) && order.quantity > 0) addItem(item.id, order.quantity);
+        else missing.push(order.item_name || "(không rõ tên món)");
+      }
+      if (missing.length) appendMessage("assistant", `⚠️ Món chưa khớp thực đơn: ${missing.join(", ")}. Bạn có thể thêm món thủ công.`);
+    }
+
+    function appendMessage(role, message) {
+      const root = document.createElement("div");
+      root.className = `msg ${role === "assistant" ? "msg-bot" : "msg-user"}`;
+      const avatar = document.createElement("div");
+      avatar.textContent = role === "assistant" ? "👦🏿" : "👤";
+      const content = document.createElement("div");
+      content.className = "msg-content";
+      content.style.flex = "1";
+      if (role === "assistant" && window.marked && window.DOMPurify) {
+        content.innerHTML = DOMPurify.sanitize(marked.parse(String(message ?? "")));
+      } else content.textContent = String(message ?? "");
+      root.append(avatar, content);
+      el("chatBox").append(root);
+      el("chatBox").scrollTop = el("chatBox").scrollHeight;
+    }
+
+    async function sendChat(message) {
+      const text = String(message ?? "").trim();
+      if (!text || isSending) return;
+      appendMessage("user", text);
+      isSending = true;
+      el("sendButton").disabled = true;
+      el("sendButton").textContent = "Đang gửi...";
+      try {
+        const response = await fetchJson(`${API}/chat`, {
+          method: "POST", headers: {"Content-Type":"application/json"},
+          body: JSON.stringify({message: text})
+        });
+        if (typeof response?.reply !== "string" || !response.reply.trim()) throw Error("AI trả về câu trả lời rỗng.");
+        appendMessage("assistant", response.reply);
+        if (Array.isArray(response.ordered_items)) addOrderedItems(response.ordered_items);
+      } catch (error) {
+        appendMessage("assistant", `⚠️ Không thể trả lời bằng AI: ${error.message}\n\nBạn vẫn có thể đặt món trực tiếp từ thực đơn.`);
+      } finally {
+        isSending = false;
+        el("sendButton").disabled = false;
+        el("sendButton").textContent = "Gửi ➤";
+      }
+    }
+
+    function clearChat() { el("chatBox").innerHTML = ""; }
+
+    function checkout() {
+      if (!cart.size) return alert("Giỏ hàng đang trống!");
+      el("checkoutError").hidden = true;
+      el("checkoutTotal").textContent = `Tổng tiền (giá demo): ${money(currentTotal())}`;
+      el("checkoutDialog").showModal();
+    }
+
+    async function submitCheckout(event) {
+      event.preventDefault();
+      if (!cart.size) return;
+      const payload = {
+        customer_name: el("customerName").value.trim(),
+        phone: el("customerPhone").value.trim(),
+        order_type: el("orderType").value,
+        address: el("deliveryAddress").value.trim(),
+        notes: el("orderNotes").value.trim(),
+        items: [...cart].map(([id, quantity]) => ({menu_item_id:id, quantity}))
+      };
+      el("checkoutError").hidden = true;
+      const button = el("submitOrder");
+      button.disabled = true;
+      button.textContent = "Đang gửi đơn...";
+      try {
+        const result = await fetchJson(`${API}/orders`, {
+          method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload)
+        });
+        el("checkoutDialog").close();
+        cart.clear();
+        renderCart();
+        el("checkoutForm").reset();
+        el("addressLabel").hidden = true;
+        appendMessage("assistant", `✅ Đã lưu đơn demo **#${result.order_id}**. Tổng tiền: **${money(result.total_vnd)}**. Trạng thái: **đang chờ xác nhận**. Chưa thanh toán trực tuyến.`);
+      } catch (error) {
+        el("checkoutError").textContent = `Chưa gửi được đơn: ${error.message}. Giỏ hàng vẫn được giữ nguyên.`;
+        el("checkoutError").hidden = false;
+      } finally {
+        button.disabled = false;
+        button.textContent = "Gửi đơn và nhận mã đơn";
+      }
+    }
+
+    // Used by the existing quick-action buttons.
+    window.sendChat = sendChat;
+    window.clearChat = clearChat;
+    window.checkout = checkout;
+
+    el("chatForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const value = el("userInput").value.trim();
+      if (!value || isSending) return;
+      el("userInput").value = "";
+      sendChat(value);
+    });
+    el("menuSearch").addEventListener("input", renderMenu);
+    el("menuContainer").addEventListener("click", event => {
+      const add = event.target.closest("[data-add]");
+      const ask = event.target.closest("[data-ask]");
+      if (add) addItem(Number(add.dataset.add));
+      else if (ask) sendChat(`Tư vấn cho tôi món: ${findDish(ask.dataset.ask)?.name}`);
+    });
+    el("cartContainer").addEventListener("click", event => {
+      const remove = event.target.closest("[data-remove]");
+      const change = event.target.closest("[data-change]");
+      if (remove) changeCart(Number(remove.dataset.remove), 0);
+      else if (change) {
+        const id = Number(change.dataset.change);
+        changeCart(id, (cart.get(id) || 0) + Number(change.dataset.delta));
+      }
+    });
+    el("closeCheckout").addEventListener("click", () => el("checkoutDialog").close());
+    el("orderType").addEventListener("change", () => {
+      const isDelivery = el("orderType").value === "delivery";
+      el("addressLabel").hidden = !isDelivery;
+      el("deliveryAddress").required = isDelivery;
+    });
+    el("checkoutForm").addEventListener("submit", submitCheckout);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderMenu();
+      renderCart();
+      appendMessage("assistant", "Xin chào! 🍀 Mình là LDBot. Bạn có thể hỏi về thực đơn hoặc bấm **+ Thêm món** để đặt trực tiếp. Đây là phiên bản demo, giá chỉ mang tính minh họa.");
+      loadHealth();
+      loadMenu();
+    });
+  </script>
+</body>
+</html>

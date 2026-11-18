@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniGuide VN — Hệ Thống Học Liệu &amp; Tư Vấn 20 Ngành Đại Học Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 1. Thanh điều hướng học thuật (Topbar) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">UniGuide VN</span>
+          <span class="brand-meta">Cổng Tra Cứu Học Thuật &amp; Hướng Nghiệp Đại Học Việt Nam • Đồ Án CSI02</span>
+        </div>
+      </a>
+
+      <div class="topbar-right">
+        <div class="status-pill" onclick="openApiModal()" style="cursor:pointer;" title="Bấm để cấu hình Gemini API Key">
+          <span class="status-dot demo" id="apiStatusDot"></span>
+          <span id="apiStatusText">Chưa nhập Gemini API Key</span>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="openApiModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Cấu hình Gemini API Key
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Tiêu đề trang học thuật kèm Ảnh Giảng đường / Thư viện -->
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div>
+        <div class="eyebrow">HỆ THỐNG DỮ LIỆU TUYỂN SINH &amp; ĐÀO TẠO ĐẠI HỌC</div>
+        <h1>Danh Mục 20 Ngành Học Đại Học Trọng Điểm Tại Việt Nam</h1>
+        <p>
+          Tra cứu chuẩn hóa theo mã ngành tuyển sinh Bộ GD&amp;ĐT, tổ hợp môn xét tuyển, khung chương trình học cốt lõi, các trường đào tạo tiêu biểu và hỏi đáp trực tiếp cùng cố vấn học thuật AI <strong>UniBot</strong>.
+        </p>
+      </div>
+
+      <div class="hero-media-frame">
+        <img src="assets/hero_campus.jpg" alt="Không gian học thuật và thư viện đại học Việt Nam" />
+        <div class="hero-media-caption">
+          <span>Không gian Học thuật &amp; Nghiên cứu Đại học Việt Nam</span>
+          <span class="mono">CSI02 • UNIGUIDE CATALOG</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Không gian làm việc chính: Cột trái (Danh sách ngành đào tạo) + Cột phải (Cố vấn AI) -->
+  <main class="workspace">
+    <!-- Cột trái: Bộ lọc & Danh sách 20 ngành đào tạo -->
+    <section>
+      <div class="toolbar">
+        <div class="toolbar-top">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Tra cứu theo tên ngành, mã ngành (VD: 7480201), trường ĐH, vị trí việc làm..."
+              oninput="renderCatalog()"
+            />
+          </div>
+
+          <select id="blockSelect" class="select-control" onchange="renderCatalog()">
+            <option value="ALL">Tất cả tổ hợp xét tuyển</option>
+            <option value="A00">Tổ hợp A00 (Toán, Lý, Hóa)</option>
+            <option value="A01">Tổ hợp A01 (Toán, Lý, Anh)</option>
+            <option value="B00">Tổ hợp B00 (Toán, Hóa, Sinh)</option>
+            <option value="C00">Tổ hợp C00 (Văn, Sử, Địa)</option>
+            <option value="D01">Tổ hợp D01 (Toán, Văn, Anh)</option>
+            <option value="D07">Tổ hợp D07 (Toán, Hóa, Anh)</option>
+            <option value="V00">Tổ hợp V00 / H00 (Vẽ năng khiếu)</option>
+          </select>
+        </div>
+
+        <div class="category-tabs" id="categoryTabs">
+          <button type="button" class="cat-tab active" data-cat="ALL" onclick="selectCategory('ALL')">Tất cả lĩnh vực (20)</button>
+          <button type="button" class="cat-tab" data-cat="Công nghệ - Kỹ thuật" onclick="selectCategory('Công nghệ - Kỹ thuật')">Công nghệ - Kỹ thuật (07)</button>
+          <button type="button" class="cat-tab" data-cat="Kinh tế - Quản trị" onclick="selectCategory('Kinh tế - Quản trị')">Kinh tế - Quản trị (08)</button>
+          <button type="button" class="cat-tab" data-cat="Y Dược - Sức khỏe" onclick="selectCategory('Y Dược - Sức khỏe')">Y Dược - Sức khỏe (02)</button>
+          <button type="button" class="cat-tab" data-cat="Xã hội - Ngôn ngữ - Luật" onclick="selectCategory('Xã hội - Ngôn ngữ - Luật')">Xã hội - Ngôn ngữ - Luật (02)</button>
+          <button type="button" class="cat-tab" data-cat="Nghệ thuật - Truyền thông" onclick="selectCategory('Nghệ thuật - Truyền thông')">Nghệ thuật - Truyền thông (01)</button>
+        </div>
+      </div>
+
+      <div class="catalog-meta">
+        <div class="catalog-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Hồ sơ chương trình đào tạo
+        </div>
+        <span class="catalog-count" id="catalogCount">Hiển thị 20 / 20 ngành đào tạo</span>
+      </div>
+
+      <!-- Vùng hiển thị Danh sách / Bảng ngành đào tạo -->
+      <div id="catalogContainer"></div>
+    </section>
+
+    <!-- Cột phải: Cố vấn học thuật AI (UniBot) -->
+    <aside class="advisor-panel">
+      <div class="advisor-header">
+        <div class="advisor-title-group">
+          <div class="advisor-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Cố Vấn Học Thuật AI — UniBot</h3>
+            <div class="advisor-subtitle" id="advisorSubStatus">Context Injection • 20 Ngành ĐH Việt Nam</div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.6rem; font-size:0.74rem;" onclick="resetChat()">
+          Làm mới
+        </button>
+      </div>
+
+      <div class="prompt-bar">
+        <span class="prompt-bar-label">Chủ đề tham vấn mẫu</span>
+        <div class="prompt-chips">
+          <button type="button" class="prompt-chip" onclick="askPreset('Em học giỏi Toán và Vật lý, thích lập trình AI thì nên chọn ngành nào, trường nào?')">Định hướng Toán - Lý &amp; AI</button>
+          <button type="button" class="prompt-chip" onclick="askPreset('Em xét tuyển khối D01 khoảng 26 điểm, muốn làm việc tại tập đoàn đa quốc gia thì hợp ngành nào?')">Khối D01 • 26 điểm</button>
+          <button type="button" class="prompt-chip" onclick="askPreset('So sánh chương trình học và cơ hội việc làm giữa ngành Công nghệ thông tin và Khoa học dữ liệu & AI.')">So sánh CNTT &amp; Khoa học dữ liệu</button>
+          <button type="button" class="prompt-chip" onclick="askPreset('Tư vấn các ngành thuộc lĩnh vực Y Dược và điểm chuẩn tham khảo.')">Khối ngành Y Dược</button>
+        </div>
+      </div>
+
+      <div class="chat-feed" id="chatFeed">
+        <div class="chat-bubble bot">
+          Xin chào! Tôi là <strong>UniBot</strong> — trợ lý cố vấn học thuật được tích hợp dữ liệu <strong>20 ngành đào tạo đại học tại Việt Nam</strong> từ notebook <code>build_knowledge_base.ipynb</code>.<br><br>
+          Bạn có thể đặt câu hỏi về tổ hợp xét tuyển, điểm chuẩn, các môn học chuyên ngành, trường đào tạo hoặc lộ trình nghề nghiệp để được giải đáp chi tiết.
+        </div>
+      </div>
+
+      <form class="chat-form" onsubmit="handleChatSubmit(event)">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input"
+          placeholder="Đặt câu hỏi về ngành học, khối thi, trường ĐH..."
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-primary" id="chatSubmitBtn">Gửi câu hỏi</button>
+      </form>
+    </aside>
+  </main>
+
+  <!-- 4. Modal Đề cương chi tiết ngành đào tạo -->
+  <div class="modal-overlay" id="syllabusModal" onclick="if(event.target===this) closeSyllabusModal()">
+    <div class="modal-box">
+      <div class="modal-top">
+        <div>
+          <span class="group-tag tech" id="modalGroupTag">Lĩnh vực</span>
+          <h2 id="modalTitle" style="font-size:1.25rem; font-weight:800; margin-top:0.45rem; color:var(--ink-primary);">Tên ngành đào tạo</h2>
+          <div id="modalCodeMeta" style="font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-muted); margin-top:0.25rem;"></div>
+        </div>
+        <button type="button" class="modal-close" onclick="closeSyllabusModal()" aria-label="Đóng">✕</button>
+      </div>
+
+      <div class="modal-content" id="modalSyllabusBody"></div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeSyllabusModal()">Đóng hồ sơ</button>
+        <button type="button" class="btn btn-primary" id="modalAskBtn">Tham vấn AI chuyên sâu về ngành này</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Modal Cấu hình Gemini API Key -->
+  <div class="modal-overlay" id="apiModal" onclick="if(event.target===this) closeApiModal()">
+    <div class="modal-box" style="max-width:500px;">
+      <div class="modal-top">
+        <div>
+          <h3 style="font-size:1.05rem; font-weight:700;">Cấu hình khóa kết nối Gemini API</h3>
+          <p style="font-size:0.8rem; color:var(--ink-muted); margin-top:0.2rem;">Kết nối trực tiếp Google Gemini AI (Miễn phí từ Google AI Studio)</p>
+        </div>
+        <button type="button" class="modal-close" onclick="closeApiModal()" aria-label="Đóng">✕</button>
+      </div>
+
+      <form onsubmit="saveApiKeyConfig(event)">
+        <div class="modal-content">
+          <p style="font-size:0.85rem; color:var(--ink-secondary);">
+            1. Lấy API Key miễn phí tại <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--brand); font-weight:600;">Google AI Studio</a>.<br>
+            2. Dán mã khóa (bắt đầu bằng <code>AIza...</code>) vào ô bên dưới rồi nhấn <strong>Kiểm tra &amp; Lưu kết nối</strong>:
+          </p>
+
+          <input
+            type="text"
+            id="apiKeyField"
+            class="search-input"
+            style="padding-left:0.85rem; font-family:var(--font-mono);"
+            placeholder="AIzaSy..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+
+          <div id="apiModalFeedback" style="display:none; font-size:0.82rem; padding:0.65rem 0.85rem; border-radius:6px; border:1px solid transparent;"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="clearSavedApiKey()">Xóa Key</button>
+          <button type="button" class="btn btn-secondary" onclick="closeApiModal()">Đóng</button>
+          <button type="submit" class="btn btn-primary" id="saveApiBtn">Kiểm tra &amp; Lưu kết nối</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

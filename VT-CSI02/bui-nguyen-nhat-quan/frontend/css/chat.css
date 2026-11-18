@@ -1,0 +1,289 @@
+
+/* ===== GIAO DIEN CHUNG ===== */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --background: #f5f7fb;
+    --text: #1f2937;
+    --border: #e5e7eb;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* ===== THANH DIEU HUONG ===== */
+
+.navbar {
+    min-height: 72px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 12px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* ===== KHUNG CHAT ===== */
+
+main .card {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h5 {
+    font-weight: 700;
+}
+
+#chat-messages {
+    height: 450px;
+    background: #ffffff;
+    padding: 24px;
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ===== TIN NHAN ===== */
+
+.message {
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 78%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+.message.bot .message-content {
+    background: #f1f5f9;
+    color: #1f2937;
+    border-bottom-left-radius: 5px;
+}
+
+.message.user .message-content {
+    background: var(--primary);
+    color: #ffffff;
+    border-bottom-right-radius: 5px;
+}
+
+/* ===== NUT GOI Y ===== */
+
+.suggestion-btn {
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.suggestion-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* ===== O NHAP ===== */
+
+.card-footer {
+    border-top: 1px solid var(--border);
+}
+
+#message-input {
+    border-radius: 12px 0 0 12px;
+    padding: 12px 16px;
+    outline: none;
+}
+
+#message-input:focus {
+    box-shadow: none;
+    border-color: var(--primary);
+}
+
+#send-button {
+    border-radius: 0 12px 12px 0;
+    padding: 0 24px;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+#send-button:hover {
+    background: var(--primary-dark);
+}
+
+/* ===== DANH SACH SAN PHAM CUON NGANG ===== */
+
+.product-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 14px;
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 8px 4px 16px;
+    margin: 8px 0 20px;
+
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+/* ===== THE SAN PHAM ===== */
+
+.product-chat-card {
+    flex: 0 0 210px;
+    width: 210px;
+    min-width: 210px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    scroll-snap-align: start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.product-chat-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+/* ===== HINH ANH SAN PHAM ===== */
+
+.product-chat-image {
+    width: 100%;
+    height: 140px;
+    background: #f8fafc;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 54px;
+    overflow: hidden;
+}
+
+.product-chat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+/* ===== THONG TIN SAN PHAM ===== */
+
+.product-chat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+}
+
+.product-chat-category {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.product-chat-info h6 {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.product-chat-price {
+    font-size: 18px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.product-chat-specs {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.product-chat-stock {
+    font-size: 12px;
+    color: #16a34a;
+}
+
+.product-detail-btn {
+    border-radius: 8px;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    main.container {
+        margin-top: 12px !important;
+        padding: 0 12px;
+    }
+
+    #chat-messages {
+        height: 60vh !important;
+        padding: 16px;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .product-chat-card {
+        flex: 0 0 185px;
+        width: 185px;
+        min-width: 185px;
+    }
+
+    .product-chat-image {
+        height: 120px;
+    }
+}

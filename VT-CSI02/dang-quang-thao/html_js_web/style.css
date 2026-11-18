@@ -1,0 +1,805 @@
+/* ==========================================================================
+   UNIGUIDE VN — ACADEMIC EDITORIAL DESIGN SYSTEM
+   Inspired by leonxlnx/taste-skill & nextlevelbuilder/ui-ux-pro-max-skill
+   Rules: Zero gradients, zero purple, no emoji icons, crisp 1px hairlines,
+   tabular numerals, high-contrast academic list/table readability.
+   ========================================================================== */
+
+:root {
+  /* Surface & Paper Palette */
+  --bg-page: #F7F7F4;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #EFECE6;
+  --bg-muted: #F3F4F6;
+
+  /* Typography Ink */
+  --ink-primary: #111827;
+  --ink-secondary: #374151;
+  --ink-muted: #6B7280;
+
+  /* Structural Hairlines */
+  --border-light: #E5E4DF;
+  --border-default: #D6D5CE;
+  --border-focus: #0F4C81;
+
+  /* Solid Academic Brand Color (Oxford Blue - No Gradient, No Purple) */
+  --brand: #0F4C81;
+  --brand-hover: #0A365C;
+  --brand-soft: #EBF3FA;
+  --brand-border: #B8D4EC;
+
+  /* Semantic Category Tones (Solid & Academic) */
+  --cat-tech-bg: #EBF3FA;
+  --cat-tech-text: #0F4C81;
+  --cat-tech-border: #C5DDF2;
+
+  --cat-biz-bg: #EAF6ED;
+  --cat-biz-text: #166534;
+  --cat-biz-border: #BBE3C6;
+
+  --cat-med-bg: #FDECEC;
+  --cat-med-text: #991B1B;
+  --cat-med-border: #F5C2C2;
+
+  --cat-law-bg: #FEF6E6;
+  --cat-law-text: #92400E;
+  --cat-law-border: #F5D9A6;
+
+  --cat-art-bg: #E6F6F4;
+  --cat-art-text: #115E59;
+  --cat-art-border: #B2E2DC;
+
+  /* Sizing & Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+
+  /* Subtle tactile shadows */
+  --shadow-xs: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-sm: 0 4px 12px rgba(17, 24, 39, 0.06);
+  --shadow-modal: 0 20px 38px -10px rgba(17, 24, 39, 0.2);
+
+  /* Font Stacks */
+  --font-sans: 'Plus Jakarta Sans', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--ink-primary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   1. TOP NAVIGATION BAR (ACADEMIC HEADER)
+   ========================================================================== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.topbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--ink-primary);
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: var(--brand);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.brand-meta {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #16A34A;
+}
+
+.status-dot.demo {
+  background-color: #D97706;
+}
+
+/* ==========================================================================
+   2. BUTTON SYSTEM (SOLID, TACTILE, NO GRADIENTS)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: var(--brand);
+  color: #FFFFFF;
+  border-color: var(--brand);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-hover);
+  border-color: var(--brand-hover);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--ink-primary);
+  border-color: var(--border-default);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-page);
+  border-color: var(--ink-secondary);
+}
+
+/* ==========================================================================
+   3. EDITORIAL PAGE HEADER WITH AI CAMPUS PHOTOGRAPHY
+   ========================================================================== */
+.page-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.85rem 1.5rem;
+}
+
+.page-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand);
+  background-color: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  padding: 0.24rem 0.65rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.85rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.22;
+  color: var(--ink-primary);
+  margin-bottom: 0.75rem;
+}
+
+.page-header p {
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  max-width: 62ch;
+}
+
+/* Hero Framed Campus Photo */
+.hero-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  background-color: var(--bg-subtle);
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 16 / 9;
+}
+
+.hero-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-media-caption {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
+  font-weight: 600;
+}
+
+.hero-media-caption span.mono {
+  font-family: var(--font-mono);
+  color: var(--brand);
+  font-size: 0.72rem;
+}
+
+/* ==========================================================================
+   4. WORKSPACE LAYOUT (LEFT CATALOG LIST + RIGHT ACADEMIC ADVISOR)
+   ========================================================================== */
+.workspace {
+  max-width: 1400px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ==========================================================================
+   5. FILTER & CONTROL TOOLBAR
+   ========================================================================== */
+.toolbar {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.toolbar-top {
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 0.75rem;
+  width: 16px;
+  height: 16px;
+  color: var(--ink-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.55rem 0.85rem 0.55rem 2.25rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--ink-primary);
+  background-color: var(--bg-surface);
+  outline: none;
+}
+
+.search-input:focus,
+.select-control:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(15, 76, 129, 0.12);
+}
+
+.select-control {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: var(--ink-primary);
+  background-color: var(--bg-surface);
+  outline: none;
+  cursor: pointer;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.cat-tab {
+  padding: 0.36rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-page);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cat-tab:hover {
+  border-color: var(--border-default);
+  color: var(--ink-primary);
+}
+
+.cat-tab.active {
+  background-color: var(--ink-primary);
+  color: #FFFFFF;
+  border-color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   6. CATALOG LIST / TABLE VIEW (CHẾ ĐỘ DANH SÁCH DUY NHẤT)
+   ========================================================================== */
+.catalog-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.catalog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.catalog-count {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.code-badge {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-default);
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.group-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.group-tag.tech { background: var(--cat-tech-bg); color: var(--cat-tech-text); border-color: var(--cat-tech-border); }
+.group-tag.biz  { background: var(--cat-biz-bg);  color: var(--cat-biz-text);  border-color: var(--cat-biz-border); }
+.group-tag.med  { background: var(--cat-med-bg);  color: var(--cat-med-text);  border-color: var(--cat-med-border); }
+.group-tag.law  { background: var(--cat-law-bg);  color: var(--cat-law-text);  border-color: var(--cat-law-border); }
+.group-tag.art  { background: var(--cat-art-bg);  color: var(--cat-art-text);  border-color: var(--cat-art-border); }
+
+.majors-table-wrap {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  box-shadow: var(--shadow-xs);
+}
+
+.academic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.academic-table th {
+  background-color: var(--bg-page);
+  color: var(--ink-secondary);
+  font-weight: 700;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.78rem 0.9rem;
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+
+.academic-table td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.academic-table tr:last-child td {
+  border-bottom: none;
+}
+
+.academic-table tr:hover td {
+  background-color: #FAFAF8;
+}
+
+/* ==========================================================================
+   7. RIGHT PANEL: ACADEMIC AI ADVISOR (UNIBOT)
+   ========================================================================== */
+.advisor-panel {
+  position: sticky;
+  top: 4.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 5.8rem);
+  min-height: 540px;
+  max-height: 760px;
+  overflow: hidden;
+}
+
+.advisor-header {
+  padding: 0.9rem 1rem;
+  background-color: var(--ink-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.advisor-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.advisor-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background-color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.advisor-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.advisor-header h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.advisor-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #9CA3AF;
+}
+
+.prompt-bar {
+  padding: 0.6rem 0.85rem;
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.prompt-bar-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.prompt-chips {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+}
+
+.prompt-chip {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-default);
+  background-color: var(--bg-surface);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.prompt-chip:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background-color: var(--brand-soft);
+}
+
+.chat-feed {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background-color: var(--bg-surface);
+}
+
+.chat-bubble {
+  max-width: 92%;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
+  color: var(--ink-primary);
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background-color: var(--brand);
+  color: #FFFFFF;
+}
+
+.chat-bubble code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+.chat-form {
+  padding: 0.75rem;
+  background-color: var(--bg-page);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  background-color: var(--bg-surface);
+  color: var(--ink-primary);
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: var(--brand);
+}
+
+/* ==========================================================================
+   8. SYLLABUS & API KEY MODALS
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.55);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-modal);
+}
+
+.modal-top {
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-close {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-secondary);
+}
+
+.modal-close:hover {
+  background-color: var(--bg-subtle);
+  color: var(--ink-primary);
+}
+
+.modal-content {
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.syllabus-block {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  background-color: var(--bg-page);
+}
+
+.syllabus-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.syllabus-block-text {
+  font-size: 0.88rem;
+  color: var(--ink-primary);
+}
+
+.modal-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-light);
+  background-color: var(--bg-page);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+@media (max-width: 1080px) {
+  .page-header-inner {
+    grid-template-columns: 1fr;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .advisor-panel {
+    position: static;
+    height: 580px;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar-top {
+    grid-template-columns: 1fr;
+  }
+}

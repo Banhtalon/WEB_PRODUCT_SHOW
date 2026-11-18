@@ -1,0 +1,81 @@
+
+/* ===== TRANG CHI TIET SAN PHAM ===== */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+}
+
+.product-image-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    min-height: 350px;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-image {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+}
+
+#product-icon {
+    font-size: 110px;
+}
+
+.product-detail-info {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+#product-name {
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+#product-price {
+    font-size: 30px;
+}
+
+#product-description {
+    line-height: 1.8;
+}
+
+#product-specs th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+#product-specs td,
+#product-specs th {
+    padding: 12px;
+}
+
+@media (max-width: 768px) {
+    .product-image-box {
+        min-height: 230px;
+    }
+
+    #product-icon {
+        font-size: 75px;
+    }
+
+    .product-detail-info {
+        padding: 20px;
+    }
+
+    #product-name {
+        font-size: 23px;
+    }
+
+    #product-price {
+        font-size: 25px;
+    }
+}

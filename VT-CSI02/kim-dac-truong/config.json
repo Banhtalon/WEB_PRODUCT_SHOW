@@ -1,0 +1,11 @@
+{
+  "restaurant_name": "LD Restaurant",
+  "restaurant_address": "67 Chamberlain Hills, Los Santos, USA",
+  "hotline": "318-237-3870",
+  "functions": [
+    "giới thiệu nhà hàng",
+    "giới thiệu menu",
+    "giải đáp câu hỏi về món ăn"
+  ],
+  "out_of_scope_message": "Tôi đang không hỗ trợ chức năng này. Xin vui lòng liên hệ nhân viên nhà hàng qua hotline 318-237-3870 để được trợ giúp."
+}
